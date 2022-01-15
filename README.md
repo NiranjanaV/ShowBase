@@ -4,7 +4,7 @@ Project idea
 ShowBase
 
 Description:
- It is a website which will help track your and your friend’s watched TV shows.
+It is a website which will help track your and your friend’s watched TV shows.
 It will include features like 
 •	having your account with all your shows, 
 •	being able to see what your friends’ latest interests are, 
@@ -18,7 +18,7 @@ This website will help you to remember what all shows you have watched in the pa
 
 Team members
 
-Sanjay Srinivasan 
+<\br Sanjay Srinivasan> 
 Niranjana Vasudevan
 Swanthi Reena Velavan
 Kasiviswanathan Srikant Iyer
