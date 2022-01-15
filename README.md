@@ -18,7 +18,7 @@ This website will help you to remember what all shows you have watched in the pa
 
 Team members
 
-<\br Sanjay Srinivasan> 
+Sanjay Srinivasan <br /> 
 Niranjana Vasudevan
 Swanthi Reena Velavan
 Kasiviswanathan Srikant Iyer
