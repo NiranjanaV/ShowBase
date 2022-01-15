@@ -6,7 +6,7 @@ Description: <br />
 It is a website which will help track your and your friend’s watched TV shows. <br />
 It will include features like <br />
 •	having your account with all your shows, <br />
-•	being able to see what your friends’ latest interests are, <br />
+•	sending friend requests, adding friends and being able to see what your friends’ latest interests are, <br />
 •	and disliking and liking your shows. <br />
 Additional features that can be included are <br />
 •	show recommendations based on your interests, <br />
