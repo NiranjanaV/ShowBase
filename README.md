@@ -28,4 +28,3 @@ Tools
 
 Front-end: React framework
 Back-end: Golang
-![image](https://user-images.githubusercontent.com/30584808/149609440-3a09faf4-1a48-4645-85ea-61070e2a11c5.png)
