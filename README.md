@@ -19,7 +19,7 @@ Team members <br />
 
 Sanjay Srinivasan <br /> 
 Niranjana Vasudevan <br />
-Swanthi Reena Velavan <br />
+Swathi Reena Velavan <br />
 Kasiviswanathan Srikant Iyer <br /><br />
 
 
