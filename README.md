@@ -1,4 +1,5 @@
-SHOWBASEProject idea 
+SHOWBASE
+Project idea 
 
 ShowBase
 
@@ -17,7 +18,7 @@ This website will help you to remember what all shows you have watched in the pa
 
 Team members
 
-Sanjay Srinivasan <\br>
+Sanjay Srinivasan 
 Niranjana Vasudevan
 Swanthi Reena Velavan
 Kasiviswanathan Srikant Iyer
