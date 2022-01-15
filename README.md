@@ -8,7 +8,7 @@ It will include features like <br />
 •	having your account with all your shows, <br />
 •	being able to see what your friends’ latest interests are, <br />
 •	and disliking and liking your shows. <br />
-Additional features that can be including are <br />
+Additional features that can be included are <br />
 •	show recommendations based on your interests, <br />
 •	marking your favorite shows, <br />
 •	giving reviews directly from the website and <br />
