@@ -15,6 +15,7 @@ Additional features that can be included are <br />
 •	Amount of time you’re spending watching each TV series.  <br />
 This website will help you to remember what all shows you have watched in the past and help you know what the latest trend is and what all are your friend’s favorite pastime shows. <br /><br />
 
+•   Dysfunctional Couple Date Night - Want to snuggle with your significant other but can’t decide on a common movie? Search through a list of movies with similar run times, so you can spend time together but watch what you really wanted to as well, on different devices.
 Team members <br />
 
 Sanjay Srinivasan <br /> 
