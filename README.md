@@ -15,6 +15,8 @@ Additional features that can be included are <br />
 •	Amount of time you’re spending watching each TV series.  <br />
 This website will help you to remember what all shows you have watched in the past and help you know what the latest trend is and what all are your friend’s favorite pastime shows. <br /><br />
 
+• Movie Match - When a group of your friends are confused on what movie to watch on friday night, don’t fret! Sync up your devices and start the movie match feature. Choose the genre and right swipe/left swipe movies based on your preference. The movie with the most right swipes wins that night!!
+
 Team members <br />
 
 Sanjay Srinivasan <br /> 
