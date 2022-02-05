@@ -35,3 +35,6 @@ BACKEND FUNCTIONALITY
 In GoLang we have managed to call an API functionality which returns a JSON file with nested Json elements and arrays, which have been parsed using unmarshalling.
 The required data has been repacked (marshalled) and sent to the front end using HTTP request.
 On running the file, we can observe the local host set port receives the JSON.
+
+GIF:
+!![](video.gif)
