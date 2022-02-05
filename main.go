@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -20,7 +21,7 @@ func init() {
 }
 
 func main() {
-	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=2018&sort_by=revenue.desc")
+	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=2022&sort_by=revenue.desc")
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -32,6 +33,35 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf(string(responseData))
+	type Film struct {
+		Poster_path       string
+		Adult             bool
+		Overview          string
+		Release_date      string
+		Genre_ids         []int32
+		Id                int32
+		Original_title    string
+		Original_language string
+		Vote_average      float32
+		Title             string
+		Backdrop_path     string
+		Popularity        float64
+		Vote_count        int32
+		Video             bool
+	}
+
+	type Api struct {
+		Page          int
+		Results       []Film
+		Total_pages   int64
+		Total_results int64
+	}
+
+	var api Api
+	json.Unmarshal([]byte(responseData), &api)
+	// fmt.Println(api)
+
+	data, _ := json.Marshal(api.Results)
+	fmt.Println(string(data))
 
 }
