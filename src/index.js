@@ -23,6 +23,13 @@ import BreakingBad from "./BreakingBad.jpg"
 import money from "./money.jpg"
 import dts from "./dts.jpg"
 
+import Movie from "./MovieSection"
+import movieData from './movie.js'
+
+import { BrowserRouter, Route } from "react-router-dom";
+import { Router } from "react-router";
+import { Link } from 'react-router-dom'
+
 const breakPoints = [
   { width: 550, itemsToShow: 1 },
   { width: 550, itemsToShow: 2 },
@@ -48,7 +55,8 @@ function App() {
             <div className="bar"></div>
           </div>
           <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
+            {/* <li><a href="#hero" data-after="Home">Home</a></li> */}
+            <li><Link to='/Movie'>HOMEE</Link></li>
             <li><a href="#services" data-after="Service">About</a></li>
 
             <li><a href="#projects" data-after="Projects">Services</a></li>
@@ -233,5 +241,31 @@ function App() {
   );
 }
 
+
+const moviemap = movieData.map(
+  movieData=>
+  <Movie img={`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`}
+  title={movieData.Original_title}
+  rating={movieData.Vote_average}
+   />
+  )
+
+  console.log(moviemap);
+
+
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+<BrowserRouter>
+<App>
+  <Route exact path="/MovieSection" component={Movie} />
+ {/* <div class='list'>
+    {moviemap}
+    </div>
+    <div class='list'>
+    {moviemap}
+    </div>
+    <div class='list'>
+    {moviemap}
+    </div> */}
+
+</App></BrowserRouter>, rootElement);
