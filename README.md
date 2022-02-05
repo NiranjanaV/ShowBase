@@ -1,30 +1,13 @@
-Project idea <br /><br />
+## React carousel component
 
-ShowBase <br /><br />
+Steps to install :
 
-Description: <br />
-It is a website which will help track your and your friend’s watched TV shows. <br />
-It will include features like <br />
-•	having your account with all your shows, <br />
-•	sending friend requests, adding friends and being able to see what your friends’ latest interests are, <br />
-•	and disliking and liking your shows. <br />
-Additional features that can be included are <br />
-•	show recommendations based on your interests, <br />
-•	marking your favorite shows, <br />
-•	giving reviews directly from the website and <br />
-•	Amount of time you’re spending watching each TV series.  <br />
-This website will help you to remember what all shows you have watched in the past and help you know what the latest trend is and what all are your friend’s favorite pastime shows. <br /><br />
+1.Download the folder/git clone the repo
 
-•   Dysfunctional Couple Date Night - Want to snuggle with your significant other but can’t decide on a common movie? Search through a list of movies with similar run times, so you can spend time together but watch what you really wanted to as well, on different devices.
-Team members <br />
+2.cd root directory of the folder
 
-Sanjay Srinivasan <br /> 
-Niranjana Vasudevan <br />
-Swaathi Reena Velavan <br />
-Kasiviswanathan Srikant Iyer <br /><br />
+3.npm install
 
+4.npm start
 
-Tools <br />
-
-Front-end: React framework<br />
-Back-end: Golang<br />
+Access localhost:3000 on your browser
