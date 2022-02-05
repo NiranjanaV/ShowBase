@@ -25,6 +25,7 @@ import dts from "./dts.jpg"
 
 import Movie from "./MovieSection"
 import movieData from './movie.js'
+import movie22 from './movie22.js'
 
 import { BrowserRouter, Route } from "react-router-dom";
 import { Router } from "react-router";
