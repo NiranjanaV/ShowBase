@@ -29,3 +29,9 @@ PROFILE PAGE
 
 This page is created by parsing JSON data and then using map function to map the data into a react reusable component. React Router was used to route the web page, however this didn't perform as intended and has been marked as an issue.
 This page will display as the users home page after the Login functionality has been implemented.
+
+
+BACKEND FUNCTIONALITY
+In GoLang we have managed to call an API functionality which returns a JSON file with nested Json elements and arrays, which have been parsed using unmarshalling.
+The required data has been repacked (marshalled) and sent to the front end using HTTP request.
+On running the file, we can observe the local host set port receives the JSON.
