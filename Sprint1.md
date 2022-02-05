@@ -37,4 +37,4 @@ The required data has been repacked (marshalled) and sent to the front end using
 On running the file, we can observe the local host set port receives the JSON.
 
 GIF:
-!![](video.gif)
+![](video.gif)
