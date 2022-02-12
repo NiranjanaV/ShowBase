@@ -1,26 +1,39 @@
 package main
 
 import (
+	// M "/GoCode/Create_Table.go"
+	// N "/GoCode/controllers"
+	// L "ShowBase/data"
 	"database/sql"
-	"log"
+	"fmt"
+	O "main/data"
 	"os"
-	 L "./\C:\Users\ksrik\Documents\GitHub\ShowBase"
+
+	// "log"
+	// "os"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
-
-func main (){
-	var database *sql.DB
+func main() {
+	// var database *sql.DB
+	os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
 	sqliteDatabase, _ := sql.Open("sqlite3", "./user_data-database") // Open the created SQLite File
 	defer sqliteDatabase.Close()
-	database =sqliteDatabase
-	var tablename = "user_preference" 
-	L.createTable(sqliteDatabase, tablename) // Create Database Tables
+	// database = sqliteDatabase
+	var tablename = "user_preference"
+
+	fmt.Println("Create db")
+	O.CreateDB()
+
+	fmt.Println("Create table")
+	O.CreateTable(sqliteDatabase, tablename) // Create Database Tables
 
 	// INSERT RECORDS
-	L.insertStudent(database, "0001", "Liana Kim", "Bachelor")
-	
+	fmt.Println("insert")
+	O.InsertStudent(sqliteDatabase, tablename, "0001", "Liana Kim", "Bachelor")
 
 	// DISPLAY INSERTED RECORDS
-	L.displayStudents(sqliteDatabase)
+	fmt.Println("display")
+	O.DisplayStudents(sqliteDatabase, tablename)
 }

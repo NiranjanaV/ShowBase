@@ -1,4 +1,4 @@
-package main
+package data
 
 import (
 	"database/sql"
@@ -20,13 +20,15 @@ func CreateDB() {
 	file.Close()
 	// log.Println("user_data-database created")
 
+	log.Println("sqlite-database.db created")
+
 	// Create Database Tables
 
 	// DISPLAY INSERTED RECORDS
 
 }
 
-func createTable(db *sql.DB, tablename string) {
+func CreateTable(db *sql.DB, tablename string) {
 	createStudentTableSQL := `CREATE TABLE ` + tablename + ` (
 		"idStudent" integer NOT NULL PRIMARY KEY AUTOINCREMENT,		
 		"code" TEXT,
@@ -44,9 +46,9 @@ func createTable(db *sql.DB, tablename string) {
 }
 
 // We are passing db reference connection from main to our method with other parameters
-func insertStudent(db *sql.DB, code string, name string, program string) {
+func InsertStudent(db *sql.DB, tablename string, code string, name string, program string) {
 	log.Println("Inserting student record ...")
-	insertStudentSQL := `INSERT INTO student(code, name, program) VALUES (?, ?, ?)`
+	insertStudentSQL := `INSERT INTO ` + tablename + `(code, name, program) VALUES (?, ?, ?)`
 	statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {
@@ -58,8 +60,8 @@ func insertStudent(db *sql.DB, code string, name string, program string) {
 	}
 }
 
-func displayStudents(db *sql.DB) {
-	row, err := db.Query("SELECT * FROM student ORDER BY name")
+func DisplayStudents(db *sql.DB, tablename string) {
+	row, err := db.Query("SELECT * FROM " + tablename + " ORDER BY name")
 	if err != nil {
 		log.Fatal(err)
 	}
