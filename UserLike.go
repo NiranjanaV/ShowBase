@@ -16,7 +16,7 @@ import (
 func main() {
 	// var database *sql.DB
 	// os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
-	sqliteDatabase, _ := sql.Open("sqlite3", "./user_data2-database") // Open the created SQLite File
+	sqliteDatabase, _ := sql.Open("sqlite3", "./user_data-database") // Open the created SQLite File
 	defer sqliteDatabase.Close()
 	// database = sqliteDatabase
 	var tablename = "user"
@@ -38,8 +38,8 @@ func main() {
 
 	// Create Table ************************************************************************************
 
-	fmt.Println("Create table")
-	O.CreateUserTable(sqliteDatabase, tablename) // Create Database Tables
+	// fmt.Println("Create table")
+	// O.CreateUserTable(sqliteDatabase, tablename) // Create Database Tables
 
 	// INSERT RECORDS*****************************************************************************************
 	error := O.InsertUserTable(sqliteDatabase, tablename, user, movie, 1, like, genre1, genre2, genre3)

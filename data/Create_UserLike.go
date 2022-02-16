@@ -51,10 +51,11 @@ func InsertUserTable(db *sql.DB, tablename string, user int, movie int, action i
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer row.Close()
+	//defer
 	for row.Next() { // Iterate and fetch the records from result cursor
 		var count int
 		row.Scan(&count)
+		row.Close()
 		log.Println("Users: ", count)
 		if count > 0 {
 			// TODO: Properly handle error
@@ -62,13 +63,13 @@ func InsertUserTable(db *sql.DB, tablename string, user int, movie int, action i
 			// auth = 0
 
 			if action == 1 {
-				insertUserSQL = `UPDATE ` + tablename + `SET like= ? WHERE  idUse = ? and movieID = ?`
+				insertUserSQL = `UPDATE ` + tablename + ` SET like= ? WHERE  idUser = ? and movieID = ?`
 			} else if action == 2 {
-				insertUserSQL = `UPDATE ` + tablename + `SET watched= ? WHERE  idUse = ? and movieID = ?`
+				insertUserSQL = `UPDATE ` + tablename + ` SET watched= ? WHERE  idUser = ? and movieID = ?`
 			} else if action == 3 {
-				insertUserSQL = `UPDATE ` + tablename + `SET watching= ? WHERE  idUse = ? and movieID = ?`
+				insertUserSQL = `UPDATE ` + tablename + ` SET watching= ? WHERE  idUser = ? and movieID = ?`
 			} else if action == 4 {
-				insertUserSQL = `UPDATE ` + tablename + `SET toWatch= ? WHERE  idUse = ? and movieID = ?`
+				insertUserSQL = `UPDATE ` + tablename + ` SET toWatch= ? WHERE  idUser = ? and movieID = ?`
 			} else {
 				error = "Invalid action"
 			}
