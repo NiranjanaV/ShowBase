@@ -13,7 +13,6 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 	"golang.org/x/crypto/bcrypt"
-	_ "golang.org/x/crypto/bcrypt"
 )
 
 func main() {
@@ -26,15 +25,15 @@ func main() {
 
 	//to get from frontend
 	var username = "username2"
-	var password = "password"
+	var password = "password2"
 
 	// Create DB
-	fmt.Println("Create db")
-	O.CreateDB()
+	// fmt.Println("Create db")
+	// O.CreateDB()
 
 	// Create Table
-	fmt.Println("Create table")
-	O.CreateAuthTable(sqliteDatabase, tablename) // Create Database Tables
+	// fmt.Println("Create table")
+	// O.CreateAuthTable(sqliteDatabase, tablename) // Create Database Tables
 
 	// INSERT RECORDS
 	fmt.Println("insert")

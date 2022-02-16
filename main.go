@@ -36,6 +36,7 @@ type Api struct {
 }
 
 var api Api
+var film Film
 
 func init() {
 

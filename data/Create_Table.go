@@ -9,7 +9,7 @@ import (
 )
 
 func CreateDB() {
-	os.Remove("user_data-database.db") // I delete the file to avoid duplicated records.
+	os.Remove("user_data2-database.db") // I delete the file to avoid duplicated records.
 	// SQLite is a file based database.
 
 	// log.Println("Creating sqlite-database.db...")
