@@ -77,10 +77,10 @@ func main() {
 	}
 
 	json.Unmarshal([]byte(responseData), &api)
-	// fmt.Println(api)
+	fmt.Println(api)
 
-	data, _ := json.Marshal(api.Results)
-	fmt.Println(string(data))
+	// data, _ := json.Marshal(api.Results)
+	// fmt.Println(string(data))
 	handleRequests()
 
 }

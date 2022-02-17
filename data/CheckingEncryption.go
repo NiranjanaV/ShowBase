@@ -1,33 +1,26 @@
 package data
 
-import (
-	"fmt"
-	"log"
+// func encrypt() {
+// 	userPassword1 := "some user-provided password"
 
-	"golang.org/x/crypto/bcrypt"
-)
+// 	// Generate "hash" to store from user password
+// 	hash, err := bcrypt.GenerateFromPassword([]byte(userPassword1), bcrypt.DefaultCost)
+// 	if err != nil {
+// 		// TODO: Properly handle error
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Println("Hash to store:", string(hash))
+// 	// Store this "hash" somewhere, e.g. in your database
 
-func encrypt() {
-	userPassword1 := "some user-provided password"
+// 	// After a while, the user wants to log in and you need to check the password he entered
+// 	userPassword2 := "some user-provided password"
+// 	hashFromDatabase := hash
 
-	// Generate "hash" to store from user password
-	hash, err := bcrypt.GenerateFromPassword([]byte(userPassword1), bcrypt.DefaultCost)
-	if err != nil {
-		// TODO: Properly handle error
-		log.Fatal(err)
-	}
-	fmt.Println("Hash to store:", string(hash))
-	// Store this "hash" somewhere, e.g. in your database
+// 	// Comparing the password with the hash
+// 	if err := bcrypt.CompareHashAndPassword(hashFromDatabase, []byte(userPassword2)); err != nil {
+// 		// TODO: Properly handle error
+// 		log.Fatal(err)
+// 	}
 
-	// After a while, the user wants to log in and you need to check the password he entered
-	userPassword2 := "some user-provided password"
-	hashFromDatabase := hash
-
-	// Comparing the password with the hash
-	if err := bcrypt.CompareHashAndPassword(hashFromDatabase, []byte(userPassword2)); err != nil {
-		// TODO: Properly handle error
-		log.Fatal(err)
-	}
-
-	fmt.Println("Password was correct!")
-}
+// 	fmt.Println("Password was correct!")
+// }

@@ -23,14 +23,11 @@ func main() {
 
 	//to get from frontend
 	user := 1
-	movie := 1
+	movie := 353044
 	like := 1
 	// watched := 1
 	// watching := 1
 	// toWatch := 1
-	genre1 := 1
-	genre2 := 1
-	genre3 := 1
 
 	// Create DB****************************************************************************************
 	// fmt.Println("Create db")
@@ -42,17 +39,17 @@ func main() {
 	// O.CreateUserTable(sqliteDatabase, tablename) // Create Database Tables
 
 	// INSERT RECORDS*****************************************************************************************
-	error := O.InsertUserTable(sqliteDatabase, tablename, user, movie, 1, like, genre1, genre2, genre3)
+	error := O.InsertUserTable(sqliteDatabase, tablename, user, movie, 1, like)
 	if error != "None" {
 		fmt.Println("Error inserting " + error)
 	}
 
-	error = O.InsertUserTable(sqliteDatabase, tablename, user, movie, 2, like, genre1, genre2, genre3)
+	error = O.InsertUserTable(sqliteDatabase, tablename, user, movie, 2, like)
 	if error != "None" {
 		fmt.Println("Error inserting " + error)
 	}
 
-	error = O.InsertUserTable(sqliteDatabase, tablename, 2, movie, 4, like, genre1, genre2, genre3)
+	error = O.InsertUserTable(sqliteDatabase, tablename, 2, movie, 4, like)
 	if error != "None" {
 		fmt.Println("Error inserting " + error)
 	}
