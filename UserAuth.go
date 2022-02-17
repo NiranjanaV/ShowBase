@@ -15,7 +15,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func main() {
+func main2() {
 	// var database *sql.DB
 	// os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
 	sqliteDatabase, _ := sql.Open("sqlite3", "./user_data-database") // Open the created SQLite File
