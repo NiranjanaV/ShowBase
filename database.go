@@ -14,7 +14,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func main() {
+func db() {
 	// var database *sql.DB
 	// os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
 	sqliteDatabase, _ := sql.Open("sqlite3", "./user_data-database") // Open the created SQLite File

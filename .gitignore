@@ -1,5 +1,5 @@
 /node_modules
 *.env
 /golang-sqlite
-golang-sqlite/
+/golang-sqlit*
 golang-sqlite/
