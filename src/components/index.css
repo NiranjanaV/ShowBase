@@ -10,6 +10,7 @@ body {
 #logo {
   margin-left: 30px;
 }
+/*
 nav {
   box-shadow: 0px 2.9825618267059326px 7.456404209136963px 0px black;
   height: 70px;
@@ -20,6 +21,7 @@ nav {
   padding: 10px;
   font-size: larger;
 }
+*/
 #exp {
   width: 500px;
   height: 300px;
@@ -54,6 +56,7 @@ section {
   height: 20px;
   display: inline;
   padding-right: 5px;
+  object-fit: none;
 }
 .grey {
   color: white;
@@ -92,6 +95,10 @@ section > p {
 
   /* transition effect. not necessary */
   transition: opacity 0.2s, visibility 0.2s;
+}
+.rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
 }
 
 section > .rating {

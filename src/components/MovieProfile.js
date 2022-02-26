@@ -5,6 +5,8 @@ import movie21 from './movie21.js'
 import movie20 from './movie20.js'
 
 
+
+
 const moviemap = movieData.map(
     (movieData)=>(
     movieData.Poster_path!=="" ?
@@ -46,6 +48,7 @@ const moviemap = movieData.map(
            :console.log("what to do now")
           ))
   
+          
   
   
 
