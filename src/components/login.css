@@ -90,7 +90,6 @@ input[type="text"]:focus ~ label,
 input[type="text"]:valid ~ label {
   top: -50px;
 }
-
 input[type="submit"] {
   cursor: pointer;
   margin: auto;
