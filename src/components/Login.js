@@ -16,7 +16,7 @@ function Login(){
   </div>
   
   <div class="input-container">
-    <input required type="text" />
+    <input required type="password" />
     <label>Password</label>
   </div>
   <div class="input-container">

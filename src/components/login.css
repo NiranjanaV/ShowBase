@@ -79,6 +79,27 @@ input[type="text"]:focus ~ label,
 input[type="text"]:valid ~ label {
   top: -50px;
 }
+input[type="password"] {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  font-size: 1.25em;
+  padding: 0 0 5px 0;
+  color: white;
+  background-color: transparent;
+
+  outline: none;
+
+  height: 40px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #333;
+}
+
+input[type="password"]:focus ~ label,
+input[type="password"]:valid ~ label {
+  top: -50px;
+}
 input[type="submit"] {
   cursor: pointer;
   margin: auto;
