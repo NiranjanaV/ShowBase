@@ -6,6 +6,8 @@ import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 
 
+  
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -15,4 +17,23 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// Sample Integration Between front end and back end
 
+{
+  const URL ="http://192.168.0.206:20000";
+getData();
+
+function getData(){
+  console.log("in get function");
+fetch(URL + '/articles').then(response => 
+  response.json().then(data => ({
+      data: data,
+      status: response.status
+  })
+).then(res => {
+  console.log(res.status, res.data);
+ // document.getElementById("minVal").innerHTML=res.data;
+
+}));}
+
+}
