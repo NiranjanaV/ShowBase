@@ -18,7 +18,6 @@ h2 {
 .bg {
   /* The image used */
   background-image: url("./login-bg-image.jpeg");
-
   /* Full height */
   height: 100%;
 
@@ -26,16 +25,30 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 0.8;
+  background-color: black;
 }
 
 form {
   background-color: rgba(0, 0, 0, 0.75);
-  width: 325px;
-  height: 275px;
+  width: 400px;
+  height: 500px;
   margin: 30px auto 0;
   overflow: auto;
 
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+}
+
+form h4 {
+  color: white;
+  margin-left: 45px;
+  margin-top: 15%;
+  font-size: larger;
+}
+h4 span {
+  color: silver;
 }
 
 label {
@@ -66,13 +79,16 @@ input[type="text"] {
   background-color: transparent;
 
   outline: none;
-  z-index: 20;
+
+  height: 40px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #333;
 }
 
 input[type="text"]:focus ~ label,
 input[type="text"]:valid ~ label {
-  top: -40px;
-  background-color: black;
+  top: -50px;
 }
 
 input[type="submit"] {
