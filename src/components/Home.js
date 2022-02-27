@@ -53,13 +53,12 @@ function Home() {
             <li><a href="#hero" data-after="Home">Home</a></li>
             <li><a href="#services" data-after="Service">About</a></li>
 
-            <li><a href="#projects" data-after="Projects">Features</a></li>
+          
+           
             <li><Link to='/MovieProfile'>Movies & Shows</Link></li>
-            <li><a href="#Completed" data-after="Completed">Completed</a></li>
-            <li><a href="#Stopped" data-after="Stopped">Stopped</a></li>
-            {/* <li><a href="#about" data-after="About">Profile</a></li> */}
+            <li><Link to='/login'>Sign in</Link></li>
+           
 
-            <li><a href="#contact" data-after="Contact">Contact</a></li>
           </ul>
         </div>
       </div>
