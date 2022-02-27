@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './login.css';
+import  './login.css';
 import { Link } from 'react-router-dom';
 
 
 function Login(){
     return(
 
-        <div>
+        <div className="login">
 
 <form>
 <h2>Sign in</h2>
