@@ -1,5 +1,6 @@
 import React from 'react';
-import './login.css';
+import styles from './login.css';
+import { Link } from 'react-router-dom';
 
 
 function Login(){
@@ -21,7 +22,7 @@ function Login(){
   <div class="input-container">
     <input type="submit" value="Submit" />
   </div>
-  <h4>New to ShowBase?<span> Sign up now.</span></h4>
+  <h4>New to ShowBase?<span> <Link to='/signup'>Sign up now.</Link></span></h4>
 </form>
 
 </div>
