@@ -1,4 +1,4 @@
-package data
+package functions
 
 import (
 	"encoding/json"
@@ -44,7 +44,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatal("3 Error loading .env file" + err.Error())
 	}
 }
 
