@@ -1,4 +1,4 @@
-package data
+package functions
 
 import (
 	"database/sql"
@@ -42,7 +42,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatal("1 Error loading .env file" + err.Error())
 	}
 }
 

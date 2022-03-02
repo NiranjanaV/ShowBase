@@ -1,4 +1,4 @@
-package main
+package functions
 
 import (
 	"encoding/json"
@@ -43,27 +43,11 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatal("2 Error loading .env file" + err.Error())
 	}
 }
 
-func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the HomePage!")
-	fmt.Println("Endpoint Hit: homePage")
-}
-
-func handleRequests() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/articles", returnAllArticles)
-	log.Fatal(http.ListenAndServe(":20000", nil))
-}
-
-func returnAllArticles(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Endpoint Hit: returnAllArticles")
-	json.NewEncoder(w).Encode(api.Results)
-}
-
-func main() {
+func HomeMovies() {
 	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=2022&sort_by=revenue.desc")
 
 	if err != nil {
@@ -81,6 +65,5 @@ func main() {
 
 	// data, _ := json.Marshal(api.Results)
 	// fmt.Println(string(data))
-	handleRequests()
 
 }

@@ -1,4 +1,4 @@
-package main
+package functions
 
 import (
 	// M "/GoCode/Create_Table.go"
@@ -6,7 +6,6 @@ import (
 	// L "ShowBase/data"
 	"database/sql"
 	"fmt"
-	O "main/data"
 
 	// "os"
 
@@ -16,7 +15,7 @@ import (
 func main() {
 	// var database *sql.DB
 	// os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
-	sqliteDatabase, _ := sql.Open("sqlite3", "./user_data-database") // Open the created SQLite File
+	sqliteDatabase, _ := sql.Open("sqlite3", "./../dbSQLite/user_data-database") // Open the created SQLite File
 	defer sqliteDatabase.Close()
 	// database = sqliteDatabase
 	var tablename = "user"
@@ -61,5 +60,5 @@ func main() {
 
 	// DISPLAY INSERTED RECORDS*****************************************************************************************
 	fmt.Println("display")
-	O.DisplayUserTable(sqliteDatabase, tablename)
+	DisplayUserTable(sqliteDatabase, tablename)
 }

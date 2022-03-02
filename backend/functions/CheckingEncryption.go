@@ -1,4 +1,4 @@
-package data
+package functions
 
 // func encrypt() {
 // 	userPassword1 := "some user-provided password"
@@ -24,3 +24,9 @@ package data
 
 // 	fmt.Println("Password was correct!")
 // }
+
+func waste() {
+	db()
+	main2()
+	main3()
+}
