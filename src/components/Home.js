@@ -1,6 +1,4 @@
 import React from "react";
-import Carousel from "react-elastic-carousel";
-import Item from "./Item";
 import "./styles.css";
 import Discover from "./discover.png"
 import Share from "./share.png"
@@ -10,17 +8,7 @@ import img1 from "./img-1.jpeg"
 import img2 from "./img-2.jpeg"
 import img3 from "./img-3.jpeg"
 import img4 from "./img-4.jpeg"
-import witcher from "./witcher.jpg"
-import sherlock from "./sherlock.jpg"
-import lucifer from "./lucifer.jpg"
-import manifest from "./manifest.jpg"
-import peaky from "./peaky.jpg"
-import riverdale from "./riverdale.jpg"
-import MrRobot from "./MrRobot.jpg"
-import GoT from "./GoT.jpg"
-import BreakingBad from "./BreakingBad.jpg"
-import money from "./money.jpg"
-import dts from "./dts.jpg"
+
 
 import { Link } from 'react-router-dom'
 
@@ -52,12 +40,9 @@ function Home() {
           <ul>
             <li><a href="#hero" data-after="Home">Home</a></li>
             <li><a href="#services" data-after="Service">About</a></li>
-
-          
-           
             <li><Link to='/MovieProfile'>Movies & Shows</Link></li>
+            <li><Link to='/UserProfile'>Profile</Link></li>
             <li><Link to='/login'>Sign in</Link></li>
-           
 
           </ul>
         </div>
@@ -91,12 +76,12 @@ function Home() {
         <div className="service-item">
           <div className="icon"><img src={Discover} /></div>
           <h2>DISCOVER</h2>
-          <p> what to watch next</p>
+          <p> what to watch next time</p>
         </div>
         <div className="service-item">
           <div className="icon"><img src={Share} /></div>
           <h2>SHARE</h2>
-          <p> it with your friends</p>
+          <p> it with your friends and family</p>
         </div>
         <div className="service-item">
           <div className="icon"><img src={Expand} /></div>
@@ -157,44 +142,7 @@ function Home() {
     </div>
   </section>
 
-  <section id="Completed">
-    <div className="Completed container">
-      
-      <div className="col-right">
-        <h1 className="section-title">Completed</h1>
-
-      <div className="App">
-        <Carousel breakPoints={breakPoints}>
-          <Item><img src={witcher} alt="img"/></Item>
-          <Item><img src={sherlock} alt="img"/></Item>
-          <Item><img src={lucifer} alt="img"/></Item>
-          <Item><img src={manifest} alt="img"/></Item>
-          <Item><img src={peaky} alt="img"/></Item>
-          <Item><img src={riverdale} alt="img"/></Item>
-        </Carousel>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="Stopped">
-    <div className="Stopped container">
-      
-      <div className="col-right">
-        <h1 className="section-title">Stopped</h1>
-      <div className="App">
-        <Carousel breakPoints={breakPoints}>
-          <Item><img src={MrRobot} alt="img"/></Item>
-          <Item><img src={GoT} alt="img"/></Item>
-          <Item><img src={BreakingBad} alt="img"/></Item>
-          <Item><img src={money} alt="img"/></Item>
-          <Item><img src={dts} alt="img"/></Item>
-        </Carousel>
-      </div>
-      </div>
-    </div>
-  </section>
-  
+ 
   <section id="contact">
     <div class="contact container">
       <div>
