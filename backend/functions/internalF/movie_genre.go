@@ -1,4 +1,4 @@
-package functions
+package internalF
 
 import (
 	"encoding/json"

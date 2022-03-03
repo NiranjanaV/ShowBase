@@ -9,6 +9,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
 
@@ -42,8 +43,6 @@ type Json struct {
 }
 
 var api Api
-var film Film
-var json2 Json
 
 func init() {
 
@@ -54,10 +53,8 @@ func init() {
 	}
 }
 
-func HomeMovies() {
+func HomeMovies(c *gin.Context) {
 
-	movies := make([]Film, 10)
-	titles := make([]string, 10)
 	for i := 0; i < 10; i++ {
 
 		response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=" + strconv.Itoa(2022-i) + "&sort_by=revenue.desc")
@@ -75,21 +72,10 @@ func HomeMovies() {
 		json.Unmarshal([]byte(responseData), &api)
 		fmt.Println(api)
 
-		data, _ := json.Marshal(api.Results)
-		fmt.Println(string(data))
+		c.JSON(http.StatusOK, gin.H{
+			strconv.Itoa(2022 - i): api.Results,
+		})
 
-		json.Unmarshal([]byte(data), &film)
-		fmt.Println(data)
-
-		movies[i] = film
-		titles[i] = strconv.Itoa(2022 - i)
-	}
-
-	jsons, err := json.Marshal(movies)
-	if err != nil {
-		fmt.Printf("Error: %s", err.Error())
-	} else {
-		fmt.Println(string(jsons))
 	}
 	// data, _ := json.Marshal(api.Results)
 	// fmt.Println(string(data))

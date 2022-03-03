@@ -1,4 +1,4 @@
-package functions
+package internalF
 
 // func encrypt() {
 // 	userPassword1 := "some user-provided password"
