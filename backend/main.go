@@ -9,8 +9,9 @@ import (
 )
 
 var r *gin.Engine
-
+i:= 10
 func main() {
+	
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"},
@@ -19,10 +20,10 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
-	// r.GET("/searchPlaces/:name", showSearchPlacesPage)
-	r.GET("/home", O.HomeMovies2)
-	// r.POST("/login", userLogin)
-	// r.GET("/users", getallUsers)
+	r.GET("/search/:name", O.Search)
+	r.GET("/top", O.HomeMovies)
+	r.GET("/searchPage", O.SearchWithPage)
+	r.GET("/users", getallUsers)
 	// r.GET("/userprofile", getallTouristprofile)
 	// r.GET("/guideprofile", getallGuideprofile)
 	// r.GET("/comments", getallComments)

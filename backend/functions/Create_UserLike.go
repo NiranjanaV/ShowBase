@@ -6,6 +6,8 @@ import (
 	"log"
 	"strconv"
 
+	I "main/functions/internalF"
+
 	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -128,7 +130,7 @@ func InsertUserTable(db *sql.DB, tablename string, user int, movie int, action i
 
 			//Code to get genre *****************************************************************************************************************************
 
-			gen := GetGenre(movie)
+			gen := I.GetGenre(movie)
 			// response, err := http.Get("https://api.themoviedb.org/3/movie/" + strconv.Itoa(movie) + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
 
 			// if err != nil {
