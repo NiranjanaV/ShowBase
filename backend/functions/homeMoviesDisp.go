@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/joho/godotenv"
 )
@@ -35,8 +36,14 @@ type Api struct {
 	Total_results int64
 }
 
+type Json struct {
+	Title   string
+	Results []Film
+}
+
 var api Api
 var film Film
+var json2 Json
 
 func init() {
 
@@ -48,21 +55,42 @@ func init() {
 }
 
 func HomeMovies() {
-	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=2022&sort_by=revenue.desc")
 
-	if err != nil {
-		fmt.Print(err.Error())
-		os.Exit(1)
+	movies := make([]Film, 10)
+	titles := make([]string, 10)
+	for i := 0; i < 10; i++ {
+
+		response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=" + strconv.Itoa(2022-i) + "&sort_by=revenue.desc")
+
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseData, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		json.Unmarshal([]byte(responseData), &api)
+		fmt.Println(api)
+
+		data, _ := json.Marshal(api.Results)
+		fmt.Println(string(data))
+
+		json.Unmarshal([]byte(data), &film)
+		fmt.Println(data)
+
+		movies[i] = film
+		titles[i] = strconv.Itoa(2022 - i)
 	}
 
-	responseData, err := ioutil.ReadAll(response.Body)
+	jsons, err := json.Marshal(movies)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Printf("Error: %s", err.Error())
+	} else {
+		fmt.Println(string(jsons))
 	}
-
-	json.Unmarshal([]byte(responseData), &api)
-	fmt.Println(api)
-
 	// data, _ := json.Marshal(api.Results)
 	// fmt.Println(string(data))
 
