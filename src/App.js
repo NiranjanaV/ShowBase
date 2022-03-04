@@ -8,6 +8,7 @@ import SignUp from './components/SignUp';
 import UserProfile from './components/UserProfile';
 import { Add } from './components/Add';
 import {Route,Routes} from 'react-router-dom';
+import MovieDetail from './components/MovieDetail';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/MovieProfile" element={<MovieProfile/>} />
+      <Route path="/MovieDetail" element={<MovieDetail/>} />
       <Route path="/UserProfile" element={<UserProfile/>} />
       <Route path="/UserProfile/add" element={<Add/>} />
       <Route path="/login" element={<Login/>} />
