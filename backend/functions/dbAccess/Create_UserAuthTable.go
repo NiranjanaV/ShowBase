@@ -1,7 +1,6 @@
 package tables
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 	D "main/dbSQLite"
@@ -15,7 +14,7 @@ import (
 var db = D.GetDB()
 var tablename = D.GetTable(1)
 
-func CreateAuthTable(db *sql.DB, tablename string) {
+func CreateAuthTable() {
 	createStudentTableSQL := `CREATE TABLE ` + tablename + ` (
 		"idUser" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"username" TEXT UNIQUE,
