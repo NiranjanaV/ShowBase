@@ -1,4 +1,4 @@
-package internalF
+package apiCall
 
 import (
 	"encoding/json"
@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strconv"
 
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
 
@@ -37,7 +37,8 @@ type Genre struct {
 
 // var api Api
 var filmId FilmId
-var genr []Genre
+
+// var genr []Genre
 
 func init() {
 
@@ -48,13 +49,15 @@ func init() {
 	}
 }
 
-func GetGenre(movieID int) (gen []int) {
+func GetMovie(c *gin.Context) {
 
 	// TO be received by user
 	// movieID := 332562
 
 	//Code
-	response, err := http.Get("https://api.themoviedb.org/3/movie/" + strconv.Itoa(movieID) + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
+	movieID := c.Param("movie")
+
+	response, err := http.Get("https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -73,28 +76,8 @@ func GetGenre(movieID int) (gen []int) {
 
 	// json.Unmarshal([]byte(filmId.Genres), &genr)
 	// fmt.Println(genr)
+	c.JSON(http.StatusOK, gin.H{
+		"movie": filmId,
+	})
 
-	data, _ := json.Marshal(filmId.Genres)
-
-	json.Unmarshal([]byte(data), &genr)
-	// fmt.Println(genr)
-
-	// for genres := range genr {
-	// 	ids, _ := json.Marshal(genres.Id)
-	// 	fmt.Println(string(ids))
-	// }
-	gen = []int{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
-	for i, s := range genr {
-		var g int
-		genres, _ := json.Marshal(s.Id)
-		json.Unmarshal([]byte(genres), &g)
-		gen[i] = g
-	}
-	fmt.Println(gen)
-	// genres, _ := json.Marshal(genr)
-	// fmt.Println(string(genres))
-
-	// fmt.Println(string(data))
-	// handleRequestsGenre()
-	return
 }

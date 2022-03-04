@@ -1,4 +1,4 @@
-package functions
+package tables
 
 import (
 	"database/sql"
@@ -6,7 +6,7 @@ import (
 	"log"
 	"strconv"
 
-	I "main/functions/internalF"
+	I "main/functions/APIcalls"
 
 	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"

@@ -1,7 +1,9 @@
 package main
 
 import (
-	O "main/functions"
+	D "main/dbSQLite"
+	A "main/functions/APIcalls"
+	DM "main/functions/dbAccess"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -9,9 +11,9 @@ import (
 )
 
 var r *gin.Engine
-i:= 10
+
 func main() {
-	
+
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"},
@@ -20,13 +22,13 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
-	r.GET("/search/:name", O.Search)
-	r.GET("/top", O.HomeMovies)
-	r.GET("/searchPage", O.SearchWithPage)
-	r.GET("/users", getallUsers)
-	// r.GET("/userprofile", getallTouristprofile)
-	// r.GET("/guideprofile", getallGuideprofile)
-	// r.GET("/comments", getallComments)
+	r.GET("/search/:name", A.Search)
+	r.GET("/top", A.HomeMovies)
+	r.GET("/searchPage", A.SearchWithPage)
+	r.PUT("/userReg", DM.InsertAuthTable)
+	r.GET("/displayPass", DM.DisplayAuthTable)
+	r.PUT("/authenticateUser", DM.GetPassForUser)
+	r.GET("/getMovie/:movie", A.GetMovie)
 	// r.GET("/users/:email", getUser)
 	// r.GET("/userprofile/:email", getTouristProfile)
 	// r.GET("/guideprofile/:email", getGuideProfile)
@@ -44,5 +46,6 @@ func main() {
 	if err != nil {
 		panic("Failed to run the server")
 	}
-
+	db := D.GetDB()
+	defer db.Close()
 }

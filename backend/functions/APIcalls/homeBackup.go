@@ -1,4 +1,4 @@
-package functions
+package apiCall
 
 import (
 	"encoding/json"

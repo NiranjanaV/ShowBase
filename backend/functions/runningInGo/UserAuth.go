@@ -1,12 +1,23 @@
 package functions
 
 import (
+	// M "/GoCode/Create_Table.go"
+	// N "/GoCode/controllers"
+	// L "ShowBase/data"
+
+	//O "functions/databaseEntry"
+
+	// "os"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
-// func GetDB() (db *sql.DB) {
-// 	db, _ = sql.Open("sqlite3", "user_data-database") // Open the created SQLite File
-// 	defer db.Close()
+// func main2() {
+// 	// var database *sql.DB
+// 	// os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
+// 	sqliteDatabase, _ := sql.Open("sqlite3", "./../dbSQLite/user_data-database") // Open the created SQLite File
+// 	defer sqliteDatabase.Close()
+// 	// database = sqliteDatabase
 // 	var tablename = "user_auth"
 
 // 	//to get from frontend
@@ -30,14 +41,14 @@ import (
 // 		log.Fatal(err)
 // 	}
 // 	fmt.Println("Hash to store:", string(hash))
-// 	error := DM.InsertAuthTable(sqliteDatabase, tablename, username, hash)
+// 	error := InsertAuthTable(sqliteDatabase, tablename, username, hash)
 // 	if error != "None" {
 // 		fmt.Println("Duplicate username")
 // 	}
 
 // 	// Authenticate user
 // 	newPass := "password"
-// 	auth := DM.GetPassForUser(sqliteDatabase, tablename, username, newPass)
+// 	auth := GetPassForUser(sqliteDatabase, tablename, username, newPass)
 // 	if auth == 0 {
 // 		fmt.Print("User not authenticated")
 // 	} else {
@@ -46,5 +57,5 @@ import (
 
 // 	// DISPLAY INSERTED RECORDS
 // 	fmt.Println("display")
-// 	DM.DisplayAuthTable(sqliteDatabase, tablename)
+// 	DisplayAuthTable(sqliteDatabase, tablename)
 // }

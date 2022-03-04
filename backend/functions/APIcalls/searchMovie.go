@@ -1,4 +1,4 @@
-package functions
+package apiCall
 
 import (
 	"encoding/json"
@@ -113,4 +113,8 @@ func SearchWithPage(c *gin.Context) {
 
 	data, _ := json.Marshal(api.Results)
 	fmt.Println(string(data))
+
+	c.JSON(http.StatusOK, gin.H{
+		"Movies": api,
+	})
 }

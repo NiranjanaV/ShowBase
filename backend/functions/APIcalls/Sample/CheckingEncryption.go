@@ -1,5 +1,8 @@
 package internalF
 
+// import(
+// 	J "main/functions"
+// )
 // func encrypt() {
 // 	userPassword1 := "some user-provided password"
 
@@ -26,7 +29,7 @@ package internalF
 // }
 
 func waste() {
-	db()
-	main2()
-	main3()
+	// J.db()
+	// J.main2()
+	// J.main3()
 }

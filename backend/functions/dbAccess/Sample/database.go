@@ -1,4 +1,4 @@
-package functions
+package sampleDB
 
 import (
 	// M "/GoCode/Create_Table.go"
@@ -13,7 +13,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func db() {
+func dab() {
 	// var database *sql.DB
 	// os.Remove("user_data-database.db")                               // I delete the file to avoid duplicated records.
 	sqliteDatabase, _ := sql.Open("sqlite3", "./../dbSQLite/user_data-database") // Open the created SQLite File
