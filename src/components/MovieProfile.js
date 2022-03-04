@@ -13,8 +13,9 @@ const moviemap = movieData.map(
     <MovieSection img={`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`}
     title={movieData.Original_title}
     rating={movieData.Vote_average}
+    identifier = {movieData.Id}
      />
-     :console.log("what to do now")
+     :console.log("")
     ))
 
     const moviemap22 =  movie22.map(
@@ -23,8 +24,9 @@ const moviemap = movieData.map(
       <MovieSection img={`https://image.tmdb.org/t/p/original/${movie22.Poster_path}`}
       title={movie22.Original_title}
       rating={movie22.Vote_average}
+      identifier = {movie22.Id}
        />
-       :console.log("what to do now")
+       :console.log("")
       ))
     
   
@@ -34,8 +36,9 @@ const moviemap = movieData.map(
         <MovieSection img={`https://image.tmdb.org/t/p/original/${movie21.Poster_path}`}
         title={movie21.Original_title}
         rating={movie21.Vote_average}
+        identifier = {movie21.Id}
          />
-         :console.log("what to do now")
+         :console.log("")
         ))
   
         const moviemap20 = movie20.map(
@@ -44,11 +47,12 @@ const moviemap = movieData.map(
           <MovieSection img={`https://image.tmdb.org/t/p/original/${movie20.Poster_path}`}
           title={movie20.Original_title}
           rating={movie20.Vote_average}
+          identifier = {movie20.Id}
            />
-           :console.log("what to do now")
+           :console.log("")
           ))
   
-          
+          //console.log(moviemap);
   
   
 
