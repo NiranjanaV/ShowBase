@@ -1,4 +1,4 @@
-package functions
+package sampleDB
 
 import (
 	"database/sql"
