@@ -11,6 +11,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+//************************************************************************************************************************************************************************
+
 var db = D.GetDB()
 var tablename = D.GetTable(1)
 
@@ -31,6 +33,8 @@ func CreateAuthTable() {
 	statement.Exec() // Execute SQL Statements
 	log.Println("student table created")
 }
+
+//************************************************************************************************************************************************************************
 
 // We are passing db reference connection from main to our method with other parameters
 func InsertAuthTable(c *gin.Context) {
@@ -70,6 +74,8 @@ func InsertAuthTable(c *gin.Context) {
 		"Return": msg,
 	})
 }
+
+//************************************************************************************************************************************************************************
 
 func GetPassForUser(c *gin.Context) {
 	var auth int
@@ -113,6 +119,8 @@ func GetPassForUser(c *gin.Context) {
 	})
 }
 
+//************************************************************************************************************************************************************************
+
 func DisplayAuthTable(c *gin.Context) {
 	fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename + " ORDER BY username")
@@ -133,3 +141,5 @@ func DisplayAuthTable(c *gin.Context) {
 		})
 	}
 }
+
+//************************************************************************************************************************************************************************
