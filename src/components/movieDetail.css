@@ -5,14 +5,14 @@ html {
 }
 .detail {
   background-color: rgba(0, 0, 0, 0.75);
-  width: 400px;
+  width: 1000px;
   height: 500px;
   margin: 30px auto 0;
   overflow: auto;
 
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .detail h4 {
@@ -44,3 +44,12 @@ html {
 .genre:nth-child(3) {
   background-color: #f44336;
 } /* Red */
+.col {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.exp1 {
+  width: 250px;
+  padding: 10px;
+}

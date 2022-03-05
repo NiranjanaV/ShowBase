@@ -10,6 +10,7 @@ function MovieDetail(props){
 
     const [moviedetails, setMovieData] = useState([]);
     
+   
 
      const location = useLocation()
      const { from } = location.state
@@ -24,9 +25,13 @@ function MovieDetail(props){
             async function fetchData() {
               // You can await here
               const resp = await axios.get(detailURL)
-              
+              resp.data.movie.url = "https://image.tmdb.org/t/p/original" + resp.data.movie.Poster_path;
+               
         setMovieData(resp.data.movie)
         console.log(resp.data);
+       
+        
+    
               // ...
             }
             fetchData();
@@ -38,14 +43,15 @@ function MovieDetail(props){
 
     <div className="bg">
     <div className="detail">
- <center>
+    <img src={moviedetails.url} className='exp1'></img>
 
 
-  <h2>{moviedetails.Title}</h2>
+<div className="col">
+  <h1>{moviedetails.Title}</h1><br/>
   <h4>{moviedetails.Overview}</h4>
+ 
+  </div>
 
-  
-    </center>
 
     
    
