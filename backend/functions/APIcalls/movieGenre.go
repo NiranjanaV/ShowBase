@@ -21,7 +21,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("3 Error loading .env file" + err.Error())
+		log.Fatal("6 Error loading .env file" + err.Error())
 	}
 }
 
