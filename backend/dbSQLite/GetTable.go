@@ -5,6 +5,8 @@ import (
 )
 
 func GetTable(tablenumber int) (tablename string) {
+
+	//returning table name
 	if tablenumber == 1 {
 		tablename = "user_auth"
 	} else if tablenumber == 2 {

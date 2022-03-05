@@ -12,33 +12,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// type Film struct {
-// 	Poster_path       string
-// 	Adult             bool
-// 	Overview          string
-// 	Release_date      string
-// 	Genre_ids         []int32
-// 	Id                int32
-// 	Original_title    string
-// 	Original_language string
-// 	Vote_average      float32
-// 	Title             string
-// 	Backdrop_path     string
-// 	Popularity        float64
-// 	Vote_count        int32
-// 	Video             bool
-// }
-
-// type Api struct {
-// 	Page          int
-// 	Results       []Film
-// 	Total_pages   int64
-// 	Total_results int64
-// }
-
-// var api Api
-// var film Film
-
 func init() {
 
 	err := godotenv.Load("go.env")

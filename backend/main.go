@@ -10,10 +10,9 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
-var r *gin.Engine
-
 func main() {
 
+	// Communication from frontend
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"},
@@ -22,6 +21,8 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
+
+	// Functions to be called from the client
 	r.GET("/search/:name", A.Search)
 	r.GET("/top", A.HomeMovies)
 	r.GET("/searchPage", A.SearchWithPage)
@@ -32,14 +33,6 @@ func main() {
 	r.GET("/userLikes/:username", DM.GetUserTable)
 	r.PUT("/updateUserLike", DM.InsertUserTable)
 	r.GET("/displayLike", DM.DisplayUserTable)
-	// r.GET("/comments/:location", getLocationComments)
-	// r.POST("/userprofile", createTouristProfile)
-	// r.POST("/guideprofile", createGuideProfile)
-	// r.POST("/comments", createComments)
-	// r.PUT("/userprofile/:email", updateTouristProfile)
-	// r.PUT("/guideprofile/:email", updateGuideProfile)
-	// r.DELETE("/userprofile/:email", DeleteTouristProfile)
-	// r.DELETE("/guideprofile/:email", DeleteGuideProfile)
 
 	//initializeRoutes()
 	err := r.Run()

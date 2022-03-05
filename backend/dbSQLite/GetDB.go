@@ -7,7 +7,9 @@ import (
 )
 
 func GetDB() (db *sql.DB) {
-	db, _ = sql.Open("sqlite3", "dbSQLite/user_data-database") // Open the created SQLite File
+
+	// Open the created SQLite File
+	db, _ = sql.Open("sqlite3", "dbSQLite/user_data-database")
 
 	return
 }

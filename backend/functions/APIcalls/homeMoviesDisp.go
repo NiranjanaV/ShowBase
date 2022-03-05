@@ -54,7 +54,7 @@ func init() {
 }
 
 func HomeMovies(c *gin.Context) {
-	// fmt.Println(i)
+
 	for i := 0; i < 10; i++ {
 
 		response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=" + strconv.Itoa(2022-i) + "&sort_by=revenue.desc")
@@ -77,7 +77,5 @@ func HomeMovies(c *gin.Context) {
 		})
 
 	}
-	// data, _ := json.Marshal(api.Results)
-	// fmt.Println(string(data))
 
 }

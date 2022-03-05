@@ -35,10 +35,7 @@ type Genre struct {
 	Name string
 }
 
-// var api Api
 var filmId FilmId
-
-// var genr []Genre
 
 func init() {
 
@@ -51,10 +48,7 @@ func init() {
 
 func GetMovie(c *gin.Context) {
 
-	// TO be received by user
-	// movieID := 332562
-
-	//Code
+	//Communication
 	movieID := c.Param("movie")
 
 	response, err := http.Get("https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
@@ -63,19 +57,14 @@ func GetMovie(c *gin.Context) {
 		fmt.Print(err.Error())
 		os.Exit(1)
 	}
-	// fmt.Println(response)
 
 	responseData, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// fmt.Println(responseData)
 
 	json.Unmarshal([]byte(responseData), &filmId)
-	// fmt.Println(filmId)
 
-	// json.Unmarshal([]byte(filmId.Genres), &genr)
-	// fmt.Println(genr)
 	c.JSON(http.StatusOK, gin.H{
 		"movie": filmId,
 	})

@@ -10,33 +10,6 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-//chnage movie struct if needed ,,,its different for queries
-// type FilmId struct {
-// 	Poster_path       string
-// 	Adult             bool
-// 	Overview          string
-// 	Release_date      string
-// 	Genres            []Genre
-// 	Id                int32
-// 	Original_title    string
-// 	Original_language string
-// 	Vote_average      float32
-// 	Title             string
-// 	Backdrop_path     string
-// 	Popularity        float64
-// 	Vote_count        int32
-// 	Video             bool
-// }
-
-// type Genre struct {
-// 	Id   int32
-// 	Name string
-// }
-
-// // var api Api
-// var filmId FilmId
-// var genr []Genre
-
 func init() {
 
 	err := godotenv.Load("go.env")
@@ -66,5 +39,3 @@ func GetUserID(usernameStr string) (error int) {
 	}
 	return
 }
-
-//************************************************************************************************************************************************************************

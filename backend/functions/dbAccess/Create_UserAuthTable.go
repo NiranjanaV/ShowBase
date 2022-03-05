@@ -19,7 +19,9 @@ func CreateAuthTable() {
 		"idUser" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"username" TEXT UNIQUE,
 		"password" TEXT		
-	  );` // SQL Statement for Create Table
+	  );`
+
+	// SQL Statement for Create Table
 
 	log.Println("Create student table...")
 	statement, err := db.Prepare(createStudentTableSQL) // Prepare SQL Statement
