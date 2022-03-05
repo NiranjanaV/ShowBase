@@ -26,7 +26,9 @@ function MovieDetail(props){
               // You can await here
               const resp = await axios.get(detailURL)
               resp.data.movie.url = "https://image.tmdb.org/t/p/original" + resp.data.movie.Poster_path;
-               
+             var genremap = await axios.get(detailURL)
+              genremap = resp.data.movie.Genres.map(genre=>(<h2>{genre.Name}</h2>))
+              resp.data.movie.genremap=genremap
         setMovieData(resp.data.movie)
         console.log(resp.data);
        
@@ -43,12 +45,17 @@ function MovieDetail(props){
 
     <div className="bg">
     <div className="detail">
-    <img src={moviedetails.url} className='exp1'></img>
+    <img src={moviedetails.url} className='expdetail'></img>
 
 
 <div className="col">
-  <h1>{moviedetails.Title}</h1><br/>
+    <div className="row">
+  <h1>{moviedetails.Title}</h1>
+ 
+  </div>
   <h4>{moviedetails.Overview}</h4>
+
+  {moviedetails.genremap}
  
   </div>
 
