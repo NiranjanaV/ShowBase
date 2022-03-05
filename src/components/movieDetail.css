@@ -1,0 +1,46 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+.detail {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 400px;
+  height: 500px;
+  margin: 30px auto 0;
+  overflow: auto;
+
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+}
+
+.detail h4 {
+  color: white;
+
+  font-size: larger;
+}
+.detail h2 {
+  color: white;
+  margin-left: 0;
+  font-size: larger;
+}
+.genre button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.genre:nth-child(2) {
+  background-color: #008cba;
+} /* Blue */
+.genre:nth-child(3) {
+  background-color: #f44336;
+} /* Red */
