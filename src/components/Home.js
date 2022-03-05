@@ -38,7 +38,7 @@ function Home() {
             <div className="bar"></div>
           </div>
           <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#hero" data-after="Home" >Home</a></li>
             <li><a href="#services" data-after="Service">About</a></li>
             <li><Link to='/MovieProfile'>Movies & Shows</Link></li>
             <li><Link to='/UserProfile'>Profile</Link></li>
@@ -146,7 +146,7 @@ function Home() {
   <section id="contact">
     <div class="contact container">
       <div>
-        <h1 class="section-title">Contact</h1>
+        <h1 class="section-title" data-testid="Contact">Contact</h1>
       </div>
       <div class="contact-items">
         

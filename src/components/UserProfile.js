@@ -57,7 +57,7 @@ function UserProfile() {
     <div className="Completed container">
       
       <div className="col-right">
-        <h1 className="section-title">Completed</h1>
+        <h1 className="section-title"  data-testid="Completed">Completed</h1>
 
       <div className="App">
         <Carousel breakPoints={breakPoints}>
