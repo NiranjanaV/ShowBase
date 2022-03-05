@@ -19,21 +19,21 @@ ReactDOM.render(
 
 // Sample Integration Between front end and back end
 
-{
-const URL ="http://192.168.0.206:8080";
-getData();
+// {
+// const URL ="http://192.168.0.206:8080";
+// getData();
 
-function getData(){
-  console.log("in get function");
-fetch(URL + '/search').then(response => 
-  response.json().then(data => ({
-      data: data,
-      status: response.status
-  })
-).then(res => {
-  console.log(res.status, res.data);
- // document.getElementById("minVal").innerHTML=res.data;
+// function getData(){
+//   console.log("in get function");
+// fetch(URL + '/search').then(response => 
+//   response.json().then(data => ({
+//       data: data,
+//       status: response.status
+//   })
+// ).then(res => {
+//   console.log(res.status, res.data);
+//  // document.getElementById("minVal").innerHTML=res.data;
 
-}));}
+// }));}
 
-}
+// }
