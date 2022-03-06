@@ -7,16 +7,12 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
-	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
 
 //************************************************************************************************************************************************************************
-
-//chnage movie struct if needed ,,,its different for queries
-
-var filmId FilmId
 
 func init() {
 
@@ -29,10 +25,10 @@ func init() {
 
 //************************************************************************************************************************************************************************
 
-func GetMoviesOfAGenra(c *gin.Context, genre Genre) {
+func GetMoviesOfAGenra(genre Genre) (api Api) {
 	//Communication
-	genId := genre.Name
-	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US&sort_by=popularity.desc&page=1&with_genres=" + genId + "&with_watch_monetization_types=flatrate")
+	genId := genre.Id
+	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US&sort_by=popularity.desc&page=1&with_genres=" + strconv.Itoa(int(genId)) + "&with_watch_monetization_types=flatrate")
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -46,9 +42,7 @@ func GetMoviesOfAGenra(c *gin.Context, genre Genre) {
 
 	json.Unmarshal([]byte(responseData), &api)
 
-	c.JSON(http.StatusOK, gin.H{
-		genId: api,
-	})
+	return
 }
 
 //************************************************************************************************************************************************************************

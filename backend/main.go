@@ -35,6 +35,8 @@ func main() {
 	r.GET("/userLikes/:username", DM.GetUserTable)
 	r.PUT("/updateUserLike", DM.InsertUserTable)
 	r.GET("/displayLike", DM.DisplayUserTable)
+	r.GET("/getGenre/:GenreId", A.SearchGenre)
+	r.GET("/getGenraPage", A.SearchGenreWithPage)
 
 	//initializeRoutes()
 	err := r.Run()

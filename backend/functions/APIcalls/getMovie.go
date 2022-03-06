@@ -69,36 +69,97 @@ func GetMovie(c *gin.Context) {
 
 	json.Unmarshal([]byte(responseData), &filmId)
 
-	c.JSON(http.StatusOK, gin.H{
-		"movie": filmId,
-	})
-
-	for i := 0; i < len(filmId.Genres); i++ {
-		GetMoviesOfAGenra(c, filmId.Genres[i])
+	if len(filmId.Genres) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie": filmId,
+		})
+	} else if len(filmId.Genres) == 1 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+		})
+	} else if len(filmId.Genres) == 2 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+		})
+	} else if len(filmId.Genres) == 3 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+		})
+	} else if len(filmId.Genres) == 4 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+		})
+	} else if len(filmId.Genres) == 5 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+		})
+	} else if len(filmId.Genres) == 6 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+		})
+	} else if len(filmId.Genres) == 7 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+			filmId.Genres[6].Name: GetMoviesOfAGenra(filmId.Genres[6]),
+		})
+	} else if len(filmId.Genres) == 8 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+			filmId.Genres[6].Name: GetMoviesOfAGenra(filmId.Genres[6]),
+			filmId.Genres[7].Name: GetMoviesOfAGenra(filmId.Genres[7]),
+		})
+	} else if len(filmId.Genres) >= 9 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+			filmId.Genres[6].Name: GetMoviesOfAGenra(filmId.Genres[6]),
+			filmId.Genres[7].Name: GetMoviesOfAGenra(filmId.Genres[7]),
+			filmId.Genres[8].Name: GetMoviesOfAGenra(filmId.Genres[8]),
+		})
 	}
 
-}
+	// for i := 0; i < len(filmId.Genres); i++ {
+	// 	GetMoviesOfAGenra(c, filmId.Genres[i])
+	// }
 
-func GetMoviesOfAGenra(c *gin.Context, genre Genre) {
-	//Communication
-	genId := genre.Name
-	response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US&sort_by=popularity.desc&page=1&with_genres=" + genId + "&with_watch_monetization_types=flatrate")
-
-	if err != nil {
-		fmt.Print(err.Error())
-		os.Exit(1)
-	}
-
-	responseData, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	json.Unmarshal([]byte(responseData), &api)
-
-	c.JSON(http.StatusOK, gin.H{
-		genId: api,
-	})
 }
 
 //************************************************************************************************************************************************************************
