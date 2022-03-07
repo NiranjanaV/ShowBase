@@ -26,7 +26,7 @@ func init() {
 
 //************************************************************************************************************************************************************************
 func CreateUserTable() {
-	createUserTableSQL := `CREATE TABLE user2 (
+	createUserTableSQL := `CREATE TABLE user (
 		"idLike" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"idUser" integer NOT NULL,
 		"movieID" integer NOT NULL,

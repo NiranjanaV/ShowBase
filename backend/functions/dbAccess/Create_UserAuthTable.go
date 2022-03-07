@@ -39,6 +39,10 @@ func CreateAuthTable() {
 // We are passing db reference connection from main to our method with other parameters
 func InsertAuthTable(c *gin.Context) {
 	var msg string
+	var db = D.GetDB()
+	var tablename = D.GetTable(1)
+	fmt.Println("aaaaaaaaaaaaaaaa", db.Ping())
+
 	type UserAuthJson struct {
 		Username string `json:"username"`
 		Password string `json:"password"`
@@ -53,11 +57,12 @@ func InsertAuthTable(c *gin.Context) {
 	}
 
 	log.Println("Inserting student record ...")
-	insertStudentSQL := `INSERT INTO ` + tablename + `(username, password) VALUES (?, ?)`
+	insertStudentSQL := `INSERT INTO ` + tablename + ` (username, password) VALUES (?, ?)`
 
 	statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {
+		fmt.Println(err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
@@ -143,3 +148,49 @@ func DisplayAuthTable(c *gin.Context) {
 }
 
 //************************************************************************************************************************************************************************
+
+func InsertAuthTableGo(username string, password string) {
+
+	insertStudentSQL := `INSERT INTO ` + tablename + `(username, password) VALUES (?, ?)`
+
+	statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
+	// This is good to avoid SQL injections
+	if err != nil {
+		fmt.Println("DB issue")
+		fmt.Println("error", err.Error())
+	}
+	_, err = statement.Exec(username, password)
+	if err != nil {
+		fmt.Println("error", err.Error())
+
+	} else {
+		msg := "inserted"
+		fmt.Println(msg)
+
+	}
+}
+
+//************************************************************************************************************************************************************************
+
+func DisplayAuthTableGo() {
+	fmt.Println("disp")
+	row, err := db.Query("SELECT * FROM " + tablename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer row.Close()
+	for row.Next() { // Iterate and fetch the records from result cursor
+		var id int
+		var username string
+		var password string
+		row.Scan(&id, &username, &password)
+		log.Println("Users: ", id, " ", username, " ", password)
+
+	}
+}
+
+//************************************************************************************************************************************************************************
+
+func PingDBGo() {
+	fmt.Println(db.Ping())
+}

@@ -4,13 +4,13 @@ import (
 	// "backend-v1/src/config"
 
 	"bytes"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
-	// D "main/dbSQLite"
 	A "main/functions/APIcalls"
-	// DM "main/functions/dbAccess"
+	DM "main/functions/dbAccess"
 )
 
 /*
@@ -79,6 +79,25 @@ func TestGetSearchWithPagesAPIResponse(t *testing.T) {
 
 	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
 		s := w.Code == http.StatusOK
+		return s
+	})
+}
+
+func TestEnterDataIntoUser(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+	//suppose to be text
+	jsonData := []byte(`{
+		"username": "Srikant",   
+		"password": "123456"
+	}`)
+
+	r.PUT("/userReg", DM.InsertAuthTable)
+	req, _ := http.NewRequest("PUT", "/userReg", bytes.NewBuffer(jsonData))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		fmt.Println(w.Body)
+		s := w.Code == http.StatusBadRequest
 		return s
 	})
 }
