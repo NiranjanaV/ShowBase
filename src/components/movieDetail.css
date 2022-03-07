@@ -38,10 +38,13 @@ html {
   cursor: pointer;
   border-radius: 30px;
 }
-.genre:nth-child(2) {
+.genre button:nth-child(1) {
+  background-color: green;
+} /* Blue */
+.genre button:nth-child(2) {
   background-color: #008cba;
 } /* Blue */
-.genre:nth-child(3) {
+.genre button:nth-child(3) {
   background-color: #f44336;
 } /* Red */
 .col {
