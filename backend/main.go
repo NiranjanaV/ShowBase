@@ -37,6 +37,7 @@ func main() {
 	r.GET("/displayLike", DM.DisplayUserTable)
 	r.GET("/getGenre/:GenreId", A.SearchGenre)
 	r.GET("/getGenraPage", A.SearchGenreWithPage)
+	r.GET("/getUserProfile", DM.SendUserProfile)
 
 	//initializeRoutes()
 	err := r.Run()
