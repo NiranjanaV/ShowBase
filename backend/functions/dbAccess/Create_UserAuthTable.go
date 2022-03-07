@@ -57,27 +57,51 @@ func InsertAuthTable(c *gin.Context) {
 	}
 
 	log.Println("Inserting student record ...")
-	insertStudentSQL := `INSERT INTO ` + tablename + ` (username, password) VALUES (?, ?)`
 
-	statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
-	// This is good to avoid SQL injections
-	if err != nil {
-		fmt.Println(err.Error())
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
-		})
-	}
-	_, err = statement.Exec(userAuthJson.Username, userAuthJson.Password)
+	//checking if user exists
+	row, err := db.Query("SELECT COUNT(*) FROM " + tablename + " WHERE USERNAME = '" + userAuthJson.Username + "'")
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
-	} else {
-		msg = "inserted"
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"Return": msg,
-	})
+	defer row.Close()
+	for row.Next() { // Iterate and fetch the records from result cursor
+		var count int
+		row.Scan(&count)
+		if count > 0 {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": "User already exists, try another",
+			})
+		} else {
+			insertStudentSQL := `INSERT INTO ` + tablename + ` (username, password) VALUES (?, ?)`
+
+			statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
+			// This is good to avoid SQL injections
+			if err != nil {
+				fmt.Println(err.Error())
+				c.JSON(http.StatusBadRequest, gin.H{
+					"error": err.Error(),
+				})
+			}
+
+			hash, _ := bcrypt.GenerateFromPassword([]byte(userAuthJson.Password), bcrypt.DefaultCost)
+			_, err = statement.Exec(userAuthJson.Username, hash)
+			if err != nil {
+				c.JSON(http.StatusBadRequest, gin.H{
+					"error": err.Error(),
+				})
+			} else {
+				msg = "inserted"
+			}
+			c.JSON(http.StatusOK, gin.H{
+				"Return": msg,
+			})
+
+		}
+
+	}
+
 }
 
 //************************************************************************************************************************************************************************
