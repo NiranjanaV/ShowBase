@@ -8,6 +8,10 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+func main() {
+	CreateDB()
+}
+
 func CreateDB() {
 	os.Remove("user_data2-database.db") // I delete the file to avoid duplicated records.
 	// SQLite is a file based database.

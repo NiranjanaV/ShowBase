@@ -69,9 +69,92 @@ func GetMovie(c *gin.Context) {
 
 	json.Unmarshal([]byte(responseData), &filmId)
 
-	c.JSON(http.StatusOK, gin.H{
-		"movie": filmId,
-	})
+	if len(filmId.Genres) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie": filmId,
+		})
+	} else if len(filmId.Genres) == 1 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+		})
+	} else if len(filmId.Genres) == 2 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+		})
+	} else if len(filmId.Genres) == 3 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+		})
+	} else if len(filmId.Genres) == 4 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+		})
+	} else if len(filmId.Genres) == 5 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+		})
+	} else if len(filmId.Genres) == 6 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+		})
+	} else if len(filmId.Genres) == 7 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+			filmId.Genres[6].Name: GetMoviesOfAGenra(filmId.Genres[6]),
+		})
+	} else if len(filmId.Genres) == 8 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+			filmId.Genres[6].Name: GetMoviesOfAGenra(filmId.Genres[6]),
+			filmId.Genres[7].Name: GetMoviesOfAGenra(filmId.Genres[7]),
+		})
+	} else if len(filmId.Genres) >= 9 {
+		c.JSON(http.StatusOK, gin.H{
+			"movie":               filmId,
+			filmId.Genres[0].Name: GetMoviesOfAGenra(filmId.Genres[0]),
+			filmId.Genres[1].Name: GetMoviesOfAGenra(filmId.Genres[1]),
+			filmId.Genres[2].Name: GetMoviesOfAGenra(filmId.Genres[2]),
+			filmId.Genres[3].Name: GetMoviesOfAGenra(filmId.Genres[3]),
+			filmId.Genres[4].Name: GetMoviesOfAGenra(filmId.Genres[4]),
+			filmId.Genres[5].Name: GetMoviesOfAGenra(filmId.Genres[5]),
+			filmId.Genres[6].Name: GetMoviesOfAGenra(filmId.Genres[6]),
+			filmId.Genres[7].Name: GetMoviesOfAGenra(filmId.Genres[7]),
+			filmId.Genres[8].Name: GetMoviesOfAGenra(filmId.Genres[8]),
+		})
+	}
 
 }
 

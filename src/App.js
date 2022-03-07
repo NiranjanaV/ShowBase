@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import MovieProfile from './components/MovieProfile';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -9,6 +7,7 @@ import UserProfile from './components/UserProfile';
 import { Add } from './components/Add';
 import {Route,Routes} from 'react-router-dom';
 import MovieDetail from './components/MovieDetail';
+import TopMovieGenre from './components/TopMovieGenre';
 
 
 function App() {
@@ -18,6 +17,7 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/MovieProfile" element={<MovieProfile/>} />
       <Route path="/MovieDetail" element={<MovieDetail/>} />
+      <Route path="/TopMovieGenre" element={<TopMovieGenre/>} />
       <Route path="/UserProfile" element={<UserProfile/>} />
       <Route path="/UserProfile/add" element={<Add/>} />
       <Route path="/login" element={<Login/>} />
