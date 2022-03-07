@@ -1,12 +1,8 @@
 package apiCall
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -59,28 +55,19 @@ func init() {
 
 func HomeMovies(c *gin.Context) {
 
-	for i := 0; i < 10; i++ {
-
-		response, err := http.Get("https://api.themoviedb.org/3/discover/movie?api_key=" + os.Getenv("Twilio_api_key") + "&primary_release_year=" + strconv.Itoa(2022-i) + "&sort_by=revenue.desc")
-
-		if err != nil {
-			fmt.Print(err.Error())
-			os.Exit(1)
-		}
-
-		responseData, err := ioutil.ReadAll(response.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		json.Unmarshal([]byte(responseData), &api)
-		fmt.Println(api)
-
-		c.JSON(http.StatusOK, gin.H{
-			strconv.Itoa(2022 - i): api.Results,
-		})
-
-	}
+	c.JSON(http.StatusOK, gin.H{
+		strconv.Itoa(2022): GetMoviesOfAYear(2022),
+		strconv.Itoa(2021): GetMoviesOfAYear(2021),
+		strconv.Itoa(2020): GetMoviesOfAYear(2020),
+		strconv.Itoa(2019): GetMoviesOfAYear(2019),
+		strconv.Itoa(2018): GetMoviesOfAYear(2018),
+		strconv.Itoa(2017): GetMoviesOfAYear(2017),
+		strconv.Itoa(2016): GetMoviesOfAYear(2016),
+		strconv.Itoa(2015): GetMoviesOfAYear(2015),
+		strconv.Itoa(2014): GetMoviesOfAYear(2014),
+		strconv.Itoa(2013): GetMoviesOfAYear(2013),
+		strconv.Itoa(2012): GetMoviesOfAYear(2012),
+	})
 
 }
 
