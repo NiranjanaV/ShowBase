@@ -7,7 +7,7 @@ import {BrowserRouter} from 'react-router-dom'
 
 {
   getData();
-  const URL ="192.168.0.206:20000";
+  const URL ="192.168.0.206:8080";
   function getData(){
     console.log("in get function");
   fetch(URL + '/articles').then(response => 
@@ -35,3 +35,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+}
