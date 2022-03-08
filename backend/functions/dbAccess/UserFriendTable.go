@@ -28,7 +28,7 @@ func CreateFriendTable() {
 	createUserTableSQL := `CREATE TABLE friend (
 		"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"idUser" integer NOT NULL,
-		"idFriend" integer NOT NULL,
+		"idFriend" integer NOT NULL
 	  );` // SQL Statement for Create User Table
 
 	log.Println("Create user table friend")

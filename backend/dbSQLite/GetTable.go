@@ -11,9 +11,9 @@ func GetTable(tablenumber int) (tablename string) {
 		tablename = "user_auth"
 	} else if tablenumber == 2 {
 		tablename = "user"
-	}
 	} else if tablenumber == 3 {
 		tablename = "friend"
 	}
+
 	return
 }
