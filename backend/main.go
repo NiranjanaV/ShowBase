@@ -38,6 +38,7 @@ func main() {
 	r.GET("/getGenre/:GenreId", A.SearchGenre)
 	r.GET("/getGenraPage", A.SearchGenreWithPage)
 	r.GET("/getUserProfile", DM.SendUserProfile)
+	r.GET("/getGenres", A.GetAllGenre)
 
 	//initializeRoutes()
 	err := r.Run()
