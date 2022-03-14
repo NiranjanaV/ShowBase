@@ -75,7 +75,7 @@ func InsertUserTable(c *gin.Context) {
 		return
 	}
 
-	user := GetUserID(userLikeJson.Username)
+	user, _ := GetUserID(userLikeJson.Username)
 	movie := userLikeJson.Movie
 	action := userLikeJson.Action
 	value := userLikeJson.Value
@@ -176,7 +176,7 @@ func InsertUserTable(c *gin.Context) {
 
 func GetUserTable(c *gin.Context) {
 
-	idUser := GetUserID(c.Param("username"))
+	idUser, _ := GetUserID(c.Param("username"))
 	fmt.Println(idUser)
 	fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename2 + " WHERE idUser= " + strconv.Itoa(idUser))

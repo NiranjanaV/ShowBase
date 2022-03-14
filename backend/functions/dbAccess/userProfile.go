@@ -72,7 +72,7 @@ func SendUserProfile(c *gin.Context) {
 	var userToWatch []FilmId
 
 	username := c.Param("username")
-	idUser := GetUserID(c.Param("username"))
+	idUser, _ := GetUserID(c.Param("username"))
 	fmt.Println(idUser)
 	fmt.Println("disp")
 	//************************************************************************************************************************************************************************
