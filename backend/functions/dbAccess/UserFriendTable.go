@@ -66,7 +66,7 @@ func InsertFriendTable(c *gin.Context) {
 		})
 	}
 	log.Println("Inserting student record ...")
-	insertFriendSQL := `INSERT INTO ` + tablename3 + `(idUser, idFriend ) VALUES (?, ?, ?)`
+	insertFriendSQL := `INSERT INTO ` + tablename3 + `(idUser, idFriend ) VALUES (?, ?)`
 	statement, err := db.Prepare(insertFriendSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {
@@ -124,7 +124,7 @@ func GetFriends(c *gin.Context) {
 //************************************************************************************************************************************************************************
 func DisplayFriendTable(c *gin.Context) {
 	fmt.Println("disp")
-	row, err := db.Query("SELECT * FROM " + tablename2 + " ORDER BY idUser")
+	row, err := db.Query("SELECT * FROM " + tablename3 + " ORDER BY idUser")
 	if err != nil {
 		log.Fatal(err)
 	}

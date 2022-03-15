@@ -13,6 +13,8 @@ func GetTable(tablenumber int) (tablename string) {
 		tablename = "user"
 	} else if tablenumber == 3 {
 		tablename = "friend"
+	} else if tablenumber == 4 {
+		tablename = "share_club"
 	}
 
 	return
