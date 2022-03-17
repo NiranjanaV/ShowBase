@@ -153,7 +153,6 @@ function Home() {
         <div class="contact-item">
           <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
           <div class="contact-info">
-            <h1>Email</h1>
             <h2>srinivasansanjay@ufl.edu</h2>
             <h2>ni.vasudevan@ufl.edu</h2>
             <h2>sw.velavan@ufl.edu</h2>
