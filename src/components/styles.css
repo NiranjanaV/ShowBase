@@ -48,7 +48,7 @@ p {
   text-align: center;
 }
 .section-title span {
-  color: rgb(193, 243, 94);
+  color: crimson;
 }
 
 .cta {
@@ -56,7 +56,7 @@ p {
   padding: 10px 30px;
   color: rgb(14, 12, 12);
   background-color: transparent;
-  border: 2px solid yellowgreen;
+  border: 2px solid crimson;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -66,7 +66,7 @@ p {
 }
 .cta:hover {
   color: rgb(8, 8, 8);
-  background-color: yellowgreen;
+  background-color: crimson;
 }
 .brand h1 {
   font-size: 3rem;
@@ -74,7 +74,7 @@ p {
   color: rgb(20, 15, 15);
 }
 .brand h1 span {
-  color: yellowgreen;
+  color: crimson;
 }
 
 /* Header section */
@@ -103,7 +103,7 @@ p {
 #header .nav-list ul {
   list-style: none;
   position: absolute;
-  background-color: rgb(31, 30, 30);
+  background-color: white;
   width: 100vw;
   height: 100vh;
   left: 100%;
@@ -124,7 +124,7 @@ p {
   font-weight: 500;
   letter-spacing: 0.2rem;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: white;
   text-transform: uppercase;
   padding: 20px;
   display: block;
@@ -135,7 +135,7 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  color: rgba(255, 255, 255, 0.021);
+  color: white;
   font-size: 13rem;
   letter-spacing: 50px;
   z-index: -1;
@@ -146,7 +146,7 @@ p {
   letter-spacing: initial;
 }
 #header .nav-list ul li:hover a {
-  color: yellowgreen;
+  color: crimson;
 }
 #header .hamburger {
   height: 60px;
@@ -219,7 +219,7 @@ p {
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: grey;
+  background-color: black;
   opacity: 0.7;
   z-index: -1;
 }
@@ -254,7 +254,7 @@ p {
   left: 0;
   height: 100%;
   width: 0;
-  background-color: yellowgreen;
+  background-color: crimson;
   animation: text_reveal_box 1s ease;
   animation-delay: 0.5s;
 }
@@ -449,7 +449,7 @@ p {
   top: 19px;
   height: 98%;
   width: 98%;
-  border: 7px solid yellowgreen;
+  border: 7px solid crimson;
   z-index: -1;
 }
 /* End Completed Section */
@@ -479,7 +479,7 @@ p {
   margin-bottom: 20px;
 }
 #Stopped .col-right .cta {
-  color: black;
+  color: white;
   margin-bottom: 50px;
   padding: 10px 20px;
   font-size: 2rem;
@@ -497,7 +497,7 @@ p {
   top: 19px;
   height: 98%;
   width: 98%;
-  border: 7px solid yellowgreen;
+  border: 7px solid crimson;
   z-index: -1;
 }
 /* End Stopped Section */
@@ -524,7 +524,7 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 18px 18px 18px 0 grey;
+  box-shadow: 18px 18px 18px 0 black;
   transition: 0.3s ease box-shadow;
 }
 /* #contact .contact-item:hover {
@@ -549,7 +549,7 @@ p {
 
 /* Footer */
 #footer {
-  background-image: linear-gradient(60deg, grey 0%, #485563 100%);
+  background-image: linear-gradient(60deg, black 0%, #485563 100%);
 }
 #footer .footer {
   min-height: 200px;
@@ -679,7 +679,7 @@ p {
     top: 34px;
     height: 98%;
     width: 98%;
-    border: 10px solid yellowgreen;
+    border: 10px solid crimson;
   }
   #about .col-right {
     text-align: left;
