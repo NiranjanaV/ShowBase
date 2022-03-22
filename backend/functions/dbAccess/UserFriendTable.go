@@ -49,6 +49,7 @@ func InsertFriendTable(c *gin.Context) {
 		Username  string `json:"username"`
 		Username2 string `json:"friendname"`
 	}
+
 	userFriendJson := UserFriendJson{}
 	err := c.ShouldBindJSON(&userFriendJson)
 	if err != nil {
@@ -56,6 +57,12 @@ func InsertFriendTable(c *gin.Context) {
 			"error": "incorrect parameters, password should be between 8 to 20 chars",
 		})
 		return
+	}
+
+	if isFriend(userFriendJson.Username, userFriendJson.Username2) {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"Issue": "Already an friend",
+		})
 	}
 
 	user, _ := GetUserID(userFriendJson.Username)
@@ -124,7 +131,7 @@ func GetFriends(c *gin.Context) {
 //************************************************************************************************************************************************************************
 func DisplayFriendTable(c *gin.Context) {
 	fmt.Println("disp")
-	row, err := db.Query("SELECT * FROM " + tablename2 + " ORDER BY idUser")
+	row, err := db.Query("SELECT * FROM " + tablename3 + " ORDER BY idUser")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -148,3 +155,24 @@ func DisplayFriendTable(c *gin.Context) {
 }
 
 //************************************************************************************************************************************************************************
+
+func isFriend(username string, friend string) bool {
+	// fmt.Println(idUser)
+	// fmt.Println("disp")
+	idUser, _ := GetUserID(username)
+	idFriend, _ := GetUserID(friend)
+	row, err := db.Query("SELECT COUNT(*) FROM " + tablename3 + " WHERE idUser= " + strconv.Itoa(idUser) + " AND idFriend= " + strconv.Itoa(idFriend))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer row.Close()
+	var count int
+	for row.Next() { // Iterate and fetch the records from result cursor
+
+		row.Scan(&count)
+		if count > 0 {
+			return true
+		}
+	}
+	return false
+}
