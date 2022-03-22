@@ -28,6 +28,7 @@ type FilmId struct {
 	Overview          string
 	Release_date      string
 	Genres            []Genre
+	Genre_Ids         []int
 	Id                int32
 	Original_title    string
 	Original_language string
@@ -40,13 +41,13 @@ type FilmId struct {
 }
 
 type UserLike struct {
-	userLikeVal   int
-	userLikeMovie FilmId
+	UserLikeVal   int
+	UserLikeMovie FilmId
 }
 
 type UserWatching struct {
-	userWatchingVal   int
-	userWatchingMovie FilmId
+	UserWatchingVal   int
+	UserWatchingMovie FilmId
 }
 
 //************************************************************************************************************************************************************************
@@ -80,8 +81,15 @@ func SendUserProfile(c *gin.Context) {
 	//watching
 	row, err := db.Query("SELECT movieID, watching FROM " + tablename2 + " WHERE idUser= " + strconv.Itoa(idUser) + " AND watching <> -1")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("aaa")
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
 	}
+	fmt.Println("watching")
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
 		// var id int
@@ -97,17 +105,23 @@ func SendUserProfile(c *gin.Context) {
 		// row.Scan(&id, &user, &movie, &like, &watched, &watching, &toWatch, &genre1, &genre2, &genre3)
 		row.Scan(&movie, &watching)
 		// log.Println("Users: ", id, " ", user, " ", movie, " ", like, " ", watched, " ", watching, " ", toWatch, " ", genre1, " ", genre2, " ", genre3)
-		userWatingSingle.userWatchingMovie = GetSingleMovie2(movie)
-		userWatingSingle.userWatchingVal = watching
+		userWatingSingle.UserWatchingMovie = GetSingleMovie2(movie)
+		userWatingSingle.UserWatchingVal = watching
+
 		userWatching = append(userWatching, userWatingSingle)
 	}
+	// fmt.Println(userWatching)
 	//************************************************************************************************************************************************************************
 
 	//to watch
 	row, err = db.Query("SELECT movieID FROM " + tablename2 + " WHERE idUser= " + strconv.Itoa(idUser) + " AND toWatch = 1")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("bbb")
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
 	}
+	fmt.Println("to watch")
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
 		// var id int
@@ -131,8 +145,12 @@ func SendUserProfile(c *gin.Context) {
 	//watched
 	row, err = db.Query("SELECT movieID FROM " + tablename2 + " WHERE idUser= " + strconv.Itoa(idUser) + " AND watched = 1")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("ccc")
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
 	}
+	fmt.Println("watched")
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
 		// var id int
@@ -157,8 +175,12 @@ func SendUserProfile(c *gin.Context) {
 	//Like
 	row, err = db.Query("SELECT movieID, like FROM " + tablename2 + " WHERE idUser= " + strconv.Itoa(idUser) + " AND Like <> -1")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("ddd")
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
 	}
+	fmt.Println("like")
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
 		// var id int
@@ -174,10 +196,11 @@ func SendUserProfile(c *gin.Context) {
 		// row.Scan(&id, &user, &movie, &like, &watched, &watching, &toWatch, &genre1, &genre2, &genre3)
 		row.Scan(&movie, &like)
 		// log.Println("Users: ", id, " ", user, " ", movie, " ", like, " ", watched, " ", watching, " ", toWatch, " ", genre1, " ", genre2, " ", genre3)
-		userLikeSingle.userLikeMovie = GetSingleMovie2(movie)
-		userLikeSingle.userLikeVal = like
+		userLikeSingle.UserLikeMovie = GetSingleMovie2(movie)
+		userLikeSingle.UserLikeVal = like
 		userLike = append(userLike, userLikeSingle)
 	}
+	// fmt.Println(userLike)
 
 	//************************************************************************************************************************************************************************
 	//************************************************************************************************************************************************************************

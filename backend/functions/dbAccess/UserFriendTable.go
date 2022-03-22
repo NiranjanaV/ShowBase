@@ -73,7 +73,7 @@ func InsertFriendTable(c *gin.Context) {
 		})
 	}
 	log.Println("Inserting student record ...")
-	insertFriendSQL := `INSERT INTO ` + tablename3 + `(idUser, idFriend ) VALUES (?, ?, ?)`
+	insertFriendSQL := `INSERT INTO ` + tablename3 + `(idUser, idFriend ) VALUES (?, ?)`
 	statement, err := db.Prepare(insertFriendSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {

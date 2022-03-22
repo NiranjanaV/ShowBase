@@ -13,6 +13,7 @@ import (
 
 func main2() {
 
+
 	// DM.CreateFriendTable()
 
 }
