@@ -20,23 +20,21 @@ func init() {
 }
 
 //************************************************************************************************************************************************************************
-func GetUserID(usernameStr string) (userIdGet int, errR error) {
+func GetUserName(useridInt int) (error string) {
 	// func InsertUserTable(c *gin.Context) {
-	log.Println("getting user ", usernameStr)
-	row, err := db.Query("SELECT idUser FROM " + D.GetTable(1) + " WHERE username= '" + usernameStr + "'")
+	log.Println("getting user ", useridInt)
+	row, err := db.Query("SELECT username FROM " + D.GetTable(1) + " WHERE userID= '" + strconv.Itoa(useridInt) + "'")
 
 	if err != nil {
 		fmt.Println(err.Error())
-		errR = err
 	}
 	//defer
 	for row.Next() { // Iterate and fetch the records from result cursor
-		var userId string
-		row.Scan(&userId)
+		var usernameRet string
+		row.Scan(&usernameRet)
 		row.Close()
-		fmt.Println(userId)
-		userIdGet, errR = strconv.Atoi(userId)
-		fmt.Println(errR.Error())
+		fmt.Println(usernameRet)
+		error = usernameRet
 	}
 	return
 }
