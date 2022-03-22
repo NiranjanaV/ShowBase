@@ -65,7 +65,7 @@ section {
   position: absolute;
   margin-left: 5px;
   font-size: smaller;
-  background-color: lightgrey;
+  background-color: black;
 }
 .list {
   display: flex;
