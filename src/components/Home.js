@@ -153,10 +153,10 @@ function Home() {
         <div class="contact-item">
           <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
           <div class="contact-info">
-            <h2>srinivasansanjay@ufl.edu</h2>
-            <h2>ni.vasudevan@ufl.edu</h2>
-            <h2>sw.velavan@ufl.edu</h2>
-            <h2>k.iyer@ufl.edu</h2>
+            <a href="mailto:srinivasansanjay@ufl.edu?subject=Mail from ShowBase Website">srinivasansanjay@ufl.edu<br></br></a><br></br>
+            <a href="mailto:ni.vasudevan@ufl.edu?subject=Mail from ShowBase Website">ni.vasudevan@ufl.edu<br></br></a><br></br>
+            <a href="mailto:sw.velavan@ufl.edu?subject=Mail from ShowBase Website">sw.velavan@ufl.edu<br></br></a><br></br>
+            <a href="mailto:k.iyer@ufl.edu?subject=Mail from ShowBase Website">k.iyer@ufl.edu<br></br></a><br></br>
             
           </div>
         </div>
