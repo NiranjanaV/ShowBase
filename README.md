@@ -1,7 +1,10 @@
 # ShowBase
 Software Engineering Project - 2022
 # Team Members
-Niranjana Vasudevan, Sanjay Srinivasan, Swaathi Reena Velavan, Kasiviswanathan Srikant Iyer
+- Niranjana Vasudevan: Frontend
+- Sanjay Srinivasan: Frontend and Backend
+- Swaathi Reena Velavan: Frontend
+- Kasiviswanathan Srikant Iyer: Backend
 # Technology Stack
 FrontEnd: React, Backend: GO
 # Project Description
