@@ -9,7 +9,7 @@ ShowBase website, where we can create account, track the shows we are watching, 
 what they like and dislike watching.
 # Sprint 1
 ## Frontend
-- HomePage which contains 7 buttons - Home, About, Features, Movies & Shows, Completed, Stopped, Contact and Footer.
+- HomePage with content about the website and which contains 7 buttons - Home, About, Features, Movies & Shows, Completed, Stopped, Contact and Footer.
 ## Backend 
 -In GoLang we have managed to call an API functionality which returns a JSON file with nested Json elements and arrays, which have been parsed using unmarshalling.The required data has been repacked (marshalled) and sent to the front end using HTTP request. On running the file, we can observe the local host set port receives the JSON.
 - Sprint 1 Demo Link: https://youtu.be/fNlQOtGbmYA
