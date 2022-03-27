@@ -3,6 +3,10 @@ import movieData from './movie.js'
 import movie22 from './movie22.js'
 import movie21 from './movie21.js'
 import movie20 from './movie20.js'
+import { Link } from 'react-router-dom'
+import "./styles.css";
+
+
 
 
 
@@ -58,8 +62,22 @@ const moviemap = movieData.map(
 
 function MovieProfile(){
     return(
-
+      
         <div>
+
+          <section id="header">
+       <div className="header container">
+    <div className="nav-bar">
+      <div className="brand">
+        <a href="#hero">
+        <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
             <div> <h2 className='head'>2022 Movies</h2> </div>
  <div class='list'>
  {moviemap22}
