@@ -29,7 +29,7 @@ const breakPoints = [
 function UserProfile() {
   return (
     <>
-	<section id="header">
+  <section id="header">
     <div className="header container">
       <div className="nav-bar">
         <div className="brand">
