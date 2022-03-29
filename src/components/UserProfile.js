@@ -34,7 +34,7 @@ function UserProfile() {
       <div className="nav-bar">
         <div className="brand">
           <a href="#hero">
-            <h1><span>S</span>how <span>B</span>ase</h1>
+          <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
           </a>
         </div>
         <div className="nav-list">

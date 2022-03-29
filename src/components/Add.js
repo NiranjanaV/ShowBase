@@ -1,5 +1,7 @@
 import movieData from './movie.js'
+ import "./styles.css";
 import _ from "lodash"
+import { Link } from 'react-router-dom'
 import React, { useState, useRef } from "react";
 
 
@@ -29,9 +31,22 @@ export const Add = () => {
   };
 
   return (
+
     <div className="Add">
+      <section id="header">
+       <div className="header container">
+    <div className="nav-bar">
+      <div className="brand">
+        <a href="#hero">
+        <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
+
       <input
-      type="text"
+      type="text" 
       placeholder="Search for a movie"
         value={searchDataset}
         onChange={(event) => handleInputChange(event.target.value)}
@@ -50,5 +65,3 @@ export const Add = () => {
     </div>
   );
 }
-
-  
