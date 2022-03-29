@@ -3,6 +3,7 @@ import movieData from './movie.js'
 import _ from "lodash"
 import { Link } from 'react-router-dom'
 import React, { useState, useRef } from "react";
+import { ResultCard } from "./ResultCard";
 
 
 
@@ -54,11 +55,15 @@ export const Add = () => {
       {rows.length > 0 && rows.map((r) => {
         return(
           <>
-          <p>{r.Original_title}</p>
-          <div className='image'>
-            <img src={`https://image.tmdb.org/t/p/original${r.Poster_path}`} alt='exp1' className='exp1'>
-              </img></div>
+          <ul className="results">
+              {rows.map((r) => (
+                <li key={r.Id}>
+                  <ResultCard movie={r} />
+                </li>
+              ))}
+            </ul>
           </>
+          
         )
       })
       }
