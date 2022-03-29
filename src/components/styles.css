@@ -760,20 +760,3 @@ a{color : white;}
 .head{
   margin-top: 70px;
 }
-/* Search Bar */
-
-.App {
-  display: flex;
-  justify-content:center;
-  /* align-items: center; */
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.App input{
-  margin-top: 20px;
-  width: 200px;
-  height: 40px;
-  font-size: 30px;
-  padding-left: 20px;
-}
