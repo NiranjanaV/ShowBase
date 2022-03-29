@@ -26,9 +26,11 @@ const breakPoints = [
 
 ];
 
+
 function UserProfile() {
   return (
     <>
+
   <section id="header">
     <div className="header container">
       <div className="nav-bar">
@@ -44,6 +46,8 @@ function UserProfile() {
           <ul>
             <li><a href="#Completed" data-after="Completed">Completed</a></li>
             <li><a href="#Stopped" data-after="Stopped">Stopped</a></li>
+            <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
+            <li><Link to='/UserProfile/watched'>watched</Link></li>
             <li><Link to='/UserProfile/add'>Add</Link></li>
           </ul>
         </div>
