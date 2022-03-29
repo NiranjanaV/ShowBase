@@ -13,6 +13,7 @@ import TopMovieGenre from './components/TopMovieGenre';
 import {GlobalProvider} from './context/GlobalState'
 
 
+
 function App() {
   return (
     <GlobalProvider> 
@@ -31,6 +32,7 @@ function App() {
       <Route path="/UserProfile/watchlist" element={<Watchlist/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
+      
       </Routes>
     </div>
     </GlobalProvider>

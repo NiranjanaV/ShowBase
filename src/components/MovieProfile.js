@@ -1,3 +1,81 @@
+
+import React from 'react';
+import axios from "axios"
+import { useEffect, useState } from "react"
+import MovieSection from './MovieSection';
+
+
+
+
+const MovieProfile = () => {
+  const [HomeMovieData, setHomeMovieData] = useState([]);
+  
+ 
+
+const detailURL ="http://192.168.0.206:8080/top/";
+useEffect(() => {
+  fetchData();
+}, []);
+
+const fetchData = () => {
+  axios
+    .get(detailURL)
+    .then((res) => {
+      console.log(res);
+
+      let temp ;
+      
+      for(var key in res['data']){
+        console.log(key);
+
+       console.log(res['data'][key]);
+
+      
+
+
+       temp = res.data[key].Results.map(
+        (movieData)=>(
+        movieData.Poster_path!=="" ?
+        <div>
+        
+        <MovieSection img={`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`}
+        title={movieData.Original_title}
+        rating={movieData.Vote_average}
+        identifier = {movieData.Id}
+         />
+      
+         </div>
+         :console.log("")
+        ));
+
+        const struct = <div className='list'><h2>Movies</h2>{temp}</div>
+
+        setHomeMovieData(HomeMovieData=>[...HomeMovieData,
+            struct
+         ])
+        
+
+
+        console.log(temp);
+    
+    }
+    
+    
+});
+}
+return (
+    <div>
+      
+      <div>
+     
+      {HomeMovieData}
+      
+      </div>
+    </div>
+  );
+};
+export default MovieProfile;
+/*
 import MovieSection from "./MovieSection";
 import movieData from './movie.js'
 import movie22 from './movie22.js'
@@ -102,3 +180,5 @@ function MovieProfile(){
 }
 
 export default MovieProfile;
+
+*/
