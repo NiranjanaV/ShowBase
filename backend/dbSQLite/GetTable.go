@@ -15,6 +15,8 @@ func GetTable(tablenumber int) (tablename string) {
 		tablename = "friend"
 	} else if tablenumber == 4 {
 		tablename = "share_club"
+	} else if tablenumber == 5 {
+		tablename = "club_movie"
 	}
 
 	return

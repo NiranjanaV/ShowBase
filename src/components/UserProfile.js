@@ -26,15 +26,17 @@ const breakPoints = [
 
 ];
 
+
 function UserProfile() {
   return (
     <>
-	<section id="header">
+
+  <section id="header">
     <div className="header container">
       <div className="nav-bar">
         <div className="brand">
           <a href="#hero">
-            <h1><span>S</span>how <span>B</span>ase</h1>
+          <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
           </a>
         </div>
         <div className="nav-list">
@@ -44,6 +46,8 @@ function UserProfile() {
           <ul>
             <li><a href="#Completed" data-after="Completed">Completed</a></li>
             <li><a href="#Stopped" data-after="Stopped">Stopped</a></li>
+            <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
+            <li><Link to='/UserProfile/watched'>watched</Link></li>
             <li><Link to='/UserProfile/add'>Add</Link></li>
           </ul>
         </div>

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	D "main/dbSQLite"
-	"strconv"
 
 	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"
@@ -20,7 +19,7 @@ func init() {
 }
 
 //************************************************************************************************************************************************************************
-func GetUserID(usernameStr string) (userIdGet int, errR error) {
+func GetUserID(usernameStr string) (userId int, errR error) {
 	// func InsertUserTable(c *gin.Context) {
 	log.Println("getting user ", usernameStr)
 	row, err := db.Query("SELECT idUser FROM " + D.GetTable(1) + " WHERE username= '" + usernameStr + "'")
@@ -31,12 +30,12 @@ func GetUserID(usernameStr string) (userIdGet int, errR error) {
 	}
 	//defer
 	for row.Next() { // Iterate and fetch the records from result cursor
-		var userId string
+		// var userId int
 		row.Scan(&userId)
 		row.Close()
 		fmt.Println(userId)
-		userIdGet, errR = strconv.Atoi(userId)
-		fmt.Println(errR.Error())
+		// userIdGet, errR = strconv.Atoi(userId)
+		// fmt.Println(errR.Error())
 	}
 	return
 }
