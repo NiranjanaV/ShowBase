@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
 }
-
+body {background-color: rgb(41, 40, 40);}
 @import "https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap";
 * {
   padding: 0;
@@ -30,7 +30,7 @@ img {
   object-fit: cover;
 }
 p {
-  color: rgb(0, 0, 0);
+  color: white;
   font-size: 1.4rem;
   margin-top: 5px;
   line-height: 2.5rem;
@@ -41,22 +41,21 @@ p {
 .section-title {
   font-size: 4rem;
   font-weight: 300;
-  color: rgb(10, 9, 9);
+  color: white;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   text-align: center;
 }
 .section-title span {
-  color: rgb(193, 243, 94);
+  color: crimson;
 }
-
 .cta {
   display: inline-block;
   padding: 10px 30px;
-  color: rgb(14, 12, 12);
+  color: white;
   background-color: transparent;
-  border: 2px solid yellowgreen;
+  border: 2px solid crimson;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -65,18 +64,17 @@ p {
   transition-property: background-color, color;
 }
 .cta:hover {
-  color: rgb(8, 8, 8);
-  background-color: yellowgreen;
+  color: white;
+  background-color: crimson;
 }
 .brand h1 {
   font-size: 3rem;
   text-transform: uppercase;
-  color: rgb(20, 15, 15);
+  color: white;
 }
 .brand h1 span {
-  color: yellowgreen;
+  color: crimson;
 }
-
 /* Header section */
 #header {
   position: fixed;
@@ -103,7 +101,7 @@ p {
 #header .nav-list ul {
   list-style: none;
   position: absolute;
-  background-color: rgb(31, 30, 30);
+  background-color: white;
   width: 100vw;
   height: 100vh;
   left: 100%;
@@ -124,7 +122,7 @@ p {
   font-weight: 500;
   letter-spacing: 0.2rem;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: white;
   text-transform: uppercase;
   padding: 20px;
   display: block;
@@ -135,7 +133,7 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  color: rgba(255, 255, 255, 0.021);
+  color: white;
   font-size: 13rem;
   letter-spacing: 50px;
   z-index: -1;
@@ -146,7 +144,7 @@ p {
   letter-spacing: initial;
 }
 #header .nav-list ul li:hover a {
-  color: yellowgreen;
+  color: crimson;
 }
 #header .hamburger {
   height: 60px;
@@ -206,7 +204,6 @@ p {
 
 /* Hero Section */
 #hero {
-  /* background-image: url(./img/hero-bg.png); */
   background-size: cover;
   background-position: top center;
   position: relative;
@@ -219,7 +216,7 @@ p {
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: grey;
+  background-color: black;
   opacity: 0.7;
   z-index: -1;
 }
@@ -254,7 +251,7 @@ p {
   left: 0;
   height: 100%;
   width: 0;
-  background-color: yellowgreen;
+  background-color: crimson;
   animation: text_reveal_box 1s ease;
   animation-delay: 0.5s;
 }
@@ -297,7 +294,6 @@ p {
   flex-direction: column;
   padding: 30px;
   border-radius: 10px;
-  /* background-image: url(./img/img-1.png); */
   background-size: cover;
   margin: 10px 5%;
   position: relative;
@@ -323,7 +319,8 @@ p {
 #services .service-item h2 {
   font-size: 2rem;
   color: white;
-  margin-bottom: 10px;
+  margin-left: 2px;
+  margin-bottom: 5px;
   text-transform: uppercase;
 }
 #services .service-item p {
@@ -366,7 +363,7 @@ p {
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(60deg, #29323c 0%, #29323c 0%);
   color: white;
 }
 #projects .project-info h1 {
@@ -394,7 +391,7 @@ p {
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(60deg, #29323c 0%, #29323c 0%);
   opacity: 0.7;
 }
 #projects .project-img img {
@@ -449,7 +446,7 @@ p {
   top: 19px;
   height: 98%;
   width: 98%;
-  border: 7px solid yellowgreen;
+  border: 7px solid crimson;
   z-index: -1;
 }
 /* End Completed Section */
@@ -479,7 +476,7 @@ p {
   margin-bottom: 20px;
 }
 #Stopped .col-right .cta {
-  color: black;
+  color: white;
   margin-bottom: 50px;
   padding: 10px 20px;
   font-size: 2rem;
@@ -497,7 +494,7 @@ p {
   top: 19px;
   height: 98%;
   width: 98%;
-  border: 7px solid yellowgreen;
+  border: 7px solid crimson;
   z-index: -1;
 }
 /* End Stopped Section */
@@ -510,11 +507,10 @@ p {
   width: 90%;
 }
 #contact .contact-items {
-  /* max-width: 400px; */
   width: 100%;
 }
 #contact .contact-item {
-  width: 80%;
+  width: 60%;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
@@ -524,19 +520,11 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 18px 18px 18px 0 grey;
-  transition: 0.3s ease box-shadow;
+  border-style: inset;
 }
-/* #contact .contact-item:hover {
-	box-shadow: 0px 0px 5px 0 #0000002c;
-}
-#contact .icon {
-	width: 70px;
-	margin: 0 auto;
-	margin-bottom: 10px;
-} */
+
 #contact .contact-info h1 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 500;
   margin-bottom: 5px;
 }
@@ -549,7 +537,7 @@ p {
 
 /* Footer */
 #footer {
-  background-image: linear-gradient(60deg, grey 0%, #485563 100%);
+  background-image: linear-gradient(60deg, black 0%, black 0%);
 }
 #footer .footer {
   min-height: 200px;
@@ -615,12 +603,12 @@ p {
 }
 @keyframes text_reveal_name {
   100% {
-    color: rgb(184, 247, 59);
+    color: crimson;
     font-weight: 500;
   }
 }
 /* End Keyframes */
-
+a{color : white;}
 /* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
   .cta {
@@ -679,7 +667,7 @@ p {
     top: 34px;
     height: 98%;
     width: 98%;
-    border: 10px solid yellowgreen;
+    border: 10px solid crimson;
   }
   #about .col-right {
     text-align: left;
@@ -690,14 +678,6 @@ p {
   }
   /* End About */
 
-  /* contact  */
-  /* #contact .contact {
-		flex-direction: column;
-		padding: 0;
-		align-items: center;
-		justify-content: center;
-		min-width: 20vh;
-	} */
   #contact .contact-items {
     width: 100%;
     padding: 0;
@@ -727,7 +707,6 @@ p {
   }
   /* End contact  */
 }
-/* End Media Query For Tablet */
 
 /* Media Query For Desktop */
 @media only screen and (min-width: 1200px) {
@@ -757,4 +736,27 @@ p {
     flex-basis: 22%;
     margin: 1.5%;
   }
+}
+
+.Add{
+  margin-top: 70px;
+  margin-left: 450px;
+  width: 100%;
+  text-align:center;
+  width: 297px;
+  padding: 15px 0 15px 20px;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  border: 0 none;
+  height: 52px;
+  margin-right: 0;
+  color: white;
+  outline: none;
+  float: left;
+  box-sizing: border-box;
+  transition: all 0.15s;
+}
+
+.head{
+  margin-top: 70px;
 }

@@ -1,8 +1,90 @@
+
+import React from 'react';
+import axios from "axios"
+import { useEffect, useState } from "react"
+import MovieSection from './MovieSection';
+
+
+
+
+const MovieProfile = () => {
+  const [HomeMovieData, setHomeMovieData] = useState([]);
+  
+ 
+
+const detailURL ="http://192.168.0.206:8080/top/";
+useEffect(() => {
+  fetchData();
+}, []);
+
+const fetchData = () => {
+  axios
+    .get(detailURL)
+    .then((res) => {
+      console.log(res);
+
+      let temp ;
+      
+      for(var key in res['data']){
+        console.log(key);
+
+       console.log(res['data'][key]);
+
+      
+
+
+       temp = res.data[key].Results.map(
+        (movieData)=>(
+        movieData.Poster_path!=="" ?
+        <div>
+        
+        <MovieSection img={`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`}
+        title={movieData.Original_title}
+        rating={movieData.Vote_average}
+        identifier = {movieData.Id}
+         />
+      
+         </div>
+         :console.log("")
+        ));
+
+        const struct = <div className='list'><h2>Movies</h2>{temp}</div>
+
+        setHomeMovieData(HomeMovieData=>[...HomeMovieData,
+            struct
+         ])
+        
+
+
+        console.log(temp);
+    
+    }
+    
+    
+});
+}
+return (
+    <div>
+      
+      <div>
+     
+      {HomeMovieData}
+      
+      </div>
+    </div>
+  );
+};
+export default MovieProfile;
+/*
 import MovieSection from "./MovieSection";
 import movieData from './movie.js'
 import movie22 from './movie22.js'
 import movie21 from './movie21.js'
 import movie20 from './movie20.js'
+import { Link } from 'react-router-dom'
+import "./styles.css";
+
+
 
 
 
@@ -58,8 +140,22 @@ const moviemap = movieData.map(
 
 function MovieProfile(){
     return(
-
+      
         <div>
+
+          <section id="header">
+       <div className="header container">
+    <div className="nav-bar">
+      <div className="brand">
+        <a href="#hero">
+        <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
             <div> <h2 className='head'>2022 Movies</h2> </div>
  <div class='list'>
  {moviemap22}
@@ -84,3 +180,5 @@ function MovieProfile(){
 }
 
 export default MovieProfile;
+
+*/

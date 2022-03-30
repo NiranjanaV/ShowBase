@@ -1,6 +1,9 @@
 import movieData from './movie.js'
+ import "./styles.css";
 import _ from "lodash"
+import { Link } from 'react-router-dom'
 import React, { useState, useRef } from "react";
+import { ResultCard } from "./ResultCard";
 
 
 
@@ -29,9 +32,22 @@ export const Add = () => {
   };
 
   return (
+
     <div className="Add">
+      <section id="header">
+       <div className="header container">
+    <div className="nav-bar">
+      <div className="brand">
+        <a href="#hero">
+        <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
+
       <input
-      type="text"
+      type="text" 
       placeholder="Search for a movie"
         value={searchDataset}
         onChange={(event) => handleInputChange(event.target.value)}
@@ -39,16 +55,18 @@ export const Add = () => {
       {rows.length > 0 && rows.map((r) => {
         return(
           <>
-          <p>{r.Original_title}</p>
-          <div className='image'>
-            <img src={`https://image.tmdb.org/t/p/original${r.Poster_path}`} alt='exp1' className='exp1'>
-              </img></div>
+          <ul className="results">
+              {rows.map((r) => (
+                <li key={r.Id}>
+                  <ResultCard movie={r} />
+                </li>
+              ))}
+            </ul>
           </>
+          
         )
       })
       }
     </div>
   );
 }
-
-  
