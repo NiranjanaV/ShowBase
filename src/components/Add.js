@@ -39,10 +39,6 @@ export const Add = () => {
                   <ResultCard movie={movie} />
                 </li>
               ))}
-
-            {/* {setResults.Original_title}  */}
-      
-              ))
             </ul>
       
         </div>
