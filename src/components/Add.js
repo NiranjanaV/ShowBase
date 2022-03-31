@@ -1,39 +1,30 @@
-import movieData from './movie.js'
- import "./styles.css";
-import _ from "lodash"
-import { Link } from 'react-router-dom'
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
 export const Add = () => {
-  const [rows, setRows] = useState(movieData);
-  const [searchDataset, setSearchDataset] = useState("");
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
-  const debounceValue = useRef(
-    _.debounce((searchText) => {
-      requestSearch(searchText);
-    }, 300)
-  );
+  const onChange = (e) => {
+    e.preventDefault();
 
-  const handleInputChange = (val) => {
-    setSearchDataset(val);
-    debounceValue.current(val);
-  };
+    setQuery(e.target.value);
+    console.log(e.target.value)
 
-  const requestSearch = (searchedVal) => {
-    const filteredRows = movieData.filter((row) => {
-      return (
-        row.Original_title.toLowerCase().includes(searchedVal.toLowerCase())
-      );
+     axios.get("http://70.171.43.6:8080/search/"+ e.target.value)
+    .then((response) => {
+      console.log(response.data.Movies.Results)
+      setResults(response.data.Movies.Results);
     });
-    setRows(filteredRows);
   };
 
   return (
-
-    <div className="Add">
+    
+    <div className="add-page">
       <section id="header">
        <div className="header container">
     <div className="nav-bar">
@@ -45,28 +36,27 @@ export const Add = () => {
     </div>
   </div>
   </section>
-
-      <input
-      type="text" 
-      placeholder="Search for a movie"
-        value={searchDataset}
-        onChange={(event) => handleInputChange(event.target.value)}
-      />
-      {rows.length > 0 && rows.map((r) => {
-        return(
-          <>
-          <ul className="results">
-              {rows.map((r) => (
-                <li key={r.Id}>
-                  <ResultCard movie={r} />
+      <div className="container">
+        <div className="add-content">
+          <div className="input-wrapper">
+            <input
+              type="text"
+              placeholder="Search for a movie"
+              value={query}
+              onChange={onChange}
+            />
+          </div>
+        
+            <ul className="results">
+            {results.map((movie) => (
+                <li key={movie.id}>
+                  <ResultCard movie={movie} />
                 </li>
               ))}
             </ul>
-          </>
-          
-        )
-      })
-      }
+      
+        </div>
+      </div>
     </div>
   );
-}
+};

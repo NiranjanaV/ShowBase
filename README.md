@@ -2,7 +2,7 @@
 Software Engineering Project - 2022
 # Team Members
 - Niranjana Vasudevan: Frontend
-- Sanjay Srinivasan: Frontend and Backend
+- Sanjay Srinivasan: Frontend
 - Swaathi Reena Velavan: Frontend
 - Kasiviswanathan Srikant Iyer: Backend
 # Technology Stack
@@ -43,6 +43,12 @@ what they like and dislike watching.
 
 ## FrontEnd
 
+- Added 2 new functionalities: Watched and Watchlist. User can mark the show as Watched or Add it to the Watchlist if they haven't watched the show.
+- Added navigation bar to all pages so that you can redirect to home page from any page on the website.
+- In the contact section, if you click on any mail id, it will redirect you to the Outlook app and autofill the 'To' and 'Subject'
+- Fixed CSS issues: Search bar alignment, About section alignment.
+- 
+  
 ## Backend
 
 
