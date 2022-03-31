@@ -48,7 +48,12 @@ const fetchData = () => {
          :console.log("")
         ));
 
-        const struct = <div className='list'><h2>Movies</h2>{temp}</div>
+        let year = key + " Movies";
+
+
+        console.log(year);
+
+        const struct = <div><h2>{year}</h2><div className='list'>{temp}</div></div>
 
         setHomeMovieData(HomeMovieData=>[...HomeMovieData,
             struct
