@@ -533,6 +533,11 @@ p {
   line-height: 2rem;
   font-weight: 500;
 }
+#contact .contact-info a {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
 /*End contact Section */
 
 /* Footer */

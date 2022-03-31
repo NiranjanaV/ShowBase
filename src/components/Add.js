@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 export const Add = () => {
@@ -21,7 +23,19 @@ export const Add = () => {
   };
 
   return (
+    
     <div className="add-page">
+      <section id="header">
+       <div className="header container">
+    <div className="nav-bar">
+      <div className="brand">
+        <a href="#hero">
+        <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
       <div className="container">
         <div className="add-content">
           <div className="input-wrapper">
