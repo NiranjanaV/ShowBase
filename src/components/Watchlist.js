@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./watch.css";
-import movieData from './movie.js'
+// import movieData from './movie.js'
 import { GlobalContext } from "../context/GlobalState";
 import { MovieCard } from "./MovieCard";
 import { Link } from 'react-router-dom';
