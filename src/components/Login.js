@@ -1,12 +1,31 @@
 import React from 'react';
 import  './login.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react'
 
 
 function Login(){
-    return(
-      
 
+     // states for login 
+     const [user,setUser] = useState('');
+     const [pwd,setPwd] = useState('');
+     const [error,setErrMsg] = useState(' ');
+
+     const[success,setSuccess]= useState(false);
+
+// value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
+ 
+     const handleLoginSubmit = async(e) => {
+     e.preventDefault();
+     console.log(user,pwd);
+     setUser('');
+     setPwd('');
+     setSuccess(true);
+
+     }
+
+
+    return( 
         <div className="login">
       <section id="header">
        <div className="header container">
@@ -20,16 +39,16 @@ function Login(){
   </div>
   </section>
 
-<form>
+<form onSubmit={handleLoginSubmit}>
   
 <h2>Sign in</h2>
   <div class="input-container">
-    <input required type="text" />
+    <input required type="text" onChange={(e)=>setUser(e.target.value)} value ={user} />
     <label>Email</label>
   </div>
   
   <div class="input-container">
-    <input required type="password" />
+    <input required type="password" onChange={(e)=>setPwd(e.target.value)} value ={pwd}/>
     <label>Password</label>
   </div>
   <div class="input-container">
