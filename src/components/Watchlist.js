@@ -1,13 +1,26 @@
 import React, { useContext } from "react";
+import "./watch.css";
 import movieData from './movie.js'
 import { GlobalContext } from "../context/GlobalState";
 import { MovieCard } from "./MovieCard";
+import { Link } from 'react-router-dom';
 
 export const Watchlist = () => {
   const { watchlist } = useContext(GlobalContext);
 
   return (
     <div className="movie-page">
+      <section id="header">
+       <div className="header container">
+    <div className="nav-bar">
+      <div className="brand">
+        <a href="#hero">
+        <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+        </a>
+      </div>
+    </div>
+  </div>
+  </section>
       <div className="container">
         <div className="header">
           <h1 className="heading">My Watchlist</h1>
