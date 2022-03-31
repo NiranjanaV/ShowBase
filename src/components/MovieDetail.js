@@ -26,6 +26,8 @@ function MovieDetail(props){
             async function fetchData() {
               // You can await here
               const resp = await axios.get(detailURL)
+              console.log("hi");
+              console.log(resp);
               return resp;
               /*
               resp.data.movie.url = "https://image.tmdb.org/t/p/original" + resp.data.movie.Poster_path;
