@@ -12,6 +12,7 @@ function SignUp(){
   const handleRegSubmit = async(e) => {
 
     const detailURL ="http://70.171.43.6:8080/userReg/";
+    // reg url 
 
     try{
       e.preventDefault();
