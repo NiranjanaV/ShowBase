@@ -1,12 +1,14 @@
 import React from 'react';
 import  './login.css';
+import axios from "axios"
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
-
+import { useState, useContext } from 'react'
+import AuthContext from '../context/AuthProvider';
 
 function Login(){
 
      // states for login 
+     const {setAuth} = useContext(AuthContext);
      const [user,setUser] = useState('');
      const [pwd,setPwd] = useState('');
      const [error,setErrMsg] = useState(' ');
@@ -16,16 +18,51 @@ function Login(){
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
      const handleLoginSubmit = async(e) => {
-     e.preventDefault();
-     console.log(user,pwd);
-     setUser('');
-     setPwd('');
-     setSuccess(true);
+
+      const detailURL ="http://192.168.0.206:8080/authenticateUser/";
+
+      try{
+        e.preventDefault();
+
+        const response = await axios.put(detailURL,
+          JSON.stringify({Username: user,Password: pwd})
+          // ,
+          // {
+          // headers:{'Content-type':'application/json'},
+          // withCredentials:true
+          // }
+        );
+
+        console.log(JSON.stringify(response));
+        setAuth(user,pwd);
+        setUser('');
+        setPwd('');
+        console.log(user,pwd);
+        setSuccess(true);
+
+      }
+      catch{
+
+        console.log("error");
+
+      }
+    
 
      }
 
 
-    return( 
+    return(
+      <>
+
+      {success ? (
+
+      <div className="login">
+        <h1> You are logged in. </h1>
+        </div>
+
+
+      ):(
+
         <div className="login">
       <section id="header">
        <div className="header container">
@@ -58,8 +95,11 @@ function Login(){
 </form>
 
 </div>
+)}
+</>
 
     )
+    
 }
 
 export default Login;
