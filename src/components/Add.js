@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import {ip} from './global.js'
 
 
 export const Add = () => {
@@ -15,7 +15,7 @@ export const Add = () => {
     setQuery(e.target.value);
     console.log(e.target.value)
 
-     axios.get("http://70.171.43.6:8080/search/"+ e.target.value)
+     axios.get("http://"+ip+":8080/search/"+ e.target.value)
     .then((response) => {
       console.log(response.data.Movies.Results)
       setResults(response.data.Movies.Results);

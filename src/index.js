@@ -6,6 +6,7 @@ import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 
 
+
   
 
 ReactDOM.render(
@@ -20,7 +21,7 @@ ReactDOM.render(
 // Sample Integration Between front end and back end
 
 // {
-// const URL ="http://192.168.0.206:8080";
+// const URL ="http://"+ip+":8080";
 // getData();
 
 // function getData(){

@@ -4,10 +4,12 @@ import './index.css';
 import App from './src/App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
+import {ip} from './global.js'
+
 
 {
   getData();
-  const URL ="192.168.0.206:8080";
+  const URL =ip+":8080";
   function getData(){
     console.log("in get function");
   fetch(URL + '/articles').then(response => 

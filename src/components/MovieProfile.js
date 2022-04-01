@@ -3,6 +3,7 @@ import React from 'react';
 import axios from "axios"
 import { useEffect, useState } from "react"
 import MovieSection from './MovieSection';
+import {ip} from './global.js'
 
 
 
@@ -10,9 +11,8 @@ import MovieSection from './MovieSection';
 const MovieProfile = () => {
   const [HomeMovieData, setHomeMovieData] = useState([]);
   
- 
 
-const detailURL ="http://192.168.0.206:8080/top/";
+const detailURL ="http://"+ip+":8080/top/";
 useEffect(() => {
   fetchData();
 }, []);
@@ -28,12 +28,12 @@ const fetchData = () => {
       for(var key in res['data']){
         console.log(key);
 
-       console.log(res['data'][key]);
+        console.log(res['data'][key]);
 
       
 
 
-       temp = res.data[key].Results.map(
+        temp = res.data[key].Results.map(
         (movieData)=>(
         movieData.Poster_path!=="" ?
         <div>
@@ -42,10 +42,10 @@ const fetchData = () => {
         title={movieData.Original_title}
         rating={movieData.Vote_average}
         identifier = {movieData.Id}
-         />
+        />
       
-         </div>
-         :console.log("")
+        </div>
+        :console.log("")
         ));
 
         let year = key + " Movies";
@@ -57,7 +57,7 @@ const fetchData = () => {
 
         setHomeMovieData(HomeMovieData=>[...HomeMovieData,
             struct
-         ])
+        ])
         
 
 

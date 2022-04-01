@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import axios from "axios"
 import { useEffect, useState } from "react"
 import MovieSection from './MovieSection';
-
+import {ip} from './global.js'
 
 const TopMovieGenre = () => {
   const [genreSpecificMovies, setgenreSpecificMovies] = useState([]);
@@ -11,7 +11,7 @@ const TopMovieGenre = () => {
   const { from } = location.state
   console.log(from);
 
-const detailURL ="http://192.168.0.206:8080/getMovie/"+from;
+const detailURL ="http://"+ip+":8080/getMovie/"+from;
 useEffect(() => {
   fetchData();
 }, []);

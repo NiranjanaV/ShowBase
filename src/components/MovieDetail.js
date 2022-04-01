@@ -3,6 +3,7 @@ import axios from "axios"
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import  './movieDetail.css';
+import {ip} from './global.js'
 
 import { Link } from 'react-router-dom'
 
@@ -17,7 +18,7 @@ function MovieDetail(props){
      const { from } = location.state
      console.log(from);
 
-  const detailURL ="http://192.168.0.206:8080/getMovie/"+from;
+  const detailURL ="http://"+ip+":8080/getMovie/"+from;
    console.log(detailURL);
 
 
@@ -68,7 +69,8 @@ function MovieDetail(props){
          setMovieData(resp.data.movie)
    
    console.log(resp.data);
-  console.log(resp.data.movie);
+   console.log(resp.data.movie);
+                
 
        };
           

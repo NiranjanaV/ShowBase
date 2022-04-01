@@ -3,3 +3,4 @@
 /golang-sqlite
 /golang-sqlit*
 golang-sqlite/
+!src/.env
