@@ -19,7 +19,7 @@ function Login(){
  
      const handleLoginSubmit = async(e) => {
 
-      const detailURL ="http://192.168.0.206:8080/authenticateUser/";
+      const detailURL ="http://70.171.43.6:8080/authenticateUser/";
 
       try{
         e.preventDefault();
