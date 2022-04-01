@@ -7,6 +7,11 @@ Software Engineering Project - 2022
 - Kasiviswanathan Srikant Iyer: Backend
 # Technology Stack
 FrontEnd: React, Backend: GO
+
+## Run these commands before building the React App
+- npm install --save moment
+- npm install font-awesome --save
+
 # Project Description
 ShowBase website, where we can create account, track the shows we are watching, add likes and dislikes, follow friends and see what shows they are watching, 
 what they like and dislike watching.
@@ -47,7 +52,9 @@ what they like and dislike watching.
 - Added navigation bar to all pages so that you can redirect to home page from any page on the website.
 - In the contact section, if you click on any mail id, it will redirect you to the Outlook app and autofill the 'To' and 'Subject'
 - Fixed CSS issues: Search bar alignment, About section alignment.
-- 
+- New UI color changes
+- Removed Completed and Stopped and replaced it with Watched, Watchlist and Add.
+
   
 ## Backend
 
