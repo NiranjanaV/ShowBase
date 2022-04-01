@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import 'font-awesome/css/font-awesome.min.css';
 import { GlobalContext } from "../context/GlobalState";
 
 export const MovieControls = ({ type, movie }) => {
