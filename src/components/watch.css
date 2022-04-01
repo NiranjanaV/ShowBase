@@ -168,7 +168,7 @@ header .nav-links li:last-child {
 
 .result-card .info .title {
   font-size: 1.25rem;
-  color: var(--primary);
+  color: white;
   font-weight: 600;
   margin: 0;
 }

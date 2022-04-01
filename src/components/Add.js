@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
 import axios from 'axios';
+import "./styles.css";
 import { Link } from 'react-router-dom';
 
 
@@ -33,9 +34,19 @@ export const Add = () => {
         <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
         </a>
       </div>
+      <div className="nav-list">
+          <div className="hamburger">
+            <div className="bar"></div>
+          </div>
+          <ul>
+            <li><Link to='/UserProfile/watched'>watched</Link></li>
+            <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
+          </ul>
+        </div>
     </div>
   </div>
   </section>
+
       <div className="container">
         <div className="add-content">
           <div className="input-wrapper">

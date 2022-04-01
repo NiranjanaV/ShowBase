@@ -19,9 +19,28 @@ export const Watched = () => {
         <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
         </a>
       </div>
+      <div className="nav-list">
+          <div className="hamburger">
+            <div className="bar"></div>
+          </div>
+          <ul>
+            <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
+            <li><Link to='/UserProfile/add'>Add</Link></li>
+          </ul>
+        </div>
     </div>
   </div>
   </section>
+
+    <div className="services container2">
+      <div className="service-top">
+      <h1 className="section-title"><span>W</span>atched</h1>
+        <p>Add your favorite movies to Watched and Watchlist Section!</p>
+      </div>
+      <div className="service-bottom">
+      </div>
+    </div>
+  
       <div className="container">
         <div className="header">
           <h1 className="heading">Watched Movies</h1>

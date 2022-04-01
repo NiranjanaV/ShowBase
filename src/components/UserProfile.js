@@ -1,15 +1,10 @@
 import React from "react";
-// import Item from "./Item";
 import "./styles.css";
 import AddmovieIcon from "./addmovie.png"
 import WatchedIcon from "./watching.jpg"
 import WatchlistIcon from "./Watchlist.png"
 
 import { Link } from 'react-router-dom'
-// import { Watched } from "./Watched";
-// import { Add } from "./Add";
-// import { Watchlist } from "./Watchlist";
-
 function UserProfile() {
   return (
     <>
@@ -40,23 +35,23 @@ function UserProfile() {
     <div className="services container">
       <div className="service-top">
       <h1 className="section-title"><span>P</span>rofile</h1>
-        <p>ShowBase provides these and so much more</p>
+        <p>Add your favorite movies to Watched and Watchlist Section!</p>
       </div>
       <div className="service-bottom">
         <div className="service-item">
-          <div className="icon"><img src={WatchedIcon} /></div>
+          <div className="icon"><Link to='/UserProfile/watched'><img src={WatchedIcon} /></Link></div>
           <h2><Link to='/UserProfile/watched'>watched</Link></h2>
-          <p> shows and movies you love</p>
+          <p> Track the movies that you have completed</p>
         </div>
         <div className="service-item">
-          <div className="icon"><img src={WatchlistIcon} /></div>
-          <h2>Watchlist</h2>
-          <p> add movies or shows that you want to watch</p>
+          <div className="icon"><Link to='/UserProfile/Watchlist'><img src={WatchlistIcon} /></Link></div>
+          <h2><Link to='/UserProfile/Watchlist'>Watchlist</Link></h2>
+          <p> The movies that you want to watch</p>
         </div>
         <div className="service-item">
-          <div className="icon"><img src={AddmovieIcon} /></div>
-          <h2>Add</h2>
-          <p> it with your friends and family</p>
+          <div className="icon"><Link to='/UserProfile/Add'><img src={AddmovieIcon} /></Link></div>
+          <h2><Link to='/UserProfile/Add'>Add</Link></h2>
+          <p> Add movies to your Watchlist and Watched</p>
         </div>
       </div>
     </div>
