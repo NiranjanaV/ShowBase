@@ -1,8 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios"
+import { useState } from 'react'
 
 
 function SignUp(){
+
+  const [user,setUser] = useState('');
+  const [pwd,setPwd] = useState('');
+
+  const handleRegSubmit = async(e) => {
+
+    const detailURL ="http://70.171.43.6:8080/userReg/";
+    // reg url 
+
+    try{
+      e.preventDefault();
+      console.log(user,pwd);
+
+      const response = await axios.put(detailURL,
+        JSON.stringify({Username: user,Password: pwd})
+        // ,
+        // {
+        // headers:{'Content-type':'application/json'},
+        // withCredentials:true
+        // }
+      );
+
+      console.log(JSON.stringify(response));
+      //setAuth(user,pwd);
+      setUser('');
+      setPwd('');
+     
+     // setSuccess(true);
+     console.log("registered");
+
+    }
+    catch{
+
+      console.log("error");
+
+    }
+  
+
+   }
+
+
 
     return(
         <div className="login">
@@ -17,15 +60,15 @@ function SignUp(){
     </div>
   </div>
   </section>
-        <form>
+        <form  onSubmit={handleRegSubmit}>
         <h2>Sign up to ShowBase</h2>
           <div class="input-container">
-            <input required type="text" />
+            <input required type="text" onChange={(e)=>setUser(e.target.value)} value ={user}/>
             <label>Email</label>
           </div>
           
           <div class="input-container">
-            <input required type="password" />
+            <input required type="password"  onChange={(e)=>setPwd(e.target.value)} value ={pwd}/>
             <label>Password</label>
           </div>
 
