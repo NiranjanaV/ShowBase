@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.0",
+    "cypress": "^9.5.3",
     "dotenv": "^16.0.0",
     "font-awesome": "^4.7.0",
     "fs-extra": "^10.0.1",
