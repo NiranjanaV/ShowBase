@@ -41,7 +41,7 @@ func InsertAuthTable(c *gin.Context) {
 	var msg string
 	var db = D.GetDB()
 	var tablename = D.GetTable(1)
-	fmt.Println("aaaaaaaaaaaaaaaa", db.Ping())
+	// fmt.Println("aaaaaaaaaaaaaaaa", db.Ping())
 
 	type UserAuthJson struct {
 		Username string `json:"username"`
@@ -61,11 +61,12 @@ func InsertAuthTable(c *gin.Context) {
 	//checking if user exists
 	row, err := db.Query("SELECT COUNT(*) FROM " + tablename + " WHERE USERNAME = '" + userAuthJson.Username + "'")
 	if err != nil {
+		fmt.Print("User check issue exists")
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
 	}
-	defer row.Close()
+
 	for row.Next() { // Iterate and fetch the records from result cursor
 		var count int
 		row.Scan(&count)
@@ -74,6 +75,9 @@ func InsertAuthTable(c *gin.Context) {
 				"error": "User already exists, try another",
 			})
 		} else {
+			row.Close()
+			fmt.Print("Insertion Step")
+
 			insertStudentSQL := `INSERT INTO ` + tablename + ` (username, password) VALUES (?, ?)`
 
 			statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
@@ -88,11 +92,15 @@ func InsertAuthTable(c *gin.Context) {
 			hash, _ := bcrypt.GenerateFromPassword([]byte(userAuthJson.Password), bcrypt.DefaultCost)
 			_, err = statement.Exec(userAuthJson.Username, hash)
 			if err != nil {
+				fmt.Print("Error inserting", err.Error())
+
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
 			} else {
 				msg = "inserted"
+				fmt.Print("inserted")
+
 			}
 			c.JSON(http.StatusOK, gin.H{
 				"Return": msg,
@@ -108,6 +116,8 @@ func InsertAuthTable(c *gin.Context) {
 
 func GetPassForUser(c *gin.Context) {
 	var auth int
+	fmt.Println("get1")
+
 	type UserAuthJson struct {
 		Username string `json:"username"`
 		Password string `json:"password"`
@@ -121,7 +131,7 @@ func GetPassForUser(c *gin.Context) {
 		return
 	}
 
-	fmt.Println("get")
+	fmt.Println("get2")
 	row, err := db.Query("SELECT * FROM " + tablename + " WHERE USERNAME = '" + userAuthJson.Username + "'")
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
