@@ -21,6 +21,7 @@ function App() {
     
     <div className="App">
       <Routes>
+        
       <Route path="/" element={<Home/>} />
       <Route path="/MovieProfile" element={<MovieProfile/>} />
       <Route path="/MovieDetail" element={<MovieDetail/>} />
