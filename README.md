@@ -62,4 +62,8 @@ what they like and dislike watching.
   
 ## Backend
 
+- When we search for movies, the data comes from backend database.
+- searchMovie.go. This API is used to search the movie database for a particular movie.
+- Example response:
+- <img width="1440" alt="Backend - search " src="https://user-images.githubusercontent.com/30584808/161364893-487cf506-03c9-44bd-9314-1e0236156bc9.png">
 
