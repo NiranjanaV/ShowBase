@@ -58,6 +58,15 @@ what they like and dislike watching.
 - New UI color changes
 - Removed Completed and Stopped and replaced it with Watched, Watchlist and Add.
 
+### Cypress testing
+- To run the Functional tests, we run the following command -
+
+     npx cypress open  
+- We have done it for Home page and Profile page. 
+- In Home page it checks if all buttons and links are working properly
+- In profile page it checks if it searches for a movie correctly and checks the working of buttons and links in watched and watchlist page.
+![cypressTest-sprint3](https://user-images.githubusercontent.com/30584808/161365272-eda7d2c2-4ac9-45bf-b4e3-726eb416aac5.gif)
+
 
   
 ## Backend
