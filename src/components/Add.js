@@ -26,6 +26,14 @@ export const Add = () => {
   return (
     
     <div className="add-page">
+          <div className="services container2">
+      <div className="service-top">
+      <h1 className="section-title"><span>A</span>dd</h1>
+        <p>Add your favorite movies from the Search bar!</p>
+      </div>
+      <div className="service-bottom">
+      </div>
+    </div>
       <section id="header">
        <div className="header container">
     <div className="nav-bar">

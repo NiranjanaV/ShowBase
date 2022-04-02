@@ -13,7 +13,6 @@ import TopMovieGenre from './components/TopMovieGenre';
 import {GlobalProvider} from './context/GlobalState'
 
 
-
 function App() {
   return (
     <GlobalProvider> 
@@ -21,6 +20,7 @@ function App() {
     
     <div className="App">
       <Routes>
+
       <Route path="/" element={<Home/>} />
       <Route path="/MovieProfile" element={<MovieProfile/>} />
       <Route path="/MovieDetail" element={<MovieDetail/>} />
