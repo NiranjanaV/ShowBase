@@ -70,9 +70,18 @@ what they like and dislike watching.
 
   
 ## Backend
+![Requests](https://user-images.githubusercontent.com/96463545/161365623-15853c7a-fd6c-4af3-a11d-4d3fafd2740e.gif)
 
 - When we search for movies, the data comes from backend database.
+- Returned all the movies of a genra.
+- All the required tables created.
+- Friend table concept introduced to socialise between people and to increase the functionalites to include group selection.
+- Login functionality bugs hammered out.
 - searchMovie.go. This API is used to search the movie database for a particular movie.
 - Example response:
 - <img width="1440" alt="Backend - search " src="https://user-images.githubusercontent.com/30584808/161364893-487cf506-03c9-44bd-9314-1e0236156bc9.png">
+
+### Go testing
+![GoTest-sprint3](https://user-images.githubusercontent.com/96463545/161365605-764ee7b9-7be0-47fc-82ea-aab9260a58b6.gif)
+
 
