@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios"
 import { useState } from 'react'
+import {ip} from './global.js'
 
 
 function SignUp(){
@@ -11,7 +12,7 @@ function SignUp(){
 
   const handleRegSubmit = async(e) => {
 
-    const detailURL ="http://70.171.43.6:8080/userReg/";
+    const detailURL ="http://"+ip+":8080/userReg/";
     // reg url 
 
     try{
