@@ -25,7 +25,7 @@ a {
   justify-content: center;
 }
 .container2 {
-  min-height: 40vh;
+  min-height: 20vh;
   width: 100%;
   display: flex;
   align-items: center;

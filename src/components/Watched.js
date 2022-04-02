@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import "./watch.css";
-import movieData from './movie.js'
 import { GlobalContext } from "../context/GlobalState";
 import { MovieCard } from "./MovieCard";
 import { Link } from 'react-router-dom';
+
 
 
 export const Watched = () => {
   const { watched } = useContext(GlobalContext);
 
   return (
-    <div className="movie-page">
+    <div className="moviespage">
       <section id="header">
        <div className="header container">
     <div className="nav-bar">
@@ -57,7 +57,7 @@ export const Watched = () => {
             ))}
           </div>
         ) : (
-          <h2 className="no-movies">No movies in your list! Add some!</h2>
+          <h2 className="no-movies">Add watched movies here!</h2>
         )}
       </div>
     </div>
