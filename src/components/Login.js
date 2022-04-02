@@ -4,6 +4,7 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
+import {ip} from './global.js'
 
 function Login(){
 
@@ -19,7 +20,7 @@ function Login(){
  
      const handleLoginSubmit = async(e) => {
 
-      const detailURL ="http://70.171.43.6:8080/authenticateUser/";
+      const detailURL ="http://"+ip+":8080/authenticateUser/";
 
       try{
         e.preventDefault();

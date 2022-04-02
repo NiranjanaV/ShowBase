@@ -43,10 +43,10 @@ func Search(c *gin.Context) {
 	}
 
 	json.Unmarshal([]byte(responseData), &api)
-	fmt.Println(api)
+	// fmt.Println(api)
 
-	pages, _ := json.Marshal(api.Total_pages)
-	fmt.Println(string(pages))
+	// pages, _ := json.Marshal(api.Total_pages)
+	// fmt.Println(string(pages))
 
 	c.JSON(http.StatusOK, gin.H{
 		"Movies": api,
