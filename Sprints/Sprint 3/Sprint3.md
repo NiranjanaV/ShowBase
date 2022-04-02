@@ -32,12 +32,20 @@ Frontend: https://drive.google.com/file/d/1Ro08UHd2lYhPnxCM3SlkoNE0um4CVjr0/view
 - Added 2 new functionalities: Watched and Watchlist. User can mark the show as Watched or Add it to the Watchlist if they haven't watched the show.
 - ![Profile_Frontend](https://user-images.githubusercontent.com/71694219/161363186-007ecc70-a188-46fa-868a-6dd785ec4c22.gif)
 - Added navigation bar to all pages so that you can redirect to home page from any page on the website.
-![Navigation](https://user-images.githubusercontent.com/71694219/161363191-682758a0-1c28-49fa-9371-027223683cb8.gif)
+-![Navigation](https://user-images.githubusercontent.com/71694219/161363191-682758a0-1c28-49fa-9371-027223683cb8.gif)
 - In the contact section, if you click on any mail id, it will redirect you to the Outlook app and autofill the 'To' and 'Subject'.
 - ![mail](https://user-images.githubusercontent.com/71694219/161364702-a1237799-5938-4fcc-a8df-630d63502f73.gif)
 - Fixed CSS issues: Search bar alignment, About section alignment.
 - New UI color changes
 - Removed Completed and Stopped and replaced it with Watched, Watchlist and Add.
+
+### cypress testing
+- To run the Functional tests, we run the following command -
+
+     npx cypress open  
+- We have done it for Home page and Profile page. 
+- In Home page it checks if all buttons and links are working properly
+- In profile page it checks if it searches for a movie correctly and checks the working of buttons and links in watched and watchlist page.
 
 
   
