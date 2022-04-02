@@ -27,10 +27,24 @@ database.
 ### Video Links
 Frontend: https://drive.google.com/file/d/1Ro08UHd2lYhPnxCM3SlkoNE0um4CVjr0/view?usp=sharing
 
-# Frontend
+## FrontEnd
 
-Added 2 new functionalities: Watched and Watchlist. Users can mark the show as Watched or Add it to the Watchlist if they haven't watched the show.
+- Added 2 new functionalities: Watched and Watchlist. User can mark the show as Watched or Add it to the Watchlist if they haven't watched the show.
+- ![Profile_Frontend](https://user-images.githubusercontent.com/71694219/161363186-007ecc70-a188-46fa-868a-6dd785ec4c22.gif)
+- Added navigation bar to all pages so that you can redirect to home page from any page on the website.
+![Navigation](https://user-images.githubusercontent.com/71694219/161363191-682758a0-1c28-49fa-9371-027223683cb8.gif)
+- In the contact section, if you click on any mail id, it will redirect you to the Outlook app and autofill the 'To' and 'Subject'.
+- ![mail](https://user-images.githubusercontent.com/71694219/161364702-a1237799-5938-4fcc-a8df-630d63502f73.gif)
+- Fixed CSS issues: Search bar alignment, About section alignment.
+- New UI color changes
+- Removed Completed and Stopped and replaced it with Watched, Watchlist and Add.
 
-Added navigation bar to all pages so that you can redirect to the home page from any page on the website.
 
-In the contact section, if you click on any mail id, it will redirect you to the Outlook app and autofill the 'To' and 'Subject'
+  
+## Backend
+
+- When we search for movies, the data comes from backend database.
+- searchMovie.go. This API is used to search the movie database for a particular movie.
+- Example response:
+- <img width="1440" alt="Backend - search " src="https://user-images.githubusercontent.com/30584808/161364893-487cf506-03c9-44bd-9314-1e0236156bc9.png">
+
