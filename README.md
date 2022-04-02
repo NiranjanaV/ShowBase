@@ -49,11 +49,14 @@ what they like and dislike watching.
 ## FrontEnd
 
 - Added 2 new functionalities: Watched and Watchlist. User can mark the show as Watched or Add it to the Watchlist if they haven't watched the show.
+- ![Profile_Frontend](https://user-images.githubusercontent.com/71694219/161363186-007ecc70-a188-46fa-868a-6dd785ec4c22.gif)
 - Added navigation bar to all pages so that you can redirect to home page from any page on the website.
+![Navigation](https://user-images.githubusercontent.com/71694219/161363191-682758a0-1c28-49fa-9371-027223683cb8.gif)
 - In the contact section, if you click on any mail id, it will redirect you to the Outlook app and autofill the 'To' and 'Subject'
 - Fixed CSS issues: Search bar alignment, About section alignment.
 - New UI color changes
 - Removed Completed and Stopped and replaced it with Watched, Watchlist and Add.
+
 
   
 ## Backend
