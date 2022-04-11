@@ -26,7 +26,7 @@ func init() {
 
 //************************************************************************************************************************************************************************
 func CreateUserTable() {
-	createUserTableSQL := `CREATE TABLE user (
+	createUserTableSQL := `CREATE TABLE user3 (
 		"idLike" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
 		"idUser" integer NOT NULL,
 		"movieID" integer NOT NULL,
@@ -38,10 +38,10 @@ func CreateUserTable() {
 		"genre2" integer DEFAULT -1,
 		"genre3" integer DEFAULT -1,
 		FOREIGN KEY (idUser) REFERENCES user_auth(idUser),
-		CHECK (watching>=0 AND watching <=100 AND
-			like>=0 AND like <=10 AND
-			watched IN (0,1,NULL) AND
-			toWatch IN (0,1,NULL) 
+		CHECK (watching>=-1 AND watching <=100 AND
+			like>=-1 AND like <=10 AND
+			watched IN (-1,0,1,NULL) AND
+			toWatch IN (-1,0,1,NULL) 
 		)
 
 	  );` // SQL Statement for Create User Table
@@ -59,6 +59,7 @@ func CreateUserTable() {
 // We are passing db reference connection from main to our method with other parameters
 // func InsertUserTable(db *sql.DB, tablename string, user int, movie int, action int, value int) (error string) {
 func InsertUserTable(c *gin.Context) {
+	fmt.Printf("    in         dd")
 	var msg string
 	type UserLikeJson struct {
 		Username string `json:"username"`
@@ -69,8 +70,9 @@ func InsertUserTable(c *gin.Context) {
 	userLikeJson := UserLikeJson{}
 	err := c.ShouldBindJSON(&userLikeJson)
 	if err != nil {
+		fmt.Println("error", err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "incorrect parameters, password should be between 8 to 20 chars",
+			"error": "fffffffffffffffffffff",
 		})
 		return
 	}
@@ -80,6 +82,8 @@ func InsertUserTable(c *gin.Context) {
 	action := userLikeJson.Action
 	value := userLikeJson.Value
 
+	fmt.Println(userLikeJson.Username, strconv.Itoa(movie), strconv.Itoa(action), strconv.Itoa(value))
+	// fmt.Println(userLikeJson.Username)
 	log.Println("Inserting student record ...")
 	insertUserSQL := `INSERT INTO ` + tablename2 + `(idUser, movieID, like ) VALUES (?, ?, ?)`
 
@@ -129,13 +133,14 @@ func InsertUserTable(c *gin.Context) {
 
 		} else {
 			//Code to get genre *****************************************************************************************************************************
-
+			fmt.Println("gengengengengengengengengengengengengengengengengen")
 			gen := I.GetGenre(movie)
 			fmt.Println(gen)
 
 			//Code to get genre end *************************************************************************************************************************
 
 			if action == 1 {
+				fmt.Println("action as like aaaaaaaaaaaaaaaaaaaaaaaaaa")
 				insertUserSQL = `INSERT INTO ` + tablename2 + `( like, idUser, movieID, genre1, genre2, genre3 ) VALUES (?, ?, ?, ?, ?, ?)`
 			} else if action == 2 {
 				insertUserSQL = `INSERT INTO ` + tablename2 + `( watched, idUser, movieID, genre1, genre2, genre3 ) VALUES (?, ?, ?, ?, ?, ?)`
@@ -144,20 +149,25 @@ func InsertUserTable(c *gin.Context) {
 			} else if action == 4 {
 				insertUserSQL = `INSERT INTO ` + tablename2 + `( toWatch, idUser, movieID,  genre1, genre2, genre3 ) VALUES (?, ?, ?, ?, ?, ?)`
 			} else {
+				fmt.Println("Insert command", err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": "Invalid Action",
 				})
 			}
+			// fmt.Println(db.Prepare(insertUserSQL))
 			statement, err := db.Prepare(insertUserSQL) // Prepare statement.
 			// This is good to avoid SQL injections
 			if err != nil {
+				fmt.Println("SQL Injection: ", err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
 			}
 
-			_, err = statement.Exec(value, user, movie, gen[0], gen[1], gen[2])
+			sqlresult, err := statement.Exec(value, user, movie, gen[0], gen[1], gen[2])
+			fmt.Println(sqlresult)
 			if err != nil {
+				fmt.Println("Executing statement : ", err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
