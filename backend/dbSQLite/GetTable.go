@@ -10,7 +10,7 @@ func GetTable(tablenumber int) (tablename string) {
 	if tablenumber == 1 {
 		tablename = "user_auth"
 	} else if tablenumber == 2 {
-		tablename = "user"
+		tablename = "user3"
 	} else if tablenumber == 3 {
 		tablename = "friend"
 	} else if tablenumber == 4 {

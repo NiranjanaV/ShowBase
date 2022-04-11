@@ -54,7 +54,7 @@ func GetGenre(movieID int) (gen []int) {
 		json.Unmarshal([]byte(genres), &g)
 		gen[i] = g
 	}
-	fmt.Println(gen)
+	// fmt.Println(gen)
 
 	return
 }
