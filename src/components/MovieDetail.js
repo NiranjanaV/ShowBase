@@ -92,6 +92,7 @@ function MovieDetail(props){
   </div>
   <h4>{moviedetails.Overview}</h4>
 <div class='genre'>{moviedetails.genremap}</div>
+<div className="caption">ShowBase Rating : <span className='bold'>{moviedetails.Vote_average}</span><span className='grey'>/10</span></div>
 <Rating movie={from} />
   
   {similarMovieName}
