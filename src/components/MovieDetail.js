@@ -6,6 +6,8 @@ import  './movieDetail.css';
 import {ip} from './global.js'
 
 import { Link } from 'react-router-dom'
+import Rating from './Rating';
+
 
 function MovieDetail(props){
 
@@ -85,19 +87,22 @@ function MovieDetail(props){
 <div className="col">
     <div className="row">
   <h1>{moviedetails.Title}</h1>
+
  
   </div>
   <h4>{moviedetails.Overview}</h4>
 <div class='genre'>{moviedetails.genremap}</div>
+<Rating movie={from} />
   
   {similarMovieName}
  
   </div>
 
 
-   
+
    
     </div>
+  
 </div>
     )
 }

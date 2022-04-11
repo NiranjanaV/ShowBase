@@ -59,3 +59,16 @@ html {
 .expdetail {
   padding: 10px;
 }
+.rating-stars {
+  padding: 10px;
+  cursor: pointer;
+  transition: color 200ms;
+}
+input[type="radio"] {
+  display: none;
+}
+
+.caption {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
