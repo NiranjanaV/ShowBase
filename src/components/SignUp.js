@@ -61,7 +61,7 @@ function SignUp(){
     </div>
   </div>
   </section>
-        <form  onSubmit={handleRegSubmit}>
+        <form className='login-form'  onSubmit={handleRegSubmit}>
         <h2>Sign up to ShowBase</h2>
           <div class="input-container">
             <input required type="text" onChange={(e)=>setUser(e.target.value)} value ={user}/>

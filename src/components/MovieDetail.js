@@ -7,7 +7,8 @@ import {ip} from './global.js'
 
 import { Link } from 'react-router-dom'
 import Rating from './Rating';
-
+import UserWatched from './user-watched';
+import ToWatch from './user-to-watch';
 
 function MovieDetail(props){
 
@@ -94,7 +95,8 @@ function MovieDetail(props){
 <div class='genre'>{moviedetails.genremap}</div>
 <div className="caption">ShowBase Rating : <span className='bold'>{moviedetails.Vote_average}</span><span className='grey'>/10</span></div>
 <Rating movie={from} />
-  
+<UserWatched movie={from} />
+<ToWatch movie={from} />
   {similarMovieName}
  
   </div>
