@@ -72,3 +72,10 @@ input[type="radio"] {
   margin-bottom: 15px;
   font-size: 18px;
 }
+.bold {
+  font-weight: bold;
+  color: white;
+}
+.grey {
+  color: silver;
+}

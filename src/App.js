@@ -11,7 +11,7 @@ import {Route,Routes} from 'react-router-dom';
 import MovieDetail from './components/MovieDetail';
 import TopMovieGenre from './components/TopMovieGenre';
 import {GlobalProvider} from './context/GlobalState';
-import Rating from './components/Rating';
+
 
 
 function App() {
@@ -33,8 +33,7 @@ function App() {
       <Route path="/UserProfile/watchlist" element={<Watchlist/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
-      <Route path="/rating" element={<Rating/>} />
-      
+     
       </Routes>
     </div>
     </GlobalProvider>

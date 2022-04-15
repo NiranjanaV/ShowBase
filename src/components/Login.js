@@ -77,7 +77,7 @@ function Login(){
   </div>
   </section>
 
-<form onSubmit={handleLoginSubmit}>
+<form className='login-form' onSubmit={handleLoginSubmit}>
   
 <h2>Sign in</h2>
   <div class="input-container">

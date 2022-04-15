@@ -18,7 +18,7 @@ h2 {
   color: white;
 }
 
-form {
+.login-form {
   background-color: rgba(0, 0, 0, 0.75);
   width: 400px;
   height: 500px;
