@@ -32,6 +32,7 @@ func main() {
 	r.GET("/displayPass", DM.DisplayAuthTable)
 	r.PUT("/authenticateUser", DM.GetPassForUser)
 	r.GET("/getMovie/:movie", A.GetMovie)
+	r.GET("/getMovieOfUser/:movie/:username", A.GetMovieOfUser)
 	r.GET("/userLikes/:username", DM.GetUserTable)
 	r.PUT("/updateUserLike", DM.InsertUserTable)
 	r.GET("/displayLike", DM.DisplayUserTable)

@@ -1,11 +1,13 @@
 package tables
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	D "main/dbSQLite"
-	I "main/functions/APIcalls"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -53,6 +55,75 @@ func CreateUserTable() {
 	}
 	statement.Exec() // Execute SQL Statements
 	log.Println("user table created")
+}
+
+//************************************************************************************************************************************************************************
+
+// type FilmId struct {
+// 	Poster_path       string
+// 	Adult             bool
+// 	Overview          string
+// 	Release_date      string
+// 	Genres            []Genre
+// 	Id                int32
+// 	Original_title    string
+// 	Original_language string
+// 	Vote_average      float32
+// 	Title             string
+// 	Backdrop_path     string
+// 	Popularity        float64
+// 	Vote_count        int32
+// 	Video             bool
+// }
+
+// type Genre struct {
+// 	Id   int32
+// 	Name string
+// }
+
+var filmId FilmId
+
+var genr []Genre
+
+func init() {
+
+	err := godotenv.Load("go.env")
+
+	if err != nil {
+		log.Fatal("6 Error loading .env file" + err.Error())
+	}
+}
+
+func GetGenre2(movieID int) (gen []int) {
+
+	response, err := http.Get("https://api.themoviedb.org/3/movie/" + strconv.Itoa(movieID) + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
+
+	if err != nil {
+		fmt.Print(err.Error())
+		os.Exit(1)
+	}
+
+	responseData, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	json.Unmarshal([]byte(responseData), &filmId)
+
+	data, _ := json.Marshal(filmId.Genres)
+
+	json.Unmarshal([]byte(data), &genr)
+
+	gen = []int{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+	for i, s := range genr {
+		var g int
+		genres, _ := json.Marshal(s.Id)
+		json.Unmarshal([]byte(genres), &g)
+		gen[i] = g
+	}
+	// fmt.Println(gen)
+
+	return
 }
 
 //************************************************************************************************************************************************************************
@@ -134,7 +205,7 @@ func InsertUserTable(c *gin.Context) {
 		} else {
 			//Code to get genre *****************************************************************************************************************************
 			fmt.Println("gengengengengengengengengengengengengengengengengen")
-			gen := I.GetGenre(movie)
+			gen := GetGenre2(movie)
 			fmt.Println(gen)
 
 			//Code to get genre end *************************************************************************************************************************
@@ -259,3 +330,66 @@ func DisplayUserTable(c *gin.Context) {
 }
 
 //************************************************************************************************************************************************************************
+
+type UserPref struct {
+	Id       int
+	User     int
+	Movie    int
+	Like     int
+	Watched  int
+	Watching int
+	ToWatch  int
+	Genre1   int
+	Genre2   int
+	Genre3   int
+}
+
+var userPref UserPref
+
+func DisplayUsersMovie(user int, movie int) UserPref {
+	fmt.Println("get user and his movie")
+	row, err := db.Query("SELECT COUNT(*) FROM " + tablename2 + " WHERE idUser='" + strconv.Itoa(user) + "' AND movieID='" + strconv.Itoa(movie) + "'ORDER BY idUser")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer row.Close()
+
+	// var slice = make([]int, 0, 10)
+	var count int
+	for row.Next() { // Iterate and fetch the records from result cursor
+		row.Scan(&count)
+		if count == 1 {
+			row, err := db.Query("SELECT * FROM " + tablename2 + " WHERE idUser='" + strconv.Itoa(user) + "' AND movieID='" + strconv.Itoa(movie) + "'ORDER BY idUser")
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer row.Close()
+			for row.Next() { // Iterate and fetch the records from result cursor
+
+				var id int
+				var user int
+				var movie int
+				var like int
+				var watched int
+				var watching int
+				var toWatch int
+				var genre1 int
+				var genre2 int
+				var genre3 int
+
+				row.Scan(&id, &user, &movie, &like, &watched, &watching, &toWatch, &genre1, &genre2, &genre3)
+				userPref.Id = id
+				userPref.User = movie
+				userPref.Movie = user
+				userPref.Like = like
+				userPref.Watched = watched
+				userPref.Watching = watching
+				userPref.ToWatch = toWatch
+				userPref.Genre1 = genre1
+				userPref.Genre2 = genre2
+				userPref.Genre3 = genre3
+			}
+		}
+	}
+	return userPref
+}
