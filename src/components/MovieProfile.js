@@ -4,12 +4,16 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import MovieSection from './MovieSection';
 import {ip} from './global.js'
-
+import { useContext } from "react";
+import AuthContext from "../context/AuthProvider";
 
 
 
 const MovieProfile = () => {
   const [HomeMovieData, setHomeMovieData] = useState([]);
+
+  const { setAuth } = useContext(AuthContext);
+  console.log(setAuth);
   
 
 const detailURL ="http://"+ip+":8080/top/";

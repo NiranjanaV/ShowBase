@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
 import {ip} from './global.js'
+import {FaCheck} from "react-icons/fa"
 
 function UserWatched(props){
 
@@ -61,7 +62,11 @@ function UserWatched(props){
 <form onSubmit={userWatched}>
   
   <div class="input-container">
-    <input type="submit" value="I watched this!" />
+ 
+
+    <button type="submit"><FaCheck/> Watched it? </button>
+
+   
   </div>
   
 </form>
