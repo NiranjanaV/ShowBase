@@ -128,3 +128,30 @@ input[type="submit"]:active {
   border: solid transparent;
   border-width: 0 0 0px 0;
 }
+
+button[type="submit"] {
+  cursor: pointer;
+  margin: auto;
+  width: 100%;
+
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.25em;
+  padding: 10px 0;
+
+  border-width: 0 0 4px 0;
+
+  outline: none;
+}
+button {
+  border-radius: 0.5rem;
+}
+button[type="submit"]:hover {
+  background: #ceead6;
+  border: solid black;
+  border-width: 0 0 4px 0;
+}
+button[type="submit"]:active {
+  background: #ceead6;
+  border: solid transparent;
+  border-width: 0 0 0px 0;
+}

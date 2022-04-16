@@ -12,13 +12,15 @@ function Friends({friend}){
      console.log(id);
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
-     const fr = async(e) => {
+  const fr = async(e) => {
+    console.log(e);
+    
     const detailURL ="http://"+ip+":8080/putFriends/"
     //setWatched(1);
       try{
         e.preventDefault();
-
-        const response = await axios.get(detailURL,
+      
+        const response = await axios.put(detailURL,
           JSON.stringify({username:"Srikant",
           friendname:"Swaathi"
       })

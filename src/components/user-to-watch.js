@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
 import {ip} from './global.js'
+import { FaRegBookmark } from 'react-icons/fa';
 
 function ToWatch(props){
 
@@ -61,7 +62,7 @@ function ToWatch(props){
 <form onSubmit={ToWatch}>
   
   <div class="input-container">
-    <input type="submit" value="Add to Watch List" />
+  <button type="submit"><FaRegBookmark/>  Watchlist </button>
   </div>
   
 </form>
