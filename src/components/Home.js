@@ -41,7 +41,7 @@ function Home() {
             <li><a href="#hero" data-after="Home" >Home</a></li>
             <li><a href="#services" data-after="Service">About</a></li>
             <li><Link to='/MovieProfile'>Movies & Shows</Link></li>
-            <li><Link to='/UserProfile'>Profile</Link></li>
+            <li><Link to='/UserProfile'>Account</Link></li>
             <li><Link to='/login'>Sign in</Link></li>
 
           </ul>
