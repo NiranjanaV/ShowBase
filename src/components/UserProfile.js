@@ -25,7 +25,7 @@ function UserProfile() {
             <li><Link to='/UserProfile/watched'>watched</Link></li>
             <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
             <li><Link to='/UserProfile/add'>Add</Link></li>
-            <li><Link to='/UserProfile/profile'>ProfilePage</Link></li>
+            <li><Link to='/UserProfile/profile'>Profile</Link></li>
           </ul>
         </div>
       </div>
