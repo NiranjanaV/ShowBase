@@ -10,10 +10,11 @@ import { Watched } from './components/Watched';
 import {Route,Routes} from 'react-router-dom';
 import MovieDetail from './components/MovieDetail';
 import ProfilePage from './components/ProfilePage';
+import SearchProfile from './components/SearchProfile';
 import TopMovieGenre from './components/TopMovieGenre';
 import {GlobalProvider} from './context/GlobalState';
 import UserWatchedList from './components/user-watch-list';
-
+import DisplayFriends from './components/displayFriends'
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
       <Route path="/UserProfile/watched" element={<Watched/>} />
       <Route path="/UserProfile/watchlist" element={<Watchlist/>} />
       <Route path="/UserProfile/profile" element={<ProfilePage/>} />
+      <Route path="/UserProfile/profile/searchUser" element={<SearchProfile/>} />
+      <Route path="/UserProfile/profile/displayFriends" element={<DisplayFriends/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/watchedlist" element={<UserWatchedList/>} />
