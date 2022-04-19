@@ -54,7 +54,6 @@ return (
     <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
     </a>
   </div>
-  
 </div>
 </div>
 </section>
