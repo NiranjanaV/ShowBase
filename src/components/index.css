@@ -67,6 +67,7 @@ section {
   font-size: smaller;
   background-color: black;
 }
+
 .list {
   display: flex;
   overflow-x: auto;
