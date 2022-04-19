@@ -24,6 +24,10 @@ a {
   align-items: center;
   justify-content: center;
 }
+.section-content{
+  margin-top: 50px;
+}
+
 .container2 {
   min-height: 20vh;
   width: 100%;

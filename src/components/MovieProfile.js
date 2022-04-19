@@ -6,6 +6,7 @@ import MovieSection from './MovieSection';
 import {ip} from './global.js'
 import { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
+import { Link } from 'react-router-dom'
 
 
 
@@ -73,8 +74,18 @@ const fetchData = () => {
 });
 }
 return (
-    <div>
-      
+        <div className="moviespage">
+  <section id="header">
+   <div className="header container">
+<div className="nav-bar">
+  <div className="brand">
+    <a href="#hero">
+    <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+    </a>
+  </div>
+</div>
+</div>
+</section>
       <div>
      
       {HomeMovieData}
