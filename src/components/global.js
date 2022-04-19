@@ -3,4 +3,3 @@ const ip='192.168.0.206'
 
 export {ip}
 
-

@@ -3,7 +3,10 @@ import { ResultCard } from "./ResultCard";
 import axios from 'axios';
 import "./styles.css";
 import { Link } from 'react-router-dom';
-import {ip} from './global.js'
+import {ip} from './global.js';
+import Result from './Result';
+import MovieSection from "./MovieSection";
+
 
 
 export const Add = () => {
@@ -69,7 +72,7 @@ export const Add = () => {
             <ul className="results">
             {results.map((movie) => (
                 <li key={movie.id}>
-                  <ResultCard movie={movie} />
+                  <MovieSection props={movie} />
                 </li>
               ))}
             </ul>

@@ -6,7 +6,8 @@ import MovieSection from './MovieSection';
 import {ip} from './global.js'
 import { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -74,6 +75,10 @@ const fetchData = () => {
 });
 }
 return (
+    <div>
+      <div class="input-container">
+  <button type="submit"><li><Link to='/UserProfile/add'>Search for Movies & Shows</Link></li> </button>
+  </div>
         <div className="moviespage">
   <section id="header">
    <div className="header container">
