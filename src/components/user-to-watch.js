@@ -14,6 +14,8 @@ function ToWatch(props){
      //const [watched,setWatched] = useState('');
      const id = props.movie;
 
+     console.log("towatch color " +props.Tcolor);
+
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
      const ToWatch = async(e) => {
@@ -62,7 +64,7 @@ function ToWatch(props){
 <form onSubmit={ToWatch}>
   
   <div class="input-container">
-  <button type="submit"><FaRegBookmark/>  Watchlist </button>
+  <button style={{backgroundColor: props.Tcolor}} type="submit"><FaRegBookmark/>  Watchlist </button>
   </div>
   
 </form>

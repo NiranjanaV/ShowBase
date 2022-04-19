@@ -10,13 +10,15 @@ const Rating = (props) =>{
 
    const [vote,setVote] = useState('');
    const [hover,setHover] = useState('');
-
+   
+   const prev = props.prev;
+   console.log(prev);
 
     const handleVoteSubmit = async(val) => {
 
         console.log(val);
         setVote(val);
-        console.log(vote);
+        
 
 
         const detailURL ="http://"+ip+":8080/updateUserLike/"
@@ -57,7 +59,7 @@ const Rating = (props) =>{
                 return(
             <label>
             <input type="radio" name="rating" onChange={()=>handleVoteSubmit(ratingValue)} value={ratingValue}/>
-            <FaStar className="rating-stars" color={ratingValue<= (hover || vote) ? "#ffc107": "#e4e5e9" } size={38} onMouseEnter={()=>setHover(ratingValue)} onMouseLeave={()=>setHover(null)}/>
+            <FaStar className="rating-stars" color={ratingValue<= (hover || vote || prev) ? "#ffc107": "#e4e5e9"  } size={38} onMouseEnter={()=>setHover(ratingValue)} onMouseLeave={()=>setHover(null)}/>
             </label>
                 );
             })}

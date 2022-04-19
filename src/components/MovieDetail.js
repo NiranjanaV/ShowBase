@@ -14,6 +14,10 @@ function MovieDetail(props){
 
 
     const [moviedetails, setMovieData] = useState([]);
+    const [watchedcolor, setWatchedColor] = useState([]);
+    const [towatch, setToWatchColor] = useState([]);
+    const [prev, setRate] = useState([]);
+
     var similarMovieName='';
    
 
@@ -21,7 +25,10 @@ function MovieDetail(props){
      const { from } = location.state
      console.log(from);
 
-  const detailURL ="http://"+ip+":8080/getMovie/"+from;
+     const user = "Srikant";
+
+     let val;
+   const detailURL ="http://"+ip+":8080/getMovieOfUser/"+from+"/"+user;
    console.log(detailURL);
 
 
@@ -29,7 +36,7 @@ function MovieDetail(props){
         useEffect(() => {
             async function fetchData() {
               // You can await here
-              const resp = await axios.get(detailURL)
+              const resp = await axios.get(detailURL) 
               console.log("hi");
               console.log(resp);
               return resp;
@@ -70,9 +77,22 @@ function MovieDetail(props){
         //var similarMovies = resp.data.Genres.map(genre=>resp.data.genre.Name);
         //console.log(similarMovies);
          setMovieData(resp.data.movie)
-   
+   setRate(resp.data.user.Like);
    console.log(resp.data);
    console.log(resp.data.movie);
+   console.log(resp.data.user.Watched);
+   console.log(resp.data.user.Like)
+   if(resp.data.user.Watched==1){
+     setWatchedColor( "#ceead6");
+     console.log("inside if");
+   }else{
+     setWatchedColor("white");
+   }
+   if(resp.data.user.ToWatch == 1){
+    setToWatchColor( "#ceead6");
+  }else{
+    setToWatchColor("white");
+  }
                 
 
        };
@@ -94,9 +114,9 @@ function MovieDetail(props){
   <h4>{moviedetails.Overview}</h4>
 <div class='genre'>{moviedetails.genremap}</div>
 <div className="caption">ShowBase Rating : <span className='bold'>{moviedetails.Vote_average}</span><span className='grey'>/10</span></div>
-<Rating movie={from} />
-<UserWatched movie={from} />
-<ToWatch movie={from} />
+<Rating movie={from} prev={prev}/>
+<UserWatched movie={from} Wcolor={watchedcolor}/>
+<ToWatch movie={from} Tcolor={towatch} />
   {similarMovieName}
  
   </div>
