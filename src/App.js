@@ -14,7 +14,10 @@ import SearchProfile from './components/SearchProfile';
 import TopMovieGenre from './components/TopMovieGenre';
 import {GlobalProvider} from './context/GlobalState';
 import UserWatchedList from './components/user-watch-list';
-import DisplayFriends from './components/displayFriends'
+import DisplayFriends from './components/displayFriends';
+import {FriendsWatched} from './components/FriendsWatched';
+import {FriendsWatchlist} from './components/FriendsWatchlist';
+
 
 
 function App() {
@@ -37,9 +40,12 @@ function App() {
       <Route path="/UserProfile/profile" element={<ProfilePage/>} />
       <Route path="/UserProfile/profile/searchUser" element={<SearchProfile/>} />
       <Route path="/UserProfile/profile/displayFriends" element={<DisplayFriends/>} />
+      <Route path="/UserProfile/profile/FriendsWatched" element={<FriendsWatched/>} />
+      <Route path="/UserProfile/profile/FriendsWatchlist" element={<FriendsWatchlist/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/watchedlist" element={<UserWatchedList/>} />
+      
      
       </Routes>
     </div>

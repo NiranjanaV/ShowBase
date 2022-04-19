@@ -4,11 +4,13 @@ import axios from "axios"
 import "./watch.css";
 import {ip} from './global.js'
 
-function Friends({friend}){
+// Add Friends Functionality
+// When we click button add friend button, users friend table will updated in the database 
+function Friends({profile}){
 
      // states for login 
      //const [watched,setWatched] = useState('');
-     const id = friend;
+     const id = profile.Name;
      console.log(id);
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
@@ -22,7 +24,7 @@ function Friends({friend}){
       
         const response = await axios.put(detailURL,
           JSON.stringify({username:"Srikant",
-          friendname:"Swaathi"
+          friendname:id
       })
 
         );
@@ -38,20 +40,35 @@ function Friends({friend}){
 
 
     return(
-        <div>
 
-<form onSubmit={fr}>
-  
-  <div class="input-container">
-    <input type="submit" value="Add friend" />
-  </div>
-  
-</form>
- 
+      <div className="add">
 
-
-    </div>
+<button
+            className="button"
+            onClick={fr}
+          >
+            Add 
+          </button>
+      
+      {/* <div className="container">
+         <div className="add-content">
+          <div className="input-wrapper">
+             
+           </div>
+        
+            <ul className="results">
+            {results.map((movie) => (
+                 <li key={movie.id}>
+                   <ResultCard movie={movie} />
+                </li>
+              ))}
+             </ul>
+      
+         </div>
+       </div> */}
+       </div>
     
+
     )  
 }
 export default Friends;
