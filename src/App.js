@@ -18,8 +18,6 @@ import DisplayFriends from './components/displayFriends';
 import {FriendsWatched} from './components/FriendsWatched';
 import {FriendsWatchlist} from './components/FriendsWatchlist';
 
-
-
 function App() {
   return (
     <GlobalProvider> 

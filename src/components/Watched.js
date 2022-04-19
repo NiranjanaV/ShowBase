@@ -5,8 +5,8 @@ import { useEffect, useState } from "react"
 import MovieSection from './MovieSection';
 import {ip} from './global.js'
 import './index.css';
-
-
+import "./watch.css";
+import { Link } from 'react-router-dom';
 
 
 export const Watched = () => {
@@ -41,16 +41,24 @@ const fetchData = () => {
          setWatchedMovieData(WatchedMovieData=>[...WatchedMovieData,
              struct
          ])
-
-        
-    
     }
-   
-    
 });
 }
 return (
-    <div>
+  <div className="moviespage">
+  <section id="header">
+   <div className="header container">
+<div className="nav-bar">
+  <div className="brand">
+    <a href="#hero">
+    <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+    </a>
+  </div>
+  
+</div>
+</div>
+</section>
+    <div class='section-content'>
       <h2>The movies you have watched and rated..</h2>
       <br/>
       <br/>
@@ -58,6 +66,7 @@ return (
      
       {WatchedMovieData}
       
+      </div>
       </div>
     </div>
   );
@@ -78,27 +87,27 @@ return (
 //   const { watched } = useContext(GlobalContext);
 
 //   return (
-//     <div className="moviespage">
-//       <section id="header">
-//        <div className="header container">
-//     <div className="nav-bar">
-//       <div className="brand">
-//         <a href="#hero">
-//         <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
-//         </a>
-//       </div>
-//       <div className="nav-list">
-//           <div className="hamburger">
-//             <div className="bar"></div>
-//           </div>
-//           <ul>
-//             <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
-//             <li><Link to='/UserProfile/add'>Add</Link></li>
-//           </ul>
-//         </div>
-//     </div>
-//   </div>
-//   </section>
+  //   <div className="moviespage">
+  //     <section id="header">
+  //      <div className="header container">
+  //   <div className="nav-bar">
+  //     <div className="brand">
+  //       <a href="#hero">
+  //       <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+  //       </a>
+  //     </div>
+  //     <div className="nav-list">
+  //         <div className="hamburger">
+  //           <div className="bar"></div>
+  //         </div>
+  //         <ul>
+  //           <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
+  //           <li><Link to='/UserProfile/add'>Add</Link></li>
+  //         </ul>
+  //       </div>
+  //   </div>
+  // </div>
+  // </section>
 
 //     <div className="services container2">
 //       <div className="service-top">

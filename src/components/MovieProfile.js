@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const MovieProfile = () => {
   const [HomeMovieData, setHomeMovieData] = useState([]);
 
@@ -78,7 +79,18 @@ return (
       <div class="input-container">
   <button type="submit"><li><Link to='/UserProfile/add'>Search for Movies & Shows</Link></li> </button>
   </div>
-    
+        <div className="moviespage">
+  <section id="header">
+   <div className="header container">
+<div className="nav-bar">
+  <div className="brand">
+    <a href="#hero">
+    <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+    </a>
+  </div>
+</div>
+</div>
+</section>
       <div>
      
       {HomeMovieData}

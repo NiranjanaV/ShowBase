@@ -49,7 +49,8 @@ function Friends({profile}){
           >
             Add 
           </button>
-      
+
+
       {/* <div className="container">
          <div className="add-content">
           <div className="input-wrapper">

@@ -14,6 +14,8 @@ function UserWatched(props){
      //const [watched,setWatched] = useState('');
      const id = props.movie;
 
+     console.log(props.Wcolor);
+
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
      const userWatched = async(e) => {
@@ -64,7 +66,7 @@ function UserWatched(props){
   <div class="input-container">
  
 
-    <button type="submit"><FaCheck/> Watched it? </button>
+    <button style={{backgroundColor: props.Wcolor}} type="submit"><FaCheck/> Watched it? </button>
 
    
   </div>
