@@ -185,6 +185,10 @@ func GetMovieOfUser(c *gin.Context) {
 	// username := c.Param("username")
 	idUser, _ := DM.GetUserID(c.Param("username"))
 
+	movieIDnum, _ := strconv.Atoi(movieID)
+	fmt.Println(movieIDnum)
+	userPref := DM.DisplayUsersMovie(idUser, movieIDnum)
+
 	response, err := http.Get("https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
 
 	if err != nil {
@@ -198,8 +202,6 @@ func GetMovieOfUser(c *gin.Context) {
 	}
 
 	json.Unmarshal([]byte(responseData), &filmId)
-	movieIDnum, _ := strconv.Atoi(movieID)
-	userPref := DM.DisplayUsersMovie(idUser, movieIDnum)
 
 	if len(filmId.Genres) == 0 {
 		c.JSON(http.StatusOK, gin.H{

@@ -379,8 +379,8 @@ func DisplayUsersMovie(user int, movie int) UserPref {
 
 				row.Scan(&id, &user, &movie, &like, &watched, &watching, &toWatch, &genre1, &genre2, &genre3)
 				userPref.Id = id
-				userPref.User = movie
-				userPref.Movie = user
+				userPref.User = user
+				userPref.Movie = movie
 				userPref.Like = like
 				userPref.Watched = watched
 				userPref.Watching = watching

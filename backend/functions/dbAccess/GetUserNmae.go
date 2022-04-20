@@ -20,10 +20,10 @@ func init() {
 }
 
 //************************************************************************************************************************************************************************
-func GetUserName(useridInt int) (error string) {
+func GetUserName(useridInt int) (name string) {
 	// func InsertUserTable(c *gin.Context) {
 	log.Println("getting user ", useridInt)
-	row, err := db.Query("SELECT username FROM " + D.GetTable(1) + " WHERE userID= '" + strconv.Itoa(useridInt) + "'")
+	row, err := db.Query("SELECT username FROM " + D.GetTable(1) + " WHERE idUser= '" + strconv.Itoa(useridInt) + "'")
 
 	if err != nil {
 		fmt.Println(err.Error())
@@ -34,7 +34,7 @@ func GetUserName(useridInt int) (error string) {
 		row.Scan(&usernameRet)
 		row.Close()
 		fmt.Println(usernameRet)
-		error = usernameRet
+		name = usernameRet
 	}
 	return
 }
