@@ -84,7 +84,29 @@ what they like and dislike watching.
 ### Go testing
 ![GoTest-sprint3](https://user-images.githubusercontent.com/96463545/161365605-764ee7b9-7be0-47fc-82ea-aab9260a58b6.gif)
 
+### APIs Created in 3rd sprint
+#### 1. Search API
+#### 2. Top movies API
+#### 3. Search with page number API
+#### 4. Register user API
+#### 5. Display authentication table API
+#### 6. authenticate user API
+#### 7. Get a movie API
+
+
 # Sprint 4 
 
 ### Go Testing 
 ![TestingSprit4](https://user-images.githubusercontent.com/96463545/164143017-b6e13d12-be9e-474f-a65f-5cc2768b684e.gif)
+
+### APIs Created in 4th sprint
+#### 9. Get users rating of movies API
+#### 10. Save user preference of a movie API
+#### 11. Display every users movie rating API
+#### 12. Display movies of a genre API
+#### 13. Display movies of a genre with page numberAPI
+#### 14. Display a user's profile numberAPI
+#### 15. Adding friends to an user API
+#### 16. Displaying friends of a user API
+#### 17. Showing all friends of every user API
+#### 18. Returns a list of all the users whos name start with the given input API
