@@ -3,9 +3,11 @@ import "./styles.css";
 import AddmovieIcon from "./addmovie.png"
 import WatchedIcon from "./watching.jpg"
 import WatchlistIcon from "./Watchlist.png"
+import useAuth from "../hooks/useAuth";
 
 import { Link } from 'react-router-dom'
 function UserProfile() {
+  const { auth } = useAuth();
   return (
     <>
 
@@ -35,7 +37,7 @@ function UserProfile() {
   <section id="services">
     <div className="services container">
       <div className="service-top">
-      <h1 className="section-title"><span>P</span>rofile</h1>
+      <h1 className="section-title"><span>{auth.user.charAt(0)}</span>{auth.user.substring(1,auth.user.length)}'s <span>P</span>rofile</h1>
         <p>Add your favorite movies to Watched and Watchlist Section!</p>
       </div>
       <div className="service-bottom">

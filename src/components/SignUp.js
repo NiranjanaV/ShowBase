@@ -65,7 +65,7 @@ function SignUp(){
         <h2>Sign up to ShowBase</h2>
           <div class="input-container">
             <input required type="text" onChange={(e)=>setUser(e.target.value)} value ={user}/>
-            <label>Email</label>
+            <label>Username</label>
           </div>
           
           <div class="input-container">
