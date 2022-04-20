@@ -26,36 +26,36 @@ import (
 // 	// toWatch := 1
 
 // 	// Create DB****************************************************************************************
-// 	// fmt.Println("Create db")
+// 	// //fmt.Println("Create db")
 // 	// O.CreateDB()
 
 // 	// Create Table ************************************************************************************
 
-// 	// fmt.Println("Create table")
+// 	// //fmt.Println("Create table")
 // 	// O.CreateUserTable(sqliteDatabase, tablename) // Create Database Tables
 
 // 	// INSERT RECORDS*****************************************************************************************
 // 	error := InsertUserTable(sqliteDatabase, tablename, user, movie, 1, like)
 // 	if error != "None" {
-// 		fmt.Println("Error inserting " + error)
+// 		//fmt.Println("Error inserting " + error)
 // 	}
 
 // 	error = InsertUserTable(sqliteDatabase, tablename, user, movie, 2, like)
 // 	if error != "None" {
-// 		fmt.Println("Error inserting " + error)
+// 		//fmt.Println("Error inserting " + error)
 // 	}
 
 // 	error = InsertUserTable(sqliteDatabase, tablename, 2, movie, 4, like)
 // 	if error != "None" {
-// 		fmt.Println("Error inserting " + error)
+// 		//fmt.Println("Error inserting " + error)
 // 	}
 
 // 	// get user RECORDS*****************************************************************************************
-// 	fmt.Println("get user 1")
+// 	//fmt.Println("get user 1")
 // 	userstring := GetUserTable(sqliteDatabase, tablename, user)
-// 	fmt.Println("STRING IN MAIN : " + userstring)
+// 	//fmt.Println("STRING IN MAIN : " + userstring)
 
 // 	// DISPLAY INSERTED RECORDS*****************************************************************************************
-// 	fmt.Println("display")
+// 	//fmt.Println("display")
 // 	DisplayUserTable(sqliteDatabase, tablename)
 // }

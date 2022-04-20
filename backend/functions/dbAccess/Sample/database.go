@@ -19,17 +19,17 @@ import (
 // 	// database = sqliteDatabase
 // 	var tablename = "user_auth"
 
-// 	// fmt.Println("Create db")
+// 	// //fmt.Println("Create db")
 // 	// O.CreateDB()
 
-// 	fmt.Println("Create table")
+// 	//fmt.Println("Create table")
 // 	CreateTable(sqliteDatabase, tablename) // Create Database Tables
 
 // 	// INSERT RECORDS
-// 	fmt.Println("insert")
+// 	//fmt.Println("insert")
 // 	InsertStudent(sqliteDatabase, tablename, "1", "username", "password")
 
 // 	// DISPLAY INSERTED RECORDS
-// 	fmt.Println("display")
+// 	//fmt.Println("display")
 // 	DisplayStudents(sqliteDatabase, tablename)
 // }

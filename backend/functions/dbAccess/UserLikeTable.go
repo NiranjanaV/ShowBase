@@ -2,9 +2,7 @@ package tables
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
-	"log"
 	D "main/dbSQLite"
 	"net/http"
 	"os"
@@ -22,7 +20,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("1 Error loading .env file" + err.Error())
+		//fmt.Println("1 Error loading .env file" + err.Error())
 	}
 }
 
@@ -48,13 +46,13 @@ func CreateUserTable() {
 
 	  );` // SQL Statement for Create User Table
 
-	log.Println("Create user table...")
+	//log.Println("Create user table...")
 	statement, err := db.Prepare(createUserTableSQL) // Prepare SQL Statement
 	if err != nil {
-		log.Fatal(err.Error())
+		//fmt.Println(err.Error())
 	}
 	statement.Exec() // Execute SQL Statements
-	log.Println("user table created")
+	//log.Println("user table created")
 }
 
 //************************************************************************************************************************************************************************
@@ -90,7 +88,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("6 Error loading .env file" + err.Error())
+		//fmt.Println("6 Error loading .env file" + err.Error())
 	}
 }
 
@@ -99,13 +97,13 @@ func GetGenre2(movieID int) (gen []int) {
 	response, err := http.Get("https://api.themoviedb.org/3/movie/" + strconv.Itoa(movieID) + "?api_key=" + os.Getenv("Twilio_api_key") + "&language=en-US")
 
 	if err != nil {
-		fmt.Print(err.Error())
+		//fmt.Print(err.Error())
 		os.Exit(1)
 	}
 
 	responseData, err := ioutil.ReadAll(response.Body)
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 
 	json.Unmarshal([]byte(responseData), &filmId)
@@ -121,7 +119,7 @@ func GetGenre2(movieID int) (gen []int) {
 		json.Unmarshal([]byte(genres), &g)
 		gen[i] = g
 	}
-	// fmt.Println(gen)
+	// //fmt.Println(gen)
 
 	return
 }
@@ -130,7 +128,7 @@ func GetGenre2(movieID int) (gen []int) {
 // We are passing db reference connection from main to our method with other parameters
 // func InsertUserTable(db *sql.DB, tablename string, user int, movie int, action int, value int) (error string) {
 func InsertUserTable(c *gin.Context) {
-	fmt.Printf("    in         dd")
+	//fmt.Printf("    in         dd")
 	var msg string
 	type UserLikeJson struct {
 		Username string `json:"username"`
@@ -141,7 +139,7 @@ func InsertUserTable(c *gin.Context) {
 	userLikeJson := UserLikeJson{}
 	err := c.ShouldBindJSON(&userLikeJson)
 	if err != nil {
-		fmt.Println("error", err.Error())
+		//fmt.Println("error", err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "fffffffffffffffffffff",
 		})
@@ -153,25 +151,25 @@ func InsertUserTable(c *gin.Context) {
 	action := userLikeJson.Action
 	value := userLikeJson.Value
 
-	fmt.Println(userLikeJson.Username, strconv.Itoa(movie), strconv.Itoa(action), strconv.Itoa(value))
-	// fmt.Println(userLikeJson.Username)
-	log.Println("Inserting student record ...")
+	//fmt.Println(userLikeJson.Username, strconv.Itoa(movie), strconv.Itoa(action), strconv.Itoa(value))
+	// //fmt.Println(userLikeJson.Username)
+	//log.Println("Inserting student record ...")
 	insertUserSQL := `INSERT INTO ` + tablename2 + `(idUser, movieID, like ) VALUES (?, ?, ?)`
 
-	fmt.Println("get")
+	//fmt.Println("get")
 	row, err := db.Query("SELECT COUNT(*) FROM " + tablename2 + " WHERE idUser = " + strconv.Itoa(user) + " AND movieID = " + strconv.Itoa(movie))
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	//defer
 	for row.Next() { // Iterate and fetch the records from result cursor
 		var count int
 		row.Scan(&count)
 		row.Close()
-		log.Println("Users: ", count)
+		//log.Println("Users: ", count)
 		if count > 0 {
 			// TODO: Properly handle error
-			// log.Fatal(err)
+			// //fmt.Println(err)
 			// auth = 0
 
 			if action == 1 {
@@ -190,7 +188,7 @@ func InsertUserTable(c *gin.Context) {
 			statement, err := db.Prepare(insertUserSQL) // Prepare statement.
 			// This is good to avoid SQL injections
 			if err != nil {
-				log.Fatalln(err.Error())
+				//fmt.Println(err.Error())
 			}
 			_, err = statement.Exec(value, user, movie)
 			if err != nil {
@@ -198,20 +196,20 @@ func InsertUserTable(c *gin.Context) {
 					"error": err.Error(),
 				})
 			} else {
-				fmt.Println("inserted")
+				//fmt.Println("inserted")
 				msg = "Inserted"
 			}
 
 		} else {
 			//Code to get genre *****************************************************************************************************************************
-			fmt.Println("gengengengengengengengengengengengengengengengengen")
+			//fmt.Println("gengengengengengengengengengengengengengengengengen")
 			gen := GetGenre2(movie)
-			fmt.Println(gen)
+			//fmt.Println(gen)
 
 			//Code to get genre end *************************************************************************************************************************
 
 			if action == 1 {
-				fmt.Println("action as like aaaaaaaaaaaaaaaaaaaaaaaaaa")
+				//fmt.Println("action as like aaaaaaaaaaaaaaaaaaaaaaaaaa")
 				insertUserSQL = `INSERT INTO ` + tablename2 + `( like, idUser, movieID, genre1, genre2, genre3 ) VALUES (?, ?, ?, ?, ?, ?)`
 			} else if action == 2 {
 				insertUserSQL = `INSERT INTO ` + tablename2 + `( watched, idUser, movieID, genre1, genre2, genre3 ) VALUES (?, ?, ?, ?, ?, ?)`
@@ -220,30 +218,30 @@ func InsertUserTable(c *gin.Context) {
 			} else if action == 4 {
 				insertUserSQL = `INSERT INTO ` + tablename2 + `( toWatch, idUser, movieID,  genre1, genre2, genre3 ) VALUES (?, ?, ?, ?, ?, ?)`
 			} else {
-				fmt.Println("Insert command", err.Error())
+				//fmt.Println("Insert command", err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": "Invalid Action",
 				})
 			}
-			// fmt.Println(db.Prepare(insertUserSQL))
+			// //fmt.Println(db.Prepare(insertUserSQL))
 			statement, err := db.Prepare(insertUserSQL) // Prepare statement.
 			// This is good to avoid SQL injections
 			if err != nil {
-				fmt.Println("SQL Injection: ", err.Error())
+				//fmt.Println("SQL Injection: ", err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
 			}
 
-			sqlresult, err := statement.Exec(value, user, movie, gen[0], gen[1], gen[2])
-			fmt.Println(sqlresult)
+			_, err = statement.Exec(value, user, movie, gen[0], gen[1], gen[2])
+			//fmt.Println(sqlresult)
 			if err != nil {
-				fmt.Println("Executing statement : ", err.Error())
+				//fmt.Println("Executing statement : ", err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
 			} else {
-				fmt.Println("inserted")
+				//fmt.Println("inserted")
 				msg = "Inserted"
 			}
 		}
@@ -258,11 +256,11 @@ func InsertUserTable(c *gin.Context) {
 func GetUserTable(c *gin.Context) {
 
 	idUser, _ := GetUserID(c.Param("username"))
-	fmt.Println(idUser)
-	fmt.Println("disp")
+	//fmt.Println(idUser)
+	//fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename2 + " WHERE idUser= " + strconv.Itoa(idUser))
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
@@ -277,7 +275,7 @@ func GetUserTable(c *gin.Context) {
 		var genre2 int
 		var genre3 int
 		row.Scan(&id, &user, &movie, &like, &watched, &watching, &toWatch, &genre1, &genre2, &genre3)
-		log.Println("Users: ", id, " ", user, " ", movie, " ", like, " ", watched, " ", watching, " ", toWatch, " ", genre1, " ", genre2, " ", genre3)
+		//log.Println("Users: ", id, " ", user, " ", movie, " ", like, " ", watched, " ", watching, " ", toWatch, " ", genre1, " ", genre2, " ", genre3)
 		c.JSON(http.StatusOK, gin.H{
 			"id":       id,
 			"movie":    movie,
@@ -295,10 +293,10 @@ func GetUserTable(c *gin.Context) {
 
 //************************************************************************************************************************************************************************
 func DisplayUserTable(c *gin.Context) {
-	fmt.Println("disp")
+	//fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename2 + " ORDER BY idUser")
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
@@ -325,7 +323,7 @@ func DisplayUserTable(c *gin.Context) {
 			"genre2":   genre2,
 			"genre3":   genre3,
 		})
-		log.Println("Users: ", id, " ", user, " ", movie, " ", like, " ", watched, " ", watching, " ", toWatch, " ", genre1, " ", genre2, " ", genre3)
+		//log.Println("Users: ", id, " ", user, " ", movie, " ", like, " ", watched, " ", watching, " ", toWatch, " ", genre1, " ", genre2, " ", genre3)
 	}
 }
 
@@ -347,10 +345,10 @@ type UserPref struct {
 var userPref UserPref
 
 func DisplayUsersMovie(user int, movie int) UserPref {
-	fmt.Println("get user and his movie")
+	//fmt.Println("get user and his movie")
 	row, err := db.Query("SELECT COUNT(*) FROM " + tablename2 + " WHERE idUser='" + strconv.Itoa(user) + "' AND movieID='" + strconv.Itoa(movie) + "'ORDER BY idUser")
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 
@@ -361,7 +359,7 @@ func DisplayUsersMovie(user int, movie int) UserPref {
 		if count == 1 {
 			row, err := db.Query("SELECT * FROM " + tablename2 + " WHERE idUser='" + strconv.Itoa(user) + "' AND movieID='" + strconv.Itoa(movie) + "'ORDER BY idUser")
 			if err != nil {
-				log.Fatal(err)
+				//fmt.Println(err)
 			}
 			defer row.Close()
 			for row.Next() { // Iterate and fetch the records from result cursor

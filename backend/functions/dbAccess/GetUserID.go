@@ -1,31 +1,28 @@
 package tables
 
 import (
-	"fmt"
-	"log"
 	D "main/dbSQLite"
 
-	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"
 )
 
 func init() {
 
-	err := godotenv.Load("go.env")
+	// err := godotenv.Load("go.env")
 
-	if err != nil {
-		log.Fatal("1 Error loading .env file" + err.Error())
-	}
+	// if err != nil {
+	// 	//fmt.Println("1 Error loading .env file" + err.Error())
+	// }
 }
 
 //************************************************************************************************************************************************************************
 func GetUserID(usernameStr string) (userId int, errR error) {
 	// func InsertUserTable(c *gin.Context) {
-	log.Println("getting user ", usernameStr)
+	//log.Println("getting user ", usernameStr)
 	row, err := db.Query("SELECT idUser FROM " + D.GetTable(1) + " WHERE username= '" + usernameStr + "'")
 
 	if err != nil {
-		fmt.Println(err.Error())
+		//fmt.Println(err.Error())
 		errR = err
 	}
 	//defer
@@ -33,9 +30,9 @@ func GetUserID(usernameStr string) (userId int, errR error) {
 		// var userId int
 		row.Scan(&userId)
 		row.Close()
-		fmt.Println(userId)
+		//fmt.Println(userId)
 		// userIdGet, errR = strconv.Atoi(userId)
-		// fmt.Println(errR.Error())
+		// //fmt.Println(errR.Error())
 	}
 	return
 }

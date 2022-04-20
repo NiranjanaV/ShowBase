@@ -1,7 +1,6 @@
 package apiCall
 
 import (
-	"log"
 	"net/http"
 	"strconv"
 
@@ -47,7 +46,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("2 Error loading .env file" + err.Error())
+		//fmt.Println("2 Error loading .env file" + err.Error())
 	}
 }
 
