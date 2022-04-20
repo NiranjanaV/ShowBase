@@ -6,6 +6,8 @@ import {ip} from './global.js'
 import { Link } from 'react-router-dom';
 import {FriendsWatched} from './FriendsWatched';
 import {FriendsWatchlist} from './FriendsWatchlist';
+import useAuth from "../hooks/useAuth";
+
 
 
 function DisplayFriends() {
@@ -15,12 +17,10 @@ function DisplayFriends() {
    const [Profilewl, setProfilewl] = useState(null);
    const [Profilew, setProfilew] = useState(null);
 
-    const user = "Srikant"
-
-    console.log(user)
+   const { auth } = useAuth();
 
     React.useEffect(() => {
-      axios.get("http://"+ip+":8080/getFriends/"+ user)
+      axios.get("http://"+ip+":8080/getFriends/"+ auth.user)
           .then((response) => {
             console.log(response.data.friends)
             setResults(response.data.friends);

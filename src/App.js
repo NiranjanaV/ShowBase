@@ -48,6 +48,7 @@ function App() {
       <Route path="/UserProfile/profile/FriendsWatched" element={<FriendsWatched/>} />
       <Route path="/UserProfile/profile/FriendsWatchlist" element={<FriendsWatchlist/>} />
       <Route path="/UserProfile" element={<UserProfile/>} />
+      
       <Route path="/UserHome" element={<UserHome/>} />
       </Route>
       
