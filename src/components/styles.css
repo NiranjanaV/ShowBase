@@ -554,12 +554,15 @@ p {
 /* Footer */
 #footer {
   background-image: linear-gradient(60deg, black 0%, black 0%);
+  bottom:0px;
+  position: fixed;
+  width: 100%;
 }
+
 #footer .footer {
   min-height: 200px;
   flex-direction: column;
   padding-top: 50px;
-  padding-bottom: 10px;
 }
 #footer h2 {
   color: white;

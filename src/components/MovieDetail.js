@@ -105,7 +105,17 @@ function MovieDetail(props){
     <div className="bg">
     <div className="detail">
     <img src={moviedetails.url} alt='image_poster' className='expdetail'></img>
-
+    <section id="header">
+   <div className="header container">
+<div className="nav-bar">
+  <div className="brand">
+    <a href="#hero">
+    <Link to='/'><h1><span>S</span>how <span>B</span>ase</h1></Link>
+    </a>
+  </div>
+</div>
+</div>
+</section>
 
 <div className="col">
     <div className="row">
