@@ -138,6 +138,7 @@ func GetPassForUser(c *gin.Context) {
 			"error": err.Error(),
 		})
 	}
+	fmt.Println("get3")
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
 		var id int
@@ -145,6 +146,7 @@ func GetPassForUser(c *gin.Context) {
 		var password []byte
 		row.Scan(&id, &username, &password)
 		log.Println("Users: ", id, " ", username, " ", password)
+		fmt.Println(password)
 		if err := bcrypt.CompareHashAndPassword(password, []byte(userAuthJson.Password)); err != nil {
 			// TODO: Properly handle error
 			log.Fatal(err)

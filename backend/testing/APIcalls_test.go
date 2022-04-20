@@ -119,3 +119,92 @@ func TestGetSearchWithPageswrongJSONAPIResponse(t *testing.T) {
 		return s
 	})
 }
+
+func TestGetAuthenticateUserAPIResponse(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+
+	jsonData := []byte(`{
+		"username": "Srikant",
+		"password": "!23456Abc"
+	}`)
+
+	r.PUT("/authenticateUser", DM.GetPassForUser)
+	req, _ := http.NewRequest("PUT", "/authenticateUser", bytes.NewBuffer(jsonData))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		s := w.Code == http.StatusOK
+		return s
+	})
+}
+
+// Sprint 4
+func TestGetMovieAPIResponse(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+
+	r.GET("/getMovie/:movie", A.GetMovie)
+	req, _ := http.NewRequest("GET", "/getMovie/Avengers", bytes.NewBuffer(nil))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		s := w.Code == http.StatusOK
+		return s
+	})
+}
+
+func TestGetMoviesOfGenreLikesAPIResponse(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+
+	r.GET("/getGenre/:GenreId", A.SearchGenre)
+	req, _ := http.NewRequest("GET", "/getGenre/12", bytes.NewBuffer(nil))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		s := w.Code == http.StatusOK
+		return s
+	})
+}
+
+func TestGetGenreWithPageAPIResponse(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+
+	jsonData := []byte(`{
+		"Genreid": "Comedy",
+		"page": "3"
+	}`)
+
+	r.GET("/getGenraPage", A.SearchGenreWithPage)
+	req, _ := http.NewRequest("GET", "/getGenraPage", bytes.NewBuffer(jsonData))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		s := w.Code == http.StatusOK
+		return s
+	})
+}
+
+func TestGetMovieWithUserAPIResponse(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+
+	r.GET("/getMovieOfUser/:movie/:username", A.GetMovieOfUser)
+	req, _ := http.NewRequest("GET", "/getMovieOfUser/11223/Srikant", bytes.NewBuffer(nil))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		s := w.Code == http.StatusOK
+		return s
+	})
+}
+
+func TestGetUserLikesAPIResponse(t *testing.T) {
+	r := getRouter()
+	// config.CreateConn()
+
+	r.GET("/userLikes/:username", DM.GetUserTable)
+	req, _ := http.NewRequest("GET", "/userLikes/Srikant", bytes.NewBuffer(nil))
+
+	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
+		s := w.Code == http.StatusOK
+		return s
+	})
+}
