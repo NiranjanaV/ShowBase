@@ -1,7 +1,7 @@
 body,
 html {
   height: 100%;
-  margin-top: 30px;
+  margin: 0;
 }
 .detail {
   background-color: rgba(0, 0, 0, 0.75);
