@@ -40,7 +40,7 @@ function App() {
       <Route path="/UserProfile/profile/displayFriends" element={<DisplayFriends/>} />
       <Route path="/UserProfile/profile/FriendsWatched" element={<FriendsWatched/>} />
       <Route path="/UserProfile/profile/FriendsWatchlist" element={<FriendsWatchlist/>} />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" render={(routeProps) => <Login {...routeProps}/>} element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/watchedlist" element={<UserWatchedList/>} />
       
