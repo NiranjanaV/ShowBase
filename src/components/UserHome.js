@@ -10,10 +10,12 @@ import img3 from "./img-3.jpeg"
 import img4 from "./img-4.jpeg"
 
 
+
 import { Link } from 'react-router-dom'
 import useAuth from "../hooks/useAuth";
 import {useNavigate} from 'react-router-dom';
 import {useEffect} from "react"
+import { AuthProvider } from "../context/AuthProvider";
 
 
 const breakPoints = [
@@ -25,16 +27,10 @@ const breakPoints = [
 
 ];
 
-function Home() {
-  const { auth } = useAuth();
-  const navigate = useNavigate();
+function UserHome() {
 
-  useEffect(() => {
-    if (auth.user){
-      navigate('/UserHome');  
-    }
-},[])
-  //if(auth.user) navigate('/UserProfile');
+    const { auth } = useAuth();
+ 
   return (
     <>
 	<section id="header">
@@ -52,7 +48,8 @@ function Home() {
           <ul>
             <li><a href="#hero" data-after="Home" >Home</a></li>
             <li><Link to='/MovieProfile'>Movies & Shows</Link></li>
-            <li><Link to='/login'>Sign in</Link></li>
+            <li><Link to='/UserProfile'>{auth.user}</Link></li>
+           
 
           </ul>
         </div>
@@ -192,4 +189,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default UserHome;

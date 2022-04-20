@@ -19,12 +19,7 @@ import {FriendsWatched} from './components/FriendsWatched';
 import {FriendsWatchlist} from './components/FriendsWatchlist';
 import { AuthProvider } from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
-
-const ROLES = {
-  'User': 2001,
-  'Editor': 1984,
-  'Admin': 5150
-}
+import UserHome from './components/UserHome'
 
 
 function App() {
@@ -53,6 +48,7 @@ function App() {
       <Route path="/UserProfile/profile/FriendsWatched" element={<FriendsWatched/>} />
       <Route path="/UserProfile/profile/FriendsWatchlist" element={<FriendsWatchlist/>} />
       <Route path="/UserProfile" element={<UserProfile/>} />
+      <Route path="/UserHome" element={<UserHome/>} />
       </Route>
       
      
