@@ -23,11 +23,15 @@ FrontEnd: React, Backend: GO
 ShowBase website, where we can create account, track the shows we are watching, add likes and dislikes, follow friends and see what shows they are watching, 
 what they like and dislike watching.
 
-# Link to API Documentation 
-https://github.com/NiranjanaV/ShowBase/blob/main/APIs.md
+## Links
 
-# Link to Project Board
-https://github.com/NiranjanaV/ShowBase/projects/1
+- *Link to API Documentation:* https://github.com/NiranjanaV/ShowBase/blob/main/APIs.md
+- *Link to Project Board:* https://github.com/NiranjanaV/ShowBase/projects/1
+- *Link to Sprints Documentation:* 
+     - Sprint 1: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%201
+     - Sprint 2: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%202
+     - Sprint 3: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%203  
+     - Sprint 4: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%204
 
 # Sprint 1
 ## Frontend
@@ -109,6 +113,12 @@ https://github.com/NiranjanaV/ShowBase/projects/1
 
 
 # Sprint 4 
+## FrontEnd
+
+
+### Cypress testing
+
+## Backend
 
 ### Go Testing sample 
 ![TestingSprit4](https://user-images.githubusercontent.com/96463545/164143017-b6e13d12-be9e-474f-a65f-5cc2768b684e.gif)
