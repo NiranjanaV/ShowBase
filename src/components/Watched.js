@@ -7,6 +7,7 @@ import {ip} from './global.js'
 import './index.css';
 import "./watch.css";
 import { Link } from 'react-router-dom';
+import "./styles.css";
 
 
 export const Watched = () => {
@@ -67,7 +68,22 @@ return (
       
       </div>
       </div>
+
+      <section id="footer">
+    <div className="footer container">
+      <div className="brand">
+        <h1>ShowBase</h1>
+      </div>
+      <h2>Software Engineering Project</h2>
+      <div className="social-icon">
+        <div className="social-item">
+          <a href="https://github.com/NiranjanaV/ShowBase"><img src="https://img.icons8.com/bubbles/100/000000/github.png" /></a>
+        </div>
+      </div>
     </div>
+  </section>
+    </div>
+    
   );
 };
 
