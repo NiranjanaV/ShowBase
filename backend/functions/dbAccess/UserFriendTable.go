@@ -1,8 +1,6 @@
 package tables
 
 import (
-	"fmt"
-	"log"
 	D "main/dbSQLite"
 	"net/http"
 	"strconv"
@@ -20,7 +18,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("1 Error loading .env file" + err.Error())
+		//fmt.Println("1 Error loading .env file" + err.Error())
 	}
 }
 
@@ -32,13 +30,13 @@ func CreateFriendTable() {
 		"idFriend" integer NOT NULL
 	  );` // SQL Statement for Create User Table
 
-	log.Println("Create user table friend")
+	//log.Println("Create user table friend")
 	statement, err := db.Prepare(createUserTableSQL) // Prepare SQL Statement
 	if err != nil {
-		log.Fatal(err.Error())
+		//fmt.Println(err.Error())
 	}
 	statement.Exec() // Execute SQL Statements
-	log.Println("user table created")
+	//log.Println("user table created")
 }
 
 //************************************************************************************************************************************************************************
@@ -56,8 +54,8 @@ func InsertFriendTable(c *gin.Context) {
 	userFriendJson := UserFriendJson{}
 	err := c.ShouldBindJSON(&userFriendJson)
 	if err != nil {
-		fmt.Println(userFriendJson.Username + "0" + userFriendJson.Friendname)
-		fmt.Println(err.Error() + "incorrect parameters")
+		//fmt.Println(userFriendJson.Username + "0" + userFriendJson.Friendname)
+		//fmt.Println(err.Error() + "incorrect parameters")
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "incorrect parameters, password should be between 8 to 20 chars",
 		})
@@ -65,7 +63,7 @@ func InsertFriendTable(c *gin.Context) {
 	}
 
 	if isFriend(userFriendJson.Username, userFriendJson.Friendname) {
-		fmt.Println(err.Error() + "nota a friend")
+		//fmt.Println(err.Error() + "nota a friend")
 		c.JSON(http.StatusBadRequest, gin.H{
 			"Issue": "Already an friend",
 		})
@@ -74,25 +72,25 @@ func InsertFriendTable(c *gin.Context) {
 	user, _ := GetUserID(userFriendJson.Username)
 	friend, err := GetUserID(userFriendJson.Friendname)
 	if err != nil {
-		fmt.Println(err.Error() + "friendname ? ")
+		//fmt.Println(err.Error() + "friendname ? ")
 
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
 	}
-	log.Println("Inserting student record ...")
+	//log.Println("Inserting student record ...")
 	insertFriendSQL := `INSERT INTO ` + tablename3 + `(idUser, idFriend ) VALUES (?, ?)`
 	statement, err := db.Prepare(insertFriendSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {
-		fmt.Println(err.Error() + "sql injexction ")
+		//fmt.Println(err.Error() + "sql injexction ")
 
-		log.Fatalln(err.Error())
+		//fmt.Println(err.Error())
 	}
 
 	_, err = statement.Exec(user, friend)
 	if err != nil {
-		fmt.Println(err.Error() + "table entye")
+		//fmt.Println(err.Error() + "table entye")
 
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
@@ -116,11 +114,11 @@ var friendNames FriendNames
 func GetFriends(c *gin.Context) {
 
 	idUser, _ := GetUserID(c.Param("username"))
-	// fmt.Println(idUser)
-	// fmt.Println("disp")
+	// //fmt.Println(idUser)
+	// //fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename3 + " WHERE idUser= " + strconv.Itoa(idUser))
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	var id int
@@ -130,14 +128,14 @@ func GetFriends(c *gin.Context) {
 	for row.Next() { // Iterate and fetch the records from result cursor
 
 		row.Scan(&id, &user, &friend)
-		log.Println("Users: ", id, " ", user, " ", friend)
+		//log.Println("Users: ", id, " ", user, " ", friend)
 		// friendNames.Id = friend
 		friendNames.Name = GetUserName(friend)
-		fmt.Println("sssss")
+		//fmt.Println("sssss")
 		friends = append(friends, friendNames)
 
 	}
-	fmt.Println(friends)
+	//fmt.Println(friends)
 	c.JSON(http.StatusOK, gin.H{
 		"id":      id,
 		"user":    user,
@@ -147,10 +145,10 @@ func GetFriends(c *gin.Context) {
 
 //************************************************************************************************************************************************************************
 func DisplayFriendTable(c *gin.Context) {
-	fmt.Println("disp")
+	//fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename3 + " ORDER BY idUser")
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	var id int
@@ -160,12 +158,12 @@ func DisplayFriendTable(c *gin.Context) {
 	for row.Next() { // Iterate and fetch the records from result cursor
 
 		row.Scan(&id, &user, &friend)
-		log.Println("Users: ", id, " ", user, " ", friend)
+		//log.Println("Users: ", id, " ", user, " ", friend)
 		friendNames.Name = GetUserName(friend)
-		fmt.Println(friendNames.Name)
+		//fmt.Println(friendNames.Name)
 		friends = append(friends, friendNames)
 	}
-	fmt.Println(friends)
+	//fmt.Println(friends)
 	c.JSON(http.StatusOK, gin.H{
 		"id":      id,
 		"user":    user,
@@ -176,13 +174,13 @@ func DisplayFriendTable(c *gin.Context) {
 //************************************************************************************************************************************************************************
 
 func isFriend(username string, friend string) bool {
-	// fmt.Println(idUser)
-	// fmt.Println("disp")
+	// //fmt.Println(idUser)
+	// //fmt.Println("disp")
 	idUser, _ := GetUserID(username)
 	idFriend, _ := GetUserID(friend)
 	row, err := db.Query("SELECT COUNT(*) FROM " + tablename3 + " WHERE idUser= " + strconv.Itoa(idUser) + " AND idFriend= " + strconv.Itoa(idFriend))
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	var count int
@@ -201,11 +199,11 @@ func isFriend(username string, friend string) bool {
 func GetUserList(c *gin.Context) {
 
 	username := c.Param("username")
-	// fmt.Println(idUser)
-	// fmt.Println("disp")
+	// //fmt.Println(idUser)
+	// //fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename1 + " WHERE username LIKE '" + username + "%'")
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	var id int
@@ -214,14 +212,14 @@ func GetUserList(c *gin.Context) {
 	var friends []FriendNames
 	for row.Next() { // Iterate and fetch the records from result cursor
 		row.Scan(&id, &user, &pass)
-		log.Println("Users: ", id, " ", user, " ", pass)
+		//log.Println("Users: ", id, " ", user, " ", pass)
 		// friendNames.Id = friend
 		friendNames.Name = user
-		// fmt.Println("sssss")
+		// //fmt.Println("sssss")
 		friends = append(friends, friendNames)
 
 	}
-	// fmt.Println(friends)
+	// //fmt.Println(friends)
 	c.JSON(http.StatusOK, gin.H{
 		"usernames": friends,
 	})

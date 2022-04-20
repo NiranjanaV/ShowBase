@@ -25,37 +25,37 @@ import (
 // 	var password = "password2"
 
 // 	// Create DB
-// 	// fmt.Println("Create db")
+// 	// //fmt.Println("Create db")
 // 	// O.CreateDB()
 
 // 	// Create Table
-// 	// fmt.Println("Create table")
+// 	// //fmt.Println("Create table")
 // 	// O.CreateAuthTable(sqliteDatabase, tablename) // Create Database Tables
 
 // 	// INSERT RECORDS
-// 	fmt.Println("insert")
+// 	//fmt.Println("insert")
 // 	//hashing pass
 // 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 // 	if err != nil {
 // 		// TODO: Properly handle error
-// 		log.Fatal(err)
+// 		//fmt.Println(err)
 // 	}
-// 	fmt.Println("Hash to store:", string(hash))
+// 	//fmt.Println("Hash to store:", string(hash))
 // 	error := InsertAuthTable(sqliteDatabase, tablename, username, hash)
 // 	if error != "None" {
-// 		fmt.Println("Duplicate username")
+// 		//fmt.Println("Duplicate username")
 // 	}
 
 // 	// Authenticate user
 // 	newPass := "password"
 // 	auth := GetPassForUser(sqliteDatabase, tablename, username, newPass)
 // 	if auth == 0 {
-// 		fmt.Print("User not authenticated")
+// 		//fmt.Print("User not authenticated")
 // 	} else {
-// 		fmt.Println("User Authenticated")
+// 		//fmt.Println("User Authenticated")
 // 	}
 
 // 	// DISPLAY INSERTED RECORDS
-// 	fmt.Println("display")
+// 	//fmt.Println("display")
 // 	DisplayAuthTable(sqliteDatabase, tablename)
 // }

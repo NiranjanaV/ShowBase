@@ -10,9 +10,9 @@ package internalF
 // 	hash, err := bcrypt.GenerateFromPassword([]byte(userPassword1), bcrypt.DefaultCost)
 // 	if err != nil {
 // 		// TODO: Properly handle error
-// 		log.Fatal(err)
+// 		//fmt.Println(err)
 // 	}
-// 	fmt.Println("Hash to store:", string(hash))
+// 	//fmt.Println("Hash to store:", string(hash))
 // 	// Store this "hash" somewhere, e.g. in your database
 
 // 	// After a while, the user wants to log in and you need to check the password he entered
@@ -22,10 +22,10 @@ package internalF
 // 	// Comparing the password with the hash
 // 	if err := bcrypt.CompareHashAndPassword(hashFromDatabase, []byte(userPassword2)); err != nil {
 // 		// TODO: Properly handle error
-// 		log.Fatal(err)
+// 		//fmt.Println(err)
 // 	}
 
-// 	fmt.Println("Password was correct!")
+// 	//fmt.Println("Password was correct!")
 // }
 
 func waste() {

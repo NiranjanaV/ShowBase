@@ -1,8 +1,6 @@
 package tables
 
 import (
-	"fmt"
-	"log"
 	D "main/dbSQLite"
 	"net/http"
 
@@ -25,13 +23,13 @@ func CreateAuthTable() {
 
 	// SQL Statement for Create Table
 
-	log.Println("Create student table...")
+	//log.Println("Create student table...")
 	statement, err := db.Prepare(createStudentTableSQL) // Prepare SQL Statement
 	if err != nil {
-		log.Fatal(err.Error())
+		//fmt.Println(err.Error())
 	}
 	statement.Exec() // Execute SQL Statements
-	log.Println("student table created")
+	//log.Println("student table created")
 }
 
 //************************************************************************************************************************************************************************
@@ -41,7 +39,7 @@ func InsertAuthTable(c *gin.Context) {
 	var msg string
 	var db = D.GetDB()
 	var tablename = D.GetTable(1)
-	// fmt.Println("aaaaaaaaaaaaaaaa", db.Ping())
+	// //fmt.Println("aaaaaaaaaaaaaaaa", db.Ping())
 
 	type UserAuthJson struct {
 		Username string `json:"username"`
@@ -56,12 +54,12 @@ func InsertAuthTable(c *gin.Context) {
 		return
 	}
 
-	log.Println("Inserting student record ...")
+	//log.Println("Inserting student record ...")
 
 	//checking if user exists
 	row, err := db.Query("SELECT COUNT(*) FROM " + tablename + " WHERE USERNAME = '" + userAuthJson.Username + "'")
 	if err != nil {
-		fmt.Print("User check issue exists")
+		//fmt.Print("User check issue exists")
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
@@ -76,14 +74,14 @@ func InsertAuthTable(c *gin.Context) {
 			})
 		} else {
 			row.Close()
-			fmt.Print("Insertion Step")
+			//fmt.Print("Insertion Step")
 
 			insertStudentSQL := `INSERT INTO ` + tablename + ` (username, password) VALUES (?, ?)`
 
 			statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
 			// This is good to avoid SQL injections
 			if err != nil {
-				fmt.Println(err.Error())
+				//fmt.Println(err.Error())
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
@@ -92,14 +90,14 @@ func InsertAuthTable(c *gin.Context) {
 			hash, _ := bcrypt.GenerateFromPassword([]byte(userAuthJson.Password), bcrypt.DefaultCost)
 			_, err = statement.Exec(userAuthJson.Username, hash)
 			if err != nil {
-				fmt.Print("Error inserting", err.Error())
+				//fmt.Print("Error inserting", err.Error())
 
 				c.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
 			} else {
 				msg = "inserted"
-				fmt.Print("inserted")
+				//fmt.Print("inserted")
 
 			}
 			c.JSON(http.StatusOK, gin.H{
@@ -116,7 +114,7 @@ func InsertAuthTable(c *gin.Context) {
 
 func GetPassForUser(c *gin.Context) {
 	var auth int
-	fmt.Println("get1")
+	//fmt.Println("get1")
 
 	type UserAuthJson struct {
 		Username string `json:"username"`
@@ -131,25 +129,25 @@ func GetPassForUser(c *gin.Context) {
 		return
 	}
 
-	fmt.Println("get2")
+	//fmt.Println("get2")
 	row, err := db.Query("SELECT * FROM " + tablename + " WHERE USERNAME = '" + userAuthJson.Username + "'")
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
 	}
-	fmt.Println("get3")
+	//fmt.Println("get3")
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
 		var id int
 		var username string
 		var password []byte
 		row.Scan(&id, &username, &password)
-		log.Println("Users: ", id, " ", username, " ", password)
-		fmt.Println(password)
+		//log.Println("Users: ", id, " ", username, " ", password)
+		//fmt.Println(password)
 		if err := bcrypt.CompareHashAndPassword(password, []byte(userAuthJson.Password)); err != nil {
 			// TODO: Properly handle error
-			log.Fatal(err)
+			//fmt.Println(err)
 			auth = 0
 		} else {
 			auth = 1
@@ -163,10 +161,10 @@ func GetPassForUser(c *gin.Context) {
 //************************************************************************************************************************************************************************
 
 func DisplayAuthTable(c *gin.Context) {
-	fmt.Println("disp")
+	//fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename + " ORDER BY username")
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
@@ -174,7 +172,7 @@ func DisplayAuthTable(c *gin.Context) {
 		var username string
 		var password string
 		row.Scan(&id, &username, &password)
-		log.Println("Users: ", id, " ", username, " ", password)
+		//log.Println("Users: ", id, " ", username, " ", password)
 		c.JSON(http.StatusOK, gin.H{
 			"ID":       id,
 			"Username": username,
@@ -192,16 +190,16 @@ func InsertAuthTableGo(username string, password string) {
 	statement, err := db.Prepare(insertStudentSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {
-		fmt.Println("DB issue")
-		fmt.Println("error", err.Error())
+		//fmt.Println("DB issue")
+		//fmt.Println("error", err.Error())
 	}
 	_, err = statement.Exec(username, password)
 	if err != nil {
-		fmt.Println("error", err.Error())
+		//fmt.Println("error", err.Error())
 
 	} else {
-		msg := "inserted"
-		fmt.Println(msg)
+		// msg := "inserted"
+		//fmt.Println(msg)
 
 	}
 }
@@ -209,10 +207,10 @@ func InsertAuthTableGo(username string, password string) {
 //************************************************************************************************************************************************************************
 
 func DisplayAuthTableGo() {
-	fmt.Println("disp")
+	//fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename)
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	for row.Next() { // Iterate and fetch the records from result cursor
@@ -220,7 +218,7 @@ func DisplayAuthTableGo() {
 		var username string
 		var password string
 		row.Scan(&id, &username, &password)
-		log.Println("Users: ", id, " ", username, " ", password)
+		//log.Println("Users: ", id, " ", username, " ", password)
 
 	}
 }
@@ -228,5 +226,5 @@ func DisplayAuthTableGo() {
 //************************************************************************************************************************************************************************
 
 func PingDBGo() {
-	fmt.Println(db.Ping())
+	//fmt.Println(db.Ping())
 }

@@ -4,7 +4,6 @@ import (
 	// "backend-v1/src/config"
 
 	"bytes"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -96,7 +95,7 @@ func TestEnterDataIntoUser(t *testing.T) {
 	req, _ := http.NewRequest("PUT", "/userReg", bytes.NewBuffer(jsonData))
 
 	testHttpRequest(t, r, req, func(w *httptest.ResponseRecorder) bool {
-		fmt.Println(w.Body)
+		//fmt.Println(w.Body)
 		s := w.Code == http.StatusBadRequest
 		return s
 	})

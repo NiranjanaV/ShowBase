@@ -1,9 +1,3 @@
-/node_modules
-*.env
-/golang-sqlite
-/golang-sqlit*
-golang-sqlite/
-!src/.env
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
