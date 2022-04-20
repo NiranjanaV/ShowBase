@@ -13,6 +13,7 @@ import (
 )
 
 var tablename3 = D.GetTable(3)
+var tablename1 = D.GetTable(1)
 
 func init() {
 
@@ -43,31 +44,38 @@ func CreateFriendTable() {
 //************************************************************************************************************************************************************************
 // We are passing db reference connection from main to our method with other parameters
 // func InsertUserTable(db *sql.DB, tablename string, user int, movie int, action int, value int) (error string) {
+
+type UserFriendJson struct {
+	Username   string `json:"username"`
+	Friendname string `json:"friendname"`
+}
+
 func InsertFriendTable(c *gin.Context) {
 	var msg string
-	type UserFriendJson struct {
-		Username  string `json:"username"`
-		Username2 string `json:"friendname"`
-	}
 
 	userFriendJson := UserFriendJson{}
 	err := c.ShouldBindJSON(&userFriendJson)
 	if err != nil {
+		fmt.Println(userFriendJson.Username + "0" + userFriendJson.Friendname)
+		fmt.Println(err.Error() + "incorrect parameters")
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "incorrect parameters, password should be between 8 to 20 chars",
 		})
 		return
 	}
 
-	if isFriend(userFriendJson.Username, userFriendJson.Username2) {
+	if isFriend(userFriendJson.Username, userFriendJson.Friendname) {
+		fmt.Println(err.Error() + "nota a friend")
 		c.JSON(http.StatusBadRequest, gin.H{
 			"Issue": "Already an friend",
 		})
 	}
 
 	user, _ := GetUserID(userFriendJson.Username)
-	friend, err := GetUserID(userFriendJson.Username2)
+	friend, err := GetUserID(userFriendJson.Friendname)
 	if err != nil {
+		fmt.Println(err.Error() + "friendname ? ")
+
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
@@ -77,11 +85,15 @@ func InsertFriendTable(c *gin.Context) {
 	statement, err := db.Prepare(insertFriendSQL) // Prepare statement.
 	// This is good to avoid SQL injections
 	if err != nil {
+		fmt.Println(err.Error() + "sql injexction ")
+
 		log.Fatalln(err.Error())
 	}
 
 	_, err = statement.Exec(user, friend)
 	if err != nil {
+		fmt.Println(err.Error() + "table entye")
+
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
@@ -95,7 +107,8 @@ func InsertFriendTable(c *gin.Context) {
 //************************************************************************************************************************************************************************
 
 type FriendNames struct {
-	name string
+	// Id   int
+	Name string
 }
 
 var friendNames FriendNames
@@ -118,9 +131,13 @@ func GetFriends(c *gin.Context) {
 
 		row.Scan(&id, &user, &friend)
 		log.Println("Users: ", id, " ", user, " ", friend)
-		friendNames.name = GetUserName(friend)
+		// friendNames.Id = friend
+		friendNames.Name = GetUserName(friend)
+		fmt.Println("sssss")
 		friends = append(friends, friendNames)
+
 	}
+	fmt.Println(friends)
 	c.JSON(http.StatusOK, gin.H{
 		"id":      id,
 		"user":    user,
@@ -144,9 +161,11 @@ func DisplayFriendTable(c *gin.Context) {
 
 		row.Scan(&id, &user, &friend)
 		log.Println("Users: ", id, " ", user, " ", friend)
-		friendNames.name = GetUserName(friend)
+		friendNames.Name = GetUserName(friend)
+		fmt.Println(friendNames.Name)
 		friends = append(friends, friendNames)
 	}
+	fmt.Println(friends)
 	c.JSON(http.StatusOK, gin.H{
 		"id":      id,
 		"user":    user,
@@ -175,4 +194,35 @@ func isFriend(username string, friend string) bool {
 		}
 	}
 	return false
+}
+
+//************************************************************************************************************************************************************************
+
+func GetUserList(c *gin.Context) {
+
+	username := c.Param("username")
+	// fmt.Println(idUser)
+	// fmt.Println("disp")
+	row, err := db.Query("SELECT * FROM " + tablename1 + " WHERE username LIKE '" + username + "%'")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer row.Close()
+	var id int
+	var user string
+	var pass string
+	var friends []FriendNames
+	for row.Next() { // Iterate and fetch the records from result cursor
+		row.Scan(&id, &user, &pass)
+		log.Println("Users: ", id, " ", user, " ", pass)
+		// friendNames.Id = friend
+		friendNames.Name = user
+		// fmt.Println("sssss")
+		friends = append(friends, friendNames)
+
+	}
+	// fmt.Println(friends)
+	c.JSON(http.StatusOK, gin.H{
+		"usernames": friends,
+	})
 }

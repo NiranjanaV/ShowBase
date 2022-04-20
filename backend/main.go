@@ -39,9 +39,10 @@ func main() {
 	r.GET("/getGenre/:GenreId", A.SearchGenre)
 	r.GET("/getGenraPage", A.SearchGenreWithPage)
 	r.GET("/getUserProfile/:username", DM.SendUserProfile)
-	r.GET("/putFriends", DM.InsertFriendTable)
+	r.PUT("/putFriends", DM.InsertFriendTable)
 	r.GET("/getFriends/:username", DM.GetFriends)
 	r.GET("/displayFriends", DM.DisplayFriendTable)
+	r.GET("/getUsers/:username", DM.GetUserList)
 
 	//initializeRoutes()
 	err := r.Run()
