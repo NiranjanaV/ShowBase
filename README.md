@@ -100,8 +100,16 @@ what they like and dislike watching.
 
 # Sprint 4 
 
-### Go Testing 
+### Go Testing sample 
 ![TestingSprit4](https://user-images.githubusercontent.com/96463545/164143017-b6e13d12-be9e-474f-a65f-5cc2768b684e.gif)
+
+## Other tests performed: 
+- Test Get Authenticate User API Response
+- Test Get Movie API Response
+- Test Get Movies Of Genre Likes API Response
+- Test Get Genre With Page API Response
+- Test Get Movie With User API Response
+- Test Get User Likes API Response
 
 ### APIs Created in 4th sprint
 #### 9. Get users rating of movies API
