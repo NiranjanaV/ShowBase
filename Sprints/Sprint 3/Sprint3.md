@@ -65,4 +65,164 @@ Frontend: https://drive.google.com/file/d/1Ro08UHd2lYhPnxCM3SlkoNE0um4CVjr0/view
 ### Go testing
 ![GoTest-sprint3](https://user-images.githubusercontent.com/96463545/161365605-764ee7b9-7be0-47fc-82ea-aab9260a58b6.gif)
 
+#### 1. Search API
+
+This API is used search for movies
+
+```
+GET  /search/:name
+```
+
+##### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+-   **500**: Internal Server Error
+-   **503**: Service Unavailable
+
+#### 2. Top movies API
+
+This API allows user to see list of top movies.
+
+```
+GET  /top
+```
+
+##### Header:
+
+    Authorization: Access token
+
+##### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+-   **500**: Internal Server Error
+-   **503**: Service Unavailable
+
+####  3. Search with page number API
+
+This API is used to Search for a movie with page number.
+
+```
+GET  /searchPage
+```
+
+```
+{ "name" : movie name,
+  "page" : page number }
+```
+##### Header:
+
+    Authorization: Access token
+
+##### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+-   **500**: Internal Server Error
+-   **503**: Service Unavailable
+
+####  4. Register user API
+
+This API is used to register a user.
+
+```
+put  /userReg
+```
+
+```
+{ "username" :  name,
+  "password" : pass }
+```
+##### Header:
+
+    Authorization: Access token
+
+##### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+-   **500**: Internal Server Error
+-   **503**: Service Unavailable
+
+####  5. Display authentication table API
+
+This API is used to show all users and password.
+
+```
+GET  /displayPass
+```
+
+
+##### Header:
+
+    Authorization: Access token
+
+##### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+-   **500**: Internal Server Error
+-   **503**: Service Unavailable
+
+####  6. authenticate user API
+
+This API is used to login using username pass.
+
+```
+PUT /authenticateUser
+```
+#####  Example Request Body:
+
+```
+{
+    "username": user,
+    "password" : pass
+}
+```
+
+##### Header:
+
+    Authorization: Access token
+
+##### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+-   **500**: Internal Server Error
+-   **503**: Service Unavailable
+
+
+#### 7. Get a movie API
+This API fetches a movie
+
+    GET  /getMovie/:movie
+
+
+##### Header:
+
+    Authorization: Access token
+
+
+#### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+
+
+#### 8. Get Movie detials with the unique user API
+This API gets the profile and movie detials of a user's movie
+
+    GET  /getMovieOfUser/:movie/:username
+    
+##### Header:
+
+    Authorization: Access token
+
+
+#### Status Codes:
+
+-   **200**: Status OK
+-   **400**: Bad Request
+
 
