@@ -10,6 +10,9 @@
 
 
 ### Go testing
+Tests created for every API call 
+
+![TestingSprit4](https://user-images.githubusercontent.com/96463545/164143172-7347dca4-da40-4ae6-878b-1f2ba979ea67.gif)
 
 
 ### APIs made in this sprint:
