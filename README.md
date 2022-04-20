@@ -8,6 +8,10 @@ Software Engineering Project - 2022
 # Technology Stack
 FrontEnd: React, Backend: GO
 
+## To start the server 
+- cd /backend
+- go run main.go
+
 ## Run these commands before building the React App
 - npm install --save moment
 - npm install font-awesome --save
