@@ -1,14 +1,21 @@
 import React from 'react';
 import  './login.css';
 import axios from "axios"
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
 import {ip} from './global.js'
+import {useNavigate} from 'react-router-dom';
 
-function Login(){
+
+function Login(props){
 
      // states for login 
+  
+     //console.log(props);
+    // console.log(props.history);
+     const navigate = useNavigate();
+    // let history = useHistory();
      const {setAuth} = useContext(AuthContext);
      const [user,setUser] = useState('');
      const [pwd,setPwd] = useState('');
@@ -34,13 +41,20 @@ function Login(){
           // }
         );
 
-        console.log(JSON.stringify(response));
+        console.log(JSON.stringify(response.data.Return));
+        if(response.data.Return=='1'){
         setAuth(user,pwd);
         setUser('');
         setPwd('');
         console.log(user,pwd);
         setSuccess(true);
-
+        navigate('/MovieProfile');
+        }else
+        setSuccess(false);
+        console.log(props);
+       // console.log(history);
+       // props.history.push("/MovieProfile"); 
+      
       }
       catch{
 
@@ -60,7 +74,6 @@ function Login(){
       <div className="login">
         <h1> You are logged in. </h1>
         </div>
-
 
       ):(
 
