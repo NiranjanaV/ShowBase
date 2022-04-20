@@ -1,10 +1,13 @@
 # ShowBase
 Software Engineering Project - 2022
 # Team Members
-- Niranjana Vasudevan: Frontend
-- Sanjay Srinivasan: Frontend
-- Swaathi Reena Velavan: Frontend
-- Kasiviswanathan Srikant Iyer: Backend
+## Frontend
+- Niranjana Vasudevan
+- Sanjay Srinivasan
+- Swaathi Reena Velavan
+## Backend
+- Kasiviswanathan Srikant Iyer
+
 # Technology Stack
 FrontEnd: React, Backend: GO
 
@@ -19,6 +22,13 @@ FrontEnd: React, Backend: GO
 # Project Description
 ShowBase website, where we can create account, track the shows we are watching, add likes and dislikes, follow friends and see what shows they are watching, 
 what they like and dislike watching.
+
+# Link to API Documentation 
+https://github.com/NiranjanaV/ShowBase/blob/main/APIs.md
+
+# Link to Project Board
+https://github.com/NiranjanaV/ShowBase/projects/1
+
 # Sprint 1
 ## Frontend
 - HomePage with content about the website and which contains 7 buttons - Home, About, Features, Movies & Shows, Completed, Stopped, Contact and Footer.
