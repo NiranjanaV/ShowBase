@@ -175,7 +175,7 @@ function Home() {
     </div>
   </section>
 
-  <section id="footer">
+  <section id="footer-main">
     <div className="footer container">
       <div className="brand">
         <h1>ShowBase</h1>
