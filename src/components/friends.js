@@ -3,6 +3,7 @@ import  './login.css';
 import axios from "axios"
 import "./watch.css";
 import {ip} from './global.js'
+import useAuth from "../hooks/useAuth";
 
 // Add Friends Functionality
 // When we click button add friend button, users friend table will updated in the database 
@@ -12,6 +13,8 @@ function Friends({profile}){
      //const [watched,setWatched] = useState('');
      const id = profile.Name;
      console.log(id);
+
+     const { auth } = useAuth();
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
   const fr = async(e) => {
@@ -23,7 +26,7 @@ function Friends({profile}){
         e.preventDefault();
       
         const response = await axios.put(detailURL,
-          JSON.stringify({username:"Srikant",
+          JSON.stringify({username: auth.user,
           friendname:id
       })
 

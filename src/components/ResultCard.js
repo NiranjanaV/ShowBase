@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import Moment from "react-moment";
 import "./watch.css";
+import MovieDetail from "./MovieDetail";
+import MovieSection from "./MovieSection";
 
 export const ResultCard = ({ movie }) => {
   const {
@@ -44,10 +46,10 @@ export const ResultCard = ({ movie }) => {
         <div className="add">
           <button
             className="button"
-            disabled={watchlistDisabled}
-            onClick={() => addMovieToWatchlist(movie)}
+            onClick={() => MovieSection(movie)}
+            
           >
-            Add to Watchlist
+            Movie Detail
           </button>
 
           <button
