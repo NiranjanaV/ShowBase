@@ -34,11 +34,6 @@ function Login(props){
 
         const response = await axios.put(detailURL,
           JSON.stringify({Username: user,Password: pwd})
-          // ,
-          // {
-          // headers:{'Content-type':'application/json'},
-          // withCredentials:true
-          // }
         );
 
         console.log(JSON.stringify(response.data.Return));
@@ -49,11 +44,11 @@ function Login(props){
         console.log(user,pwd);
         setSuccess(true);
         navigate('/MovieProfile');
-        }else
+        }else{
         setSuccess(false);
-        console.log(props);
-       // console.log(history);
-       // props.history.push("/MovieProfile"); 
+        setErrMsg("Wrong Credentials please try again!")
+        }
+  
       
       }
       catch{
@@ -91,7 +86,7 @@ function Login(props){
   </section>
 
 <form className='login-form' onSubmit={handleLoginSubmit}>
-  
+  <h4>{error}</h4>
 <h2>Sign in</h2>
   <div class="input-container">
     <input required type="text" onChange={(e)=>setUser(e.target.value)} value ={user} />
