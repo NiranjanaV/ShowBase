@@ -5,15 +5,15 @@ import MovieSection from './MovieSection';
 import {ip} from './global.js'
 import './index.css';
 import { Link } from 'react-router-dom';
-
+import useAuth from "../hooks/useAuth";
 
 
 
 export const Watchlist = () => {
   const [ToWatchMovieData, setToWatchMovieData] = useState([]);
   
-
-const detailURL ="http://"+ip+":8080/getUserProfile/Srikant";
+  const { auth } = useAuth();
+const detailURL ="http://"+ip+":8080/getUserProfile/"+auth.user;
 useEffect(() => {
   fetchData();
 }, []);

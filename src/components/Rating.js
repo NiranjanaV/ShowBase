@@ -3,6 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import {ip} from './global.js';
 import axios from "axios";
 import { useState } from 'react';
+import useAuth from "../hooks/useAuth";
 
 const Rating = (props) =>{
 
@@ -14,6 +15,7 @@ const Rating = (props) =>{
    const prev = props.prev;
    console.log(prev);
 
+   const { auth } = useAuth();
     const handleVoteSubmit = async(val) => {
 
         console.log(val);
@@ -27,7 +29,7 @@ const Rating = (props) =>{
          // e.preventDefault();
   
           const response = await axios.put(detailURL,
-            JSON.stringify({username:"Srikant",
+            JSON.stringify({username:auth.user,
                 movie:id,
                 action:1,
                 value:parseInt(val, 10)

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import Rating from './Rating';
 import UserWatched from './user-watched';
 import ToWatch from './user-to-watch';
+import useAuth from "../hooks/useAuth";
 
 function MovieDetail(props){
 
@@ -25,7 +26,8 @@ function MovieDetail(props){
      const { from } = location.state
      console.log(from);
 
-     const user = "Srikant";
+     const {auth} = useAuth();
+     const user = auth.user;
 
      let val;
    const detailURL ="http://"+ip+":8080/getMovieOfUser/"+from+"/"+user;

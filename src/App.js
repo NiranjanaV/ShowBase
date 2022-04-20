@@ -17,20 +17,32 @@ import UserWatchedList from './components/user-watch-list';
 import DisplayFriends from './components/displayFriends';
 import {FriendsWatched} from './components/FriendsWatched';
 import {FriendsWatchlist} from './components/FriendsWatchlist';
+import { AuthProvider } from './context/AuthProvider';
+import RequireAuth from './components/RequireAuth';
+
+const ROLES = {
+  'User': 2001,
+  'Editor': 1984,
+  'Admin': 5150
+}
+
 
 function App() {
   return (
+    <AuthProvider>
     <GlobalProvider> 
 
     
     <div className="App">
+      
       <Routes>
 
       <Route path="/" element={<Home/>} />
+      <Route element={<RequireAuth />}>
       <Route path="/MovieProfile" element={<MovieProfile/>} />
+      <Route path="/watchedlist" element={<UserWatchedList/>} />
       <Route path="/MovieDetail" element={<MovieDetail/>} />
       <Route path="/TopMovieGenre" element={<TopMovieGenre/>} />
-      <Route path="/UserProfile" element={<UserProfile/>} />
       <Route path="/UserProfile/add" element={<Add/>} />
       <Route path="/UserProfile/add" element={<Add/>} />
       <Route path="/UserProfile/watched" element={<Watched/>} />
@@ -40,14 +52,25 @@ function App() {
       <Route path="/UserProfile/profile/displayFriends" element={<DisplayFriends/>} />
       <Route path="/UserProfile/profile/FriendsWatched" element={<FriendsWatched/>} />
       <Route path="/UserProfile/profile/FriendsWatchlist" element={<FriendsWatchlist/>} />
+      <Route path="/UserProfile" element={<UserProfile/>} />
+      </Route>
+      
+     
+          
+      
+       
+     
+      
+     
       <Route path="/login" render={(routeProps) => <Login {...routeProps}/>} element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
-      <Route path="/watchedlist" element={<UserWatchedList/>} />
+     
       
      
       </Routes>
     </div>
     </GlobalProvider>
+    </AuthProvider>
       
   );
 }
