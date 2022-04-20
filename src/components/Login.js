@@ -43,7 +43,7 @@ function Login(props){
         setPwd('');
         console.log(user,pwd);
         setSuccess(true);
-        navigate('/MovieProfile');
+        navigate('/');
         }else{
         setSuccess(false);
         setErrMsg("Wrong Credentials please try again!")
