@@ -38,7 +38,7 @@ function Login(props){
 
         console.log(JSON.stringify(response.data.Return));
         if(response.data.Return=='1'){
-        setAuth(user,pwd);
+        setAuth({user,pwd});
         setUser('');
         setPwd('');
         console.log(user,pwd);

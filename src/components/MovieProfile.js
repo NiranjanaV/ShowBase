@@ -6,6 +6,7 @@ import MovieSection from './MovieSection';
 import {ip} from './global.js'
 import { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
+import useAuth from "../hooks/useAuth";
 import { Link } from 'react-router-dom';
 
 
@@ -14,8 +15,10 @@ import { Link } from 'react-router-dom';
 const MovieProfile = () => {
   const [HomeMovieData, setHomeMovieData] = useState([]);
 
-  const { setAuth } = useContext(AuthContext);
-  console.log(setAuth);
+  //const { setAuth } = useContext(AuthContext);
+  const { auth } = useAuth();
+ console.log("auth details");
+  console.log(auth.user);
   
 
 const detailURL ="http://"+ip+":8080/top/";

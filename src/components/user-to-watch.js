@@ -6,6 +6,7 @@ import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
 import {ip} from './global.js'
 import { FaRegBookmark } from 'react-icons/fa';
+import useAuth from "../hooks/useAuth";
 
 function ToWatch(props){
 
@@ -14,6 +15,7 @@ function ToWatch(props){
      //const [watched,setWatched] = useState('');
      const id = props.movie;
 
+     const { auth } = useAuth();
      console.log("towatch color " +props.Tcolor);
 
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
@@ -28,7 +30,7 @@ function ToWatch(props){
         e.preventDefault();
 
         const response = await axios.put(detailURL,
-          JSON.stringify({username:"Srikant",
+          JSON.stringify({username:auth.user,
           movie:id,
           action:4,
           value:1

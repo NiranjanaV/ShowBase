@@ -5,15 +5,15 @@ import { useEffect, useState } from "react"
 import MovieSection from './MovieSection';
 import {ip} from './global.js'
 import { Watched } from './Watched';
-
+import useAuth from "../hooks/useAuth";
 
 
 
 const MovieProfile = () => {
   const [WatchedMovieData, setWatchedMovieData] = useState([]);
-  
+  const { auth } = useAuth();
 
-const detailURL ="http://"+ip+":8080/getUserProfile/Srikant";
+const detailURL ="http://"+ip+":8080/getUserProfile/"+auth.user;
 useEffect(() => {
   fetchData();
 }, []);

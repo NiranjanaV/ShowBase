@@ -6,6 +6,7 @@ import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
 import {ip} from './global.js'
 import {FaCheck} from "react-icons/fa"
+import useAuth from "../hooks/useAuth";
 
 function UserWatched(props){
 
@@ -15,6 +16,7 @@ function UserWatched(props){
      const id = props.movie;
 
      console.log(props.Wcolor);
+     const { auth } = useAuth();
 
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
@@ -28,7 +30,7 @@ function UserWatched(props){
         e.preventDefault();
 
         const response = await axios.put(detailURL,
-          JSON.stringify({username:"Srikant",
+          JSON.stringify({username:auth.user,
           movie:id,
           action:2,
           value:1
