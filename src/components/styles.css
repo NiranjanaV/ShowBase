@@ -560,45 +560,7 @@ p {
 
 /* Footer */
 
-#footer-main{
-  background-image: linear-gradient(60deg, black 0%, black 0%);
-}
 
-
-#footer-main .footer {
-  min-height: 200px;
-  flex-direction: column;
-  padding-top: 50px;
-}
-#footer-main h2 {
-  color: white;
-  font-weight: 500;
-  font-size: 1.8rem;
-  letter-spacing: 0.1rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-#footer-main .social-icon {
-  display: flex;
-  margin-bottom: 30px;
-}
-#footer-main .social-item {
-  height: 50px;
-  width: 50px;
-  margin: 0 5px;
-}
-#footer-main .social-item img {
-  filter: grayscale(1);
-  transition: 0.3s ease filter;
-}
-#footer-main .social-item:hover img {
-  filter: grayscale(0);
-}
-#footer-main p {
-  color: white;
-  font-size: 1.3rem;
-}
-/* End Footer */
 #footer {
   background-image: linear-gradient(60deg, black 0%, black 0%);
   /* bottom:0px;

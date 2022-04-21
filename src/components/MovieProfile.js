@@ -8,7 +8,7 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 import { Link } from 'react-router-dom';
-import './styles.css';
+// import './styles.css';
 
 
 
@@ -111,7 +111,7 @@ return (
       
       </div>
     </div>
-    <section id="footer-main">
+    {/* <section id="footer-main">
     <div className="footer container">
       <div className="brand">
         <h1>ShowBase</h1>
@@ -123,7 +123,7 @@ return (
         </div>
       </div>
     </div>
-  </section>
+  </section> */}
     </div>
   );
 };
