@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom'
 import Moment from "react-moment";
 
   function MovieAdd(movie){
+    console.log("pritig");
+    console.log(movie.movie.Poster_path);
     return(
         <div className="resultscard">
         <div className="moviecard-poster-wrapper">
-          {movie.Poster_path ? (
-            <img src={`https://image.tmdb.org/t/p/original${movie.Poster_path}`} alt='exp1' className='exp1'>
+          {movie.movie.Poster_path ? (
+            <img src={`https://image.tmdb.org/t/p/original${movie.movie.Poster_path}`} alt='exp1' className='exp1'>
             </img>
           ) : (
             <div className="poster" />
@@ -19,9 +21,9 @@ import Moment from "react-moment";
   
         <div className="movieinfo">
           <div className="header">
-            <h3 className="movietitle">{movie.Original_title}</h3>
+            <h3 className="movietitle">{movie.movie.Original_title}</h3>
             <h4 className="movierelease">
-              <Moment format="YYYY">{movie.Release_date}</Moment>
+              <Moment format="YYYY">{movie.movie.Release_date}</Moment>
             </h4>
           </div>
   
@@ -29,7 +31,7 @@ import Moment from "react-moment";
             <button
               className="button"
             >
-                <Link to='/MovieDetail' state={{ from: movie.Id }}>
+                <Link to='/MovieDetail' state={{ from: movie.movie.Id }}>
               Movie Detail
               </Link>
             </button>
