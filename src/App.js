@@ -20,6 +20,7 @@ import {FriendsWatchlist} from './components/FriendsWatchlist';
 import { AuthProvider } from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
 import UserHome from './components/UserHome'
+import Ratedlist from './components/Ratedlist';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <Route path="/UserProfile/add" element={<Add/>} />
       <Route path="/UserProfile/watched" element={<Watched/>} />
       <Route path="/UserProfile/watchlist" element={<Watchlist/>} />
+      <Route path="/UserProfile/ratedlist" element={<Ratedlist/>} />
       <Route path="/UserProfile/profile" element={<ProfilePage/>} />
       <Route path="/UserProfile/profile/searchUser" element={<SearchProfile/>} />
       <Route path="/UserProfile/profile/displayFriends" element={<DisplayFriends/>} />

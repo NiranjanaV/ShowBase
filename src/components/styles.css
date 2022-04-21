@@ -2,7 +2,9 @@
   padding: 0;
   margin: 0;
 }
-body {background-color: rgb(41, 40, 40);}
+body {
+  background-color: rgb(41, 40, 40);
+}
 @import "https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap";
 * {
   padding: 0;
@@ -17,6 +19,10 @@ html {
 a {
   text-decoration: none;
 }
+.statLabel {
+  font-size: 40px;
+  text-align: center;
+}
 .container {
   min-height: 70vh;
   width: 100%;
@@ -24,7 +30,7 @@ a {
   align-items: center;
   justify-content: center;
 }
-.section-content{
+.section-content {
   margin-top: 50px;
 }
 
@@ -300,13 +306,14 @@ p {
 #services .service-item {
   flex-basis: 80%;
   display: flex;
-  align-items: flex-start;
+  width: 200px;
+  /* align-items: flex-start; */
   justify-content: center;
   flex-direction: column;
   padding: 30px;
   border-radius: 10px;
   background-size: cover;
-  margin: 10px 5%;
+  margin: 10px;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -667,7 +674,9 @@ p {
   }
 }
 /* End Keyframes */
-a{color : white;}
+a {
+  color: white;
+}
 /* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
   .cta {
@@ -745,7 +754,7 @@ a{color : white;}
     justify-content: space-evenly;
     margin: 0;
   }
-  
+
   #contact .contact-item {
     width: 25%;
     margin: 0;
@@ -798,11 +807,11 @@ a{color : white;}
   }
 }
 
-.Add{
+.Add {
   margin-top: 70px;
   margin-left: 450px;
   width: 100%;
-  text-align:center;
+  text-align: center;
   width: 297px;
   padding: 15px 0 15px 20px;
   font-size: 16px;
@@ -817,6 +826,6 @@ a{color : white;}
   transition: all 0.15s;
 }
 
-.head{
+.head {
   margin-top: 70px;
 }

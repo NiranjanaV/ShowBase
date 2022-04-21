@@ -9,8 +9,8 @@ import useAuth from "../hooks/useAuth";
 
 
 
-export const Watchlist = () => {
-  const [ToWatchMovieData, setToWatchMovieData] = useState([]);
+export const Ratedlist = () => {
+  const [LikeMovieData, setLikeMovieData] = useState([]);
   
   const { auth } = useAuth();
 const detailURL ="http://"+ip+":8080/getUserProfile/"+auth.user;
@@ -22,15 +22,14 @@ const fetchData = () => {
   axios
     .get(detailURL)
     .then((res) => {
-      console.log(res);
+      
 
       let temp ;
-     console.log(res['data']['ToWatch'].length);
+     console.log(res['data']['Like'].length);
       
-      for(var key in res['data']['ToWatch']){
+      for(var key in res['data']['Like']){
        // console.log(key);
-        console.log( res['data']['ToWatch'][key]);
-        let movieData = res['data']['ToWatch'][key];
+        let movieData = res['data']['Like'][key];
         let temp = <MovieSection img={`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`}
         title={movieData.Original_title}
         rating={movieData.Vote_average}
@@ -38,7 +37,7 @@ const fetchData = () => {
         />
         const struct = <div>{temp}</div>
 
-         setToWatchMovieData(ToWatchMovieData=>[...ToWatchMovieData,
+         setLikeMovieData(LikeMovieData=>[...LikeMovieData,
              struct
          ])
 
@@ -69,26 +68,13 @@ return (
       <br/>
       <div className='list'>
      
-      {ToWatchMovieData}
+      {LikeMovieData}
       
       </div>
       </div>
-      <section id="footer">
-    <div className="footer container">
-      <div className="brand">
-        <h1>ShowBase</h1>
-      </div>
-      <h2>Software Engineering Project</h2>
-      <div className="social-icon">
-        <div className="social-item">
-          <a href="https://github.com/NiranjanaV/ShowBase"><img src="https://img.icons8.com/bubbles/100/000000/github.png" /></a>
-        </div>
-      </div>
-    </div>
-  </section>
     </div>
   );
 };
 
 
-export default Watchlist;
+export default Ratedlist;
