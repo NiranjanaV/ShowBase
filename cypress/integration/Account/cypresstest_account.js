@@ -20,9 +20,9 @@ it('Profile Test', function(){
     cy.get('ul > :nth-child(1) > a').click()
     cy.get('ul > :nth-child(1) > a').click()
 
-    cy.get(':nth-child(1) > .resultscard > .movieinfo > .add > :nth-child(1)').click()
+    cy.get(':nth-child(1) > .resultscard > .movieinfo > .add > :nth-child(1) > a').click({force: true})
     cy.go('back')
-    cy.get(':nth-child(1) > .resultscard > .movieinfo > .add > :nth-child(2)').click()
+    cy.get(':nth-child(1) > .resultscard > .movieinfo > .add > :nth-child(2) > a').click({force: true})
     cy.go('back')
     cy.go('back')
 
