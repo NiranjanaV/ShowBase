@@ -47,6 +47,7 @@ const {auth} =useAuth();
 const handleLogout= async(e) => {
   
   console.log("logged out");
+  window.location.reload();
   //setlog({});
 
 
@@ -76,7 +77,7 @@ const handleLogout= async(e) => {
           <ul>
             <li><Link to='/UserProfile/profile'>Profile</Link></li>
             <li><Link to='/UserProfile/add'>Add</Link></li>
-            <li><button onClick={handleLogout}>Logout</button></li>
+            <li><button id='logout' onClick={handleLogout}>Logout</button></li>
           </ul>
         </div>
       </div>
