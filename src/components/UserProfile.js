@@ -4,10 +4,44 @@ import AddmovieIcon from "./addmovie.png"
 import WatchedIcon from "./watching.jpg"
 import WatchlistIcon from "./Watchlist.png"
 import useAuth from "../hooks/useAuth";
+import axios from "axios"
+import {ip} from './global.js'
+import { useEffect, useState } from "react"
+import { FaStar } from 'react-icons/fa';
+
 
 import { Link } from 'react-router-dom'
 function UserProfile() {
   const { auth } = useAuth();
+
+  const [ToWatchMovieNumber, setToWatchMovieNumber] = useState([]);
+  const [WatchedMovieNumber, setWatchedMovieNumber] = useState([]);
+  const [MovieRatedNumber, setMovieRatedNumber] = useState([]);
+
+  const detailURL ="http://"+ip+":8080/getUserProfile/"+auth.user;
+  useEffect(() => {
+    fetchData();
+  }, []);
+  
+  const fetchData = () => {
+    axios
+      .get(detailURL)
+      .then((res) => {
+        console.log(res);
+  
+       setToWatchMovieNumber(res['data']['ToWatch'].length);
+       setWatchedMovieNumber(res['data']['Watched'].length);
+       setMovieRatedNumber(res['data']['Like'].length);
+       
+        
+        });
+      
+  }
+
+
+
+
+
   return (
     <>
 
@@ -24,10 +58,8 @@ function UserProfile() {
             <div className="bar"></div>
           </div>
           <ul>
-            <li><Link to='/UserProfile/watched'>watched</Link></li>
-            <li><Link to='/UserProfile/watchlist'>watchlist</Link></li>
-            <li><Link to='/UserProfile/add'>Add</Link></li>
             <li><Link to='/UserProfile/profile'>Profile</Link></li>
+            <li><Link to='/UserProfile/add'>Add</Link></li>
           </ul>
         </div>
       </div>
@@ -37,30 +69,57 @@ function UserProfile() {
   <section id="services">
     <div className="services container">
       <div className="service-top">
-      <h1 className="section-title"><span>{auth.user.charAt(0)}</span>{auth.user.substring(1,auth.user.length)}'s <span>P</span>rofile</h1>
-        <p>Add your favorite movies to Watched and Watchlist Section!</p>
+      <h1 className="section-title">{auth.user}'s Profile</h1>
+        {/* <p>Add your favorite movies to Watched and Watchlist Section!</p> */}
       </div>
       <div className="service-bottom">
+
+      <Link to='/UserProfile/watched'>
+     
         <div className="service-item">
-          <div className="icon"><Link to='/UserProfile/watched'><img src={WatchedIcon} /></Link></div>
-          <h2><Link to='/UserProfile/watched'>watched</Link></h2>
-          <p> Track the movies that you have completed</p>
+          {/* <div className="icon"><img src={WatchedIcon} /></div> */}
+          <div className='statLabel'>{WatchedMovieNumber}</div>
+          <h2>Watched</h2>
         </div>
+        </Link>
+
+        <Link to='/UserProfile/Watchlist'>
+     
         <div className="service-item">
+          {/* <div className="icon"><img src={WatchlistIcon} /></div> */}
+          <div className='statLabel'>{ToWatchMovieNumber}</div>
+          <h2>Watchlist</h2>
+        </div>
+        </Link>
+
+        <Link to='/UserProfile/Ratedlist'>
+     
+     <div className="service-item">
+       {/* <div className="icon"><FaStar/></div> */}
+       <div className='statLabel'>{MovieRatedNumber}</div>
+       <h2>Rated</h2>
+     </div>
+     </Link>
+
+
+        {/* <div className="service-item">
           <div className="icon"><Link to='/UserProfile/Watchlist'><img src={WatchlistIcon} /></Link></div>
+          <div className='statLabel'>{ToWatchMovieNumber}</div>
           <h2><Link to='/UserProfile/Watchlist'>Watchlist</Link></h2>
           <p> The movies that you want to watch</p>
-        </div>
-        <div className="service-item">
+        </div> */}
+        {/* <div className="service-item">
           <div className="icon"><Link to='/UserProfile/Add'><img src={AddmovieIcon} /></Link></div>
           <h2><Link to='/UserProfile/Add'>Add</Link></h2>
           <p> Add movies to your Watchlist and Watched</p>
         </div>
       </div>
+    </div> */}
+    </div>
     </div>
   </section>
 
-  <section id="footer">
+   {/* <section id="footer">
     <div className="footer container">
       <div className="brand">
         <h1>ShowBase</h1>
@@ -72,7 +131,8 @@ function UserProfile() {
         </div>
       </div>
     </div>
-  </section>
+    
+  </section>  */}
     </>
   );
 }
