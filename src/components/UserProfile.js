@@ -6,17 +6,22 @@ import WatchlistIcon from "./Watchlist.png"
 import useAuth from "../hooks/useAuth";
 import axios from "axios"
 import {ip} from './global.js'
-import { useEffect, useState } from "react"
-import { FaStar } from 'react-icons/fa';
+import { useEffect, useState, useContext } from "react"
+import AuthContext from "../context/AuthProvider";
+
 
 
 import { Link } from 'react-router-dom'
+
+
 function UserProfile() {
-  const { auth } = useAuth();
+const {auth} =useAuth();
+//const[log,setlog] = useContext(AuthContext);
 
   const [ToWatchMovieNumber, setToWatchMovieNumber] = useState([]);
   const [WatchedMovieNumber, setWatchedMovieNumber] = useState([]);
   const [MovieRatedNumber, setMovieRatedNumber] = useState([]);
+ 
 
   const detailURL ="http://"+ip+":8080/getUserProfile/"+auth.user;
   useEffect(() => {
@@ -37,6 +42,17 @@ function UserProfile() {
         });
       
   }
+  
+
+const handleLogout= async(e) => {
+  
+  console.log("logged out");
+  //setlog({});
+
+
+  
+  
+}
 
 
 
@@ -60,6 +76,7 @@ function UserProfile() {
           <ul>
             <li><Link to='/UserProfile/profile'>Profile</Link></li>
             <li><Link to='/UserProfile/add'>Add</Link></li>
+            <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
         </div>
       </div>
