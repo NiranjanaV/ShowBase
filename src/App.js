@@ -35,7 +35,7 @@ function App() {
 
       <Route path="/" element={<Home/>} />
       <Route element={<RequireAuth />}>
-      <Route path="/MovieProfile" element={<MovieProfile/>} />
+      
       <Route path="/watchedlist" element={<UserWatchedList/>} />
       <Route path="/MovieDetail" element={<MovieDetail/>} />
       <Route path="/TopMovieGenre" element={<TopMovieGenre/>} />
@@ -60,7 +60,7 @@ function App() {
        
      
       
-     
+      <Route path="/MovieProfile" element={<MovieProfile/>} />
       <Route path="/login" render={(routeProps) => <Login {...routeProps}/>} element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
      
