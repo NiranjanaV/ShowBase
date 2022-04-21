@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import {ip} from './global.js';
 import Result from './Result';
 import MovieSection from "./MovieSection";
+import MovieAdd from "./MovieAdd";
 
 
 
@@ -72,14 +73,15 @@ export const Add = () => {
             <ul className="results">
             {results.map((movie) => (
                 <li key={movie.id}>
-                  <MovieSection props={movie} />
+                  <MovieAdd movie={movie}
+        />
                 </li>
               ))}
             </ul>
       
         </div>
       </div>
-      <section id="footer">
+      {/* <section id="footer">
     <div className="footer container">
       <div className="brand">
         <h1>ShowBase</h1>
@@ -91,7 +93,7 @@ export const Add = () => {
         </div>
       </div>
     </div>
-  </section>
+  </section> */}
     </div>
   );
 };

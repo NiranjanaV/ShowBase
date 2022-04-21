@@ -8,7 +8,7 @@ import './index.css';
 import "./watch.css";
 import { Link } from 'react-router-dom';
 import useAuth from "../hooks/useAuth";
-import "./styles.css";
+// import "./styles.css";
 
 
 export const Watched = () => {
@@ -70,7 +70,7 @@ return (
       </div>
       </div>
 
-      <section id="footer">
+      {/* <section id="footer">
     <div className="footer container">
       <div className="brand">
         <h1>ShowBase</h1>
@@ -82,7 +82,7 @@ return (
         </div>
       </div>
     </div>
-  </section>
+  </section> */}
     </div>
     
   );

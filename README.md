@@ -114,7 +114,10 @@ what they like and dislike watching.
 
 # Sprint 4 
 ## FrontEnd
-- *My Friends:* The 'My Friends' page which will display all the friends.
+- *Profile:* New Profile Page is created where the user can Add New Friends, view All Friends and learn about their friend's Watched and Watchlist.
+     - *My Friends:* The 'My Friends' page which will display all friends. The user can also look into their friend's Watched and Watchlist to find out what they're upto.
+     - *Add New Friends:* The user can search for their friend's profile and add them to friends list.
+     - *Add:* In the new add feature, you can search for the movie that you want to see, and when you click on the 'Movie Detail' button, it will display all the details of the movie. You can also Rate the movie here, Add it to your Watched and Watchlist.
 
 ### Cypress testing
 

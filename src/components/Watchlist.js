@@ -73,7 +73,7 @@ return (
       
       </div>
       </div>
-      <section id="footer">
+      {/* <section id="footer">
     <div className="footer container">
       <div className="brand">
         <h1>ShowBase</h1>
@@ -85,7 +85,7 @@ return (
         </div>
       </div>
     </div>
-  </section>
+  </section> */}
     </div>
   );
 };
