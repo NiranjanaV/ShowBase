@@ -10,7 +10,12 @@
   - _Movie Detail:_ Movie Detail page has added functionality such as add to watch list, mark as watched. The page also marks this with a green color if it has already been added by the user. Rating has also been added. Users may rate the movie out of 10. This state is also maintained on reload.
   - _WatchList, To Watch and Rated List:_ These lists can be viewed by clicking the user's username in the nav bar. The stats are displayed at first, and on further clicking the entire lists are displayed.
 
+![sprint4](https://user-images.githubusercontent.com/30584808/164369143-bc361c92-3252-4bb1-8f5c-167217453084.gif)
+
+
 ### Cypress testing
+
+- Video Link: https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
 
 ## Backend
 
