@@ -48,6 +48,10 @@ what they like and dislike watching.
   - Sprint 3: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%203
   - Sprint 4: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%204
 
+##  Videos
+
+- Cypress Testing: https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
+
 # Sprint 1
 
 ## Frontend
@@ -156,6 +160,7 @@ what they like and dislike watching.
   - _WatchList, To Watch and Rated List:_ These lists can be viewed by clicking the user's username in the nav bar. The stats are displayed at first, and on further clicking the entire lists are displayed.
 
 ### Cypress testing
+https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
 
 ## Backend
 
