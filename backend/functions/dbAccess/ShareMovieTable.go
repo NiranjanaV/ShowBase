@@ -1,8 +1,6 @@
 package tables
 
 import (
-	"fmt"
-	"log"
 	D "main/dbSQLite"
 	"net/http"
 	"strconv"
@@ -19,7 +17,7 @@ func init() {
 	err := godotenv.Load("go.env")
 
 	if err != nil {
-		log.Fatal("1 Error loading .env file" + err.Error())
+		//fmt.Println("1 Error loading .env file" + err.Error())
 	}
 }
 
@@ -44,13 +42,13 @@ func CreateMovieTable() {
 		FOREIGN KEY(culb) REFERENCES share_club(id)
 	  );` // SQL Statement for Create User Table
 
-	log.Println("Create movie table " + tablename4)
+	//log.Println("Create movie table " + tablename4)
 	statement, err := db.Prepare(createUserTableSQL) // Prepare SQL Statement
 	if err != nil {
-		log.Fatal(err.Error())
+		//fmt.Println(err.Error())
 	}
 	statement.Exec() // Execute SQL Statements
-	log.Println("share show table created")
+	//log.Println("share show table created")
 }
 
 //************************************************************************************************************************************************************************
@@ -73,13 +71,13 @@ func InsertMovieTable(c *gin.Context) {
 	}
 	for i := 0; i < len(showShareJson); i++ {
 		if moviePresent(showShareJson[i].Club, showShareJson[i].Movie) {
-			log.Println("Updating records ...")
+			//log.Println("Updating records ...")
 			vote, value := getClubMovie(showShareJson[i].Club, showShareJson[i].Movie)
 			updateMovieSQL := `UPDATE ` + tablename5 + ` SET value = ?, vote = ? WHERE club= ` + strconv.Itoa(showShareJson[i].Club) + ` AND movie= ` + strconv.Itoa(showShareJson[i].Movie) + ``
 			statement, err := db.Prepare(updateMovieSQL) // Prepare statement.
 			// This is good to avoid SQL injections
 			if err != nil {
-				log.Fatalln(err.Error())
+				//fmt.Println(err.Error())
 			}
 			_, err = statement.Exec(value+showShareJson[i].Value, vote+1)
 			if err != nil {
@@ -88,12 +86,12 @@ func InsertMovieTable(c *gin.Context) {
 				})
 			}
 		} else {
-			log.Println("Inserting record ...")
+			//log.Println("Inserting record ...")
 			insertShareSQL := `INSERT INTO ` + tablename5 + `(club, movie, value, vote ) VALUES (? , ?, ?, ?)`
 			statement, err := db.Prepare(insertShareSQL) // Prepare statement.
 			// This is good to avoid SQL injections
 			if err != nil {
-				log.Fatalln(err.Error())
+				//fmt.Println(err.Error())
 			}
 			_, err = statement.Exec(showShareJson[i].Club, showShareJson[i].Movie, showShareJson[i].Value, 1)
 			if err != nil {
@@ -134,8 +132,8 @@ func InsertMovieTable(c *gin.Context) {
 
 // 	id := showShare2Json.Id
 // 	password := showShare2Json.Password
-// 	// fmt.Println(idUser)
-// 	// fmt.Println("disp")
+// 	// //fmt.Println(idUser)
+// 	// //fmt.Println("disp")
 
 // 	c.JSON(http.StatusOK, gin.H{
 // 		"Genre": clubGenre(id, password),
@@ -144,10 +142,10 @@ func InsertMovieTable(c *gin.Context) {
 
 //************************************************************************************************************************************************************************
 func DisplayMovieTable(c *gin.Context) {
-	fmt.Println("disp")
+	//fmt.Println("disp")
 	row, err := db.Query("SELECT * FROM " + tablename5 + " ORDER BY id")
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 
@@ -165,7 +163,7 @@ func DisplayMovieTable(c *gin.Context) {
 
 		row.Scan(&clubId, &movie, &vote, &value)
 		avgValue = value / vote
-		log.Println("Club: ", clubId, " ", movie, " ", avgValue)
+		//log.Println("Club: ", clubId, " ", movie, " ", avgValue)
 		movieShare.Movie = movie
 		movieShare.Value = avgValue
 		movies := clubMoviePairs[clubId]
@@ -188,11 +186,11 @@ func DisplayMovieTable(c *gin.Context) {
 //************************************************************************************************************************************************************************
 
 func moviePresent(club int, movie int) bool {
-	// fmt.Println(idUser)
-	// fmt.Println("disp")
+	// //fmt.Println(idUser)
+	// //fmt.Println("disp")
 	row, err := db.Query("SELECT COUNT(*) FROM " + tablename5 + " WHERE club= " + strconv.Itoa(club) + " AND movie= " + strconv.Itoa(movie))
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 	var count int
@@ -207,11 +205,11 @@ func moviePresent(club int, movie int) bool {
 }
 
 func getClubMovie(club int, movie int) (vote int, value int) {
-	// fmt.Println(idUser)
-	// fmt.Println("disp")
+	// //fmt.Println(idUser)
+	// //fmt.Println("disp")
 	row, err := db.Query("SELECT vote, value FROM " + tablename5 + " WHERE club= " + strconv.Itoa(club) + " AND movie= " + strconv.Itoa(movie))
 	if err != nil {
-		log.Fatal(err)
+		//fmt.Println(err)
 	}
 	defer row.Close()
 

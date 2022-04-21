@@ -6,6 +6,7 @@ import { useState, useContext } from 'react'
 import AuthContext from '../context/AuthProvider';
 import {ip} from './global.js'
 import {useNavigate} from 'react-router-dom';
+import "./styles.css";
 
 
 function Login(props){
@@ -102,8 +103,21 @@ function Login(props){
   </div>
   <h4>New to ShowBase?<span> <Link to='/signup'>Sign up now.</Link></span></h4>
 </form>
-
+<section id="footer">
+    <div className="footer container">
+      <div className="brand">
+        <h1>ShowBase</h1>
+      </div>
+      <h2>Software Engineering Project</h2>
+      <div className="social-icon">
+        <div className="social-item">
+          <a href="https://github.com/NiranjanaV/ShowBase"><img src="https://img.icons8.com/bubbles/100/000000/github.png" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
 )}
 </>
 

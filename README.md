@@ -114,7 +114,7 @@ what they like and dislike watching.
 
 # Sprint 4 
 ## FrontEnd
-
+- *My Friends:* The 'My Friends' page which will display all the friends.
 
 ### Cypress testing
 
