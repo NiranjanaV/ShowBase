@@ -51,6 +51,7 @@ what they like and dislike watching.
 ##  Videos
 
 - Cypress Testing: https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
+- Demo Video Functionality: https://drive.google.com/file/d/1eZcNVkM2dpI4T2sCF9LxTcthe_Moi2Aq/view?usp=sharing
 
 # Sprint 1
 
