@@ -33,6 +33,11 @@ FrontEnd: React, Backend: GO
 ShowBase website, where we can create account, track the shows we are watching, add likes and dislikes, follow friends and see what shows they are watching,
 what they like and dislike watching.
 
+- Homepage: Description about our website's features and contact and link to our github profile. 
+- Movies and shows Page: Displays all the movies in the database and when clicked on a movie's poster each user can see the movie rating and rate the movie, add movie to their watched and watchlist section. Users can also see the genre and click on a particular genre to see other movies in the same genre. It also has link to Add page which has search functionality to search for particular movie and again we'll be able to click on the poster and do many things. 
+- Sign in Page: This page has the sign section and sign up option. Users can first sign up then sign in into our website and their own session will be created
+- Profile Page: After signing in Users will be able to see their own Profile Page. This profile page shows the number of movies in users watched and watchlist and also user can click on the icons and go to watched and watchlist page to see the movies that they added there. There's add page which users can use to search and add friends. Then they can also see their friends watched and watchlist shows from there. 
+
 ## Links
 
 - _Link to API Documentation:_ https://github.com/NiranjanaV/ShowBase/blob/main/APIs.md
@@ -42,6 +47,10 @@ what they like and dislike watching.
   - Sprint 2: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%202
   - Sprint 3: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%203
   - Sprint 4: https://github.com/NiranjanaV/ShowBase/tree/main/Sprints/Sprint%204
+
+##  Videos
+
+- Cypress Testing: https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
 
 # Sprint 1
 
@@ -151,6 +160,7 @@ what they like and dislike watching.
   - _WatchList, To Watch and Rated List:_ These lists can be viewed by clicking the user's username in the nav bar. The stats are displayed at first, and on further clicking the entire lists are displayed.
 
 ### Cypress testing
+https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
 
 ## Backend
 
