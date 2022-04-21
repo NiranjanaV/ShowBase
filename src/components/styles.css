@@ -594,9 +594,9 @@ p {
 /* End Footer */
 #footer {
   background-image: linear-gradient(60deg, black 0%, black 0%);
-  bottom:0px;
+  /* bottom:0px;
   position: fixed;
-  width: 100%;
+  width: 100%; */
 }
 
 #footer .footer {
