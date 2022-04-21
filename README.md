@@ -51,7 +51,17 @@ what they like and dislike watching.
 ##  Videos
 
 - Cypress Testing: https://drive.google.com/file/d/1VNPQb-ZeYBD3EldMbDG-SntC7FCAzArM/view?usp=sharing
+
+https://user-images.githubusercontent.com/30584808/164370540-1ebd0348-cf9e-4403-856b-c97d4fe9b89c.mp4
+
+
 - Demo Video Functionality: https://drive.google.com/file/d/1eZcNVkM2dpI4T2sCF9LxTcthe_Moi2Aq/view?usp=sharing
+
+
+
+https://user-images.githubusercontent.com/30584808/164370815-1156e8e8-b845-4700-9781-8ab28272c871.mp4
+
+
 
 - Backend Unit testing video gif: 
 
