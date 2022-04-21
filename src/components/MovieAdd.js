@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 import Moment from "react-moment";
 
   function MovieAdd(movie){
-    console.log("pritig");
-    console.log(movie.movie.Poster_path);
     return(
         <div className="resultscard">
         <div className="moviecard-poster-wrapper">

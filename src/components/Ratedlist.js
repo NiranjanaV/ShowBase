@@ -25,14 +25,12 @@ const fetchData = () => {
       
 
       let temp ;
-   console.log(res['data']);
-     console.log(res['data']['Like']);
+  
       
       for(var key in res['data']['Like']){
-       // console.log(key);
+      
         let movieData = res['data']['Like'][key]['UserLikeMovie'];
-       //console.log(movieData);
-       //console.log(`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`);
+      
         if(  movieData.Poster_path!=="" ){
   
         let temp = <MovieSection img={`https://image.tmdb.org/t/p/original/${movieData.Poster_path}`}

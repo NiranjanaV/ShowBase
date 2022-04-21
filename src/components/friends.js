@@ -12,13 +12,13 @@ function Friends({profile}){
      // states for login 
      //const [watched,setWatched] = useState('');
      const id = profile.Name;
-     console.log(id);
+   
 
      const { auth } = useAuth();
 // value={user} is added to make it a controlled input - we need to clear the fields once login has been performed
  
   const fr = async(e) => {
-    console.log(e);
+   
     
     const detailURL ="http://"+ip+":8080/putFriends/"
     //setWatched(1);
@@ -31,13 +31,13 @@ function Friends({profile}){
       })
 
         );
-        console.log(JSON.stringify(response));
+       
 
       
       }
 
       catch{
-        console.log("error");
+        
       }
      }
 
@@ -54,22 +54,7 @@ function Friends({profile}){
           </button>
 
 
-      {/* <div className="container">
-         <div className="add-content">
-          <div className="input-wrapper">
-             
-           </div>
-        
-            <ul className="results">
-            {results.map((movie) => (
-                 <li key={movie.id}>
-                   <ResultCard movie={movie} />
-                </li>
-              ))}
-             </ul>
-      
-         </div>
-       </div> */}
+     
        </div>
     
 

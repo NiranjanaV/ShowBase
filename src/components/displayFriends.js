@@ -22,7 +22,6 @@ function DisplayFriends() {
     React.useEffect(() => {
       axios.get("http://"+ip+":8080/getFriends/"+ auth.user)
           .then((response) => {
-            console.log(response.data.friends)
             setResults(response.data.friends);
           });
   }, []);

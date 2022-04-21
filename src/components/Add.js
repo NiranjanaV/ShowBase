@@ -18,11 +18,11 @@ export const Add = () => {
     e.preventDefault();
 
     setQuery(e.target.value);
-    console.log(e.target.value)
+   
 
      axios.get("http://"+ip+":8080/search/"+ e.target.value)
     .then((response) => {
-      console.log(response.data.Movies.Results)
+      
       setResults(response.data.Movies.Results);
     });
   };
